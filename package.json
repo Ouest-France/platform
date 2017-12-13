@@ -6,6 +6,7 @@
   },
   "scripts": {
     "start": "node launcher.js",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "publish": "lerna publish --conventional-commits -c"
   }
 }
