@@ -151,7 +151,7 @@ app.get('/block/bitcoin', (req, res) => {
 // expose BlockProviderConfig route
 require('./route.documentation')(app);
 
-app.use('/static', express.static('static'));
+app.use('/static', express.static(path.resolve(__dirname, 'static')));
 
 // start to listen to http
 app.listen(config.port, () =>
