@@ -2,8 +2,8 @@
   "name": "@ouest-france/blockprovider-example",
   "version": "1.0.0",
   "description": "BlockProvider example",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "start:dev": "nodemon --watch 'static/*' -e html,js,md,css server.js"
   },
   "publishConfig": {
