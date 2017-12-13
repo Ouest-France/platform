@@ -12,5 +12,6 @@ npm install
 <!-- * [What a BlockProvider is? How it works?](/packages/blockprovider-example) -->
 
 * [Sample of BlockProvider](/packages/blockprovider-example)
-* [Run BlockProvider locally](/packages/blockprovider-debug)
-* [Validate BlockProvider output](/packages/blockprovider-validator)
+* [Run BlockProvider locally](/packages/blockprovider-runner)
+
+  <!-- * [Validate BlockProvider output](/packages/blockprovider-validator) -->
