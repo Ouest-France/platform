@@ -1,0 +1,463 @@
+{
+  "$id":
+    "https://raw.githubusercontent.com/Ouest-France/platform/master/schemas/defs.json",
+  "definitions": {
+    "BlockConfig": {
+      "$schema": "http://json-schema.org/draft-06/schema#",
+      "$id": "BlockConfig",
+      "type": "object",
+      "title": "BlockConfig",
+      "description":
+        "Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du PageBuilder.",
+      "required": ["name", "type", "labels", "configurations"],
+      "properties": {
+        "name": {
+          "$id": "/properties/name",
+          "type": "string",
+          "title": "BlockName",
+          "description": "Identifiant fonctionnel unique au sein du CMS.",
+          "default": "",
+          "examples": [
+            "editorial/article--list",
+            "editorial/article--detail",
+            "meteo/meteo--detail"
+          ]
+        },
+        "type": {
+          "$id": "/properties/type",
+          "type": "string",
+          "title": "Block type",
+          "description":
+            "BlockType est un union type ayant pour valeur : Display | Navigation.\nLes Blocks dans le CMS peuvent être catégorisée selon la typologie suivante :\n- Navigation : Block dynamique avec action utilisateur nécessitant un rechargement de la page. Ex : formulaire de recherche, pagination sur un Block d'actualité, etc.\n- Display : Block statique sans interaction avec l’utilisateur (son état ne change pas en fonction de l'URL, son état dépend uniquement de ses paramètres de configuration)",
+          "default": "",
+          "enum": ["navigation", "display"]
+        },
+        "labels": {
+          "$id": "/properties/labels",
+          "type": "string",
+          "title": "The Labels Schema.",
+          "description":
+            "Un ensemble de labels qui permettent de filtrer les Blocks depuis le PageBuilder.",
+          "default": "",
+          "examples": [""]
+        },
+        "configurations": {
+          "$id": "/properties/configurations",
+          "type": "array",
+          "description":
+            "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS.",
+          "items": {
+            "$id": "/properties/configurations/items",
+            "type": "object",
+            "required": ["version", "endpoint"],
+            "properties": {
+              "version": {
+                "$id": "/properties/configurations/items/properties/version",
+                "type": "string",
+                "title": "The Version Schema.",
+                "description":
+                  "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": ["Semver"]
+              },
+              "endpoint": {
+                "$id": "/properties/configurations/items/properties/endpoint",
+                "type": "object",
+                "required": ["url", "method", "pure", "parameters", "ui"],
+                "properties": {
+                  "url": {
+                    "$id":
+                      "/properties/configurations/items/properties/endpoint/properties/url",
+                    "type": "string",
+                    "title": "The Url Schema.",
+                    "description":
+                      "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": ["String"]
+                  },
+                  "method": {
+                    "$id":
+                      "/properties/configurations/items/properties/endpoint/properties/method",
+                    "type": "string",
+                    "title": "The Method Schema.",
+                    "description":
+                      "Note : pour le moment uniquement GET est supporté",
+                    "default": "",
+                    "enum": ["GET"],
+                    "examples": ["GET"]
+                  },
+                  "pure": {
+                    "$id":
+                      "/properties/configurations/items/properties/endpoint/properties/pure",
+                    "type": "string",
+                    "title": "The Pure Schema.",
+                    "description":
+                      "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": ["Boolean"]
+                  },
+                  "parameters": {
+                    "$id":
+                      "/properties/configurations/items/properties/endpoint/properties/parameters",
+                    "type": "array",
+                    "items": {
+                      "$id":
+                        "/properties/configurations/items/properties/endpoint/properties/parameters/items",
+                      "type": "string",
+                      "title": "The 0 Schema.",
+                      "description":
+                        "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
+                      ]
+                    }
+                  },
+                  "ui": {
+                    "$id":
+                      "/properties/configurations/items/properties/endpoint/properties/ui",
+                    "type": "array",
+                    "items": {
+                      "$id":
+                        "/properties/configurations/items/properties/endpoint/properties/ui/items",
+                      "type": "string",
+                      "title": "The 0 Schema.",
+                      "description":
+                        "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": ["json-schema-ui"]
+                    }
+                  }
+                }
+              },
+              "templates": {
+                "$id": "/properties/configurations/items/properties/templates",
+                "type": "array",
+                "items": {
+                  "$id":
+                    "/properties/configurations/items/properties/templates/items",
+                  "type": "object",
+                  "required": ["name", "labels", "source"],
+                  "properties": {
+                    "name": {
+                      "$id":
+                        "/properties/configurations/items/properties/templates/items/properties/name",
+                      "type": "string",
+                      "title": "The Name Schema",
+                      "description":
+                        "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": ["String"]
+                    },
+                    "labels": {
+                      "$id":
+                        "/properties/configurations/items/properties/templates/items/properties/labels",
+                      "type": "string",
+                      "title": "The Labels Schema.",
+                      "description":
+                        "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": ["Set[Label]"]
+                    },
+                    "source": {
+                      "$id":
+                        "/properties/configurations/items/properties/templates/items/properties/source",
+                      "type": "string",
+                      "title": "The Source Schema.",
+                      "description":
+                        "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": ["String"]
+                    },
+                    "assets": {
+                      "$id":
+                        "/properties/configurations/items/properties/templates/items/properties/assets",
+                      "type": "object",
+                      "properties": {
+                        "js": {
+                          "$id":
+                            "/properties/configurations/items/properties/templates/items/properties/assets/properties/js",
+                          "type": "array",
+                          "items": {
+                            "$id": "bergmanbear",
+                            "title": "Empty Object",
+                            "description":
+                              "This accepts anything, as long as it's valid JSON."
+                          }
+                        },
+                        "css": {
+                          "$id":
+                            "/properties/configurations/items/properties/templates/items/properties/assets/properties/css",
+                          "type": "array",
+                          "items": {
+                            "$id": "syrianbear",
+                            "title": "Empty Object",
+                            "description":
+                              "This accepts anything, as long as it's valid JSON."
+                          }
+                        },
+                        "fonts": {
+                          "$id":
+                            "/properties/configurations/items/properties/templates/items/properties/assets/properties/fonts",
+                          "type": "array",
+                          "items": {
+                            "$id": "eastbear",
+                            "title": "Empty Object",
+                            "description":
+                              "This accepts anything, as long as it's valid JSON."
+                          }
+                        },
+                        "images": {
+                          "$id":
+                            "/properties/configurations/items/properties/templates/items/properties/assets/properties/images",
+                          "type": "array",
+                          "items": {
+                            "$id": "mexicanbear",
+                            "title": "Empty Object",
+                            "description":
+                              "This accepts anything, as long as it's valid JSON."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "external": {
+          "$id": "/properties/external",
+          "type": "object",
+          "required": ["parameters", "ui"],
+          "properties": {
+            "parameters": {
+              "$id": "/properties/external/properties/parameters",
+              "type": "array",
+              "items": {
+                "$id": "/properties/external/properties/parameters/items",
+                "type": "string",
+                "title": "The 0 Schema.",
+                "description":
+                  "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
+                ]
+              }
+            },
+            "ui": {
+              "$id": "/properties/external/properties/ui",
+              "type": "array",
+              "items": {
+                "$id": "/properties/external/properties/ui/items",
+                "type": "string",
+                "title": "The 0 Schema.",
+                "description":
+                  "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": ["json-schema-ui"]
+              }
+            },
+            "headers": {
+              "$id": "/properties/external/properties/headers",
+              "type": "array",
+              "items": {
+                "$id": "/properties/external/properties/headers/items",
+                "type": "string",
+                "title": "The 0 Schema.",
+                "description":
+                  "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": ["String"]
+              }
+            },
+            "head": {
+              "$id": "/properties/external/properties/head",
+              "type": "object",
+              "properties": {
+                "links": {
+                  "$id":
+                    "/properties/external/properties/head/properties/links",
+                  "type": "array",
+                  "items": {
+                    "$id":
+                      "/properties/external/properties/head/properties/links/items",
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "$id":
+                          "/properties/external/properties/head/properties/links/items/properties/rel",
+                        "type": "string",
+                        "title": "The Rel Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["String"]
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "$id": "/properties/external/properties/head/properties/meta",
+                  "type": "array",
+                  "items": {
+                    "$id":
+                      "/properties/external/properties/head/properties/meta/items",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "$id":
+                          "/properties/external/properties/head/properties/meta/items/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["String"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "BlockProviderConfig": {
+      "definitions": {},
+      "$schema": "http://json-schema.org/draft-06/schema#",
+      "$id": "BlockProviderConfig",
+      "type": "array",
+      "title": "BlockProviderConfig",
+      "description": "BlockProvider response format to declare BlockConfig",
+      "items": {
+        "type": "object",
+        "$ref": "BlockConfig"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "ConfigMap": {
+      "definitions": {},
+      "$schema": "http://json-schema.org/draft-06/schema",
+      "$id": "ConfigMap",
+      "type": "object",
+      "title": "ConfigMap",
+      "description": "Key/Value dataset",
+      "maxProperties": 1024,
+      "additionalProperties": true
+    },
+
+    "BlockJSON": {
+      "$schema": "http://json-schema.org/draft-06/schema",
+      "$id": "BlockJSON",
+      "type": "object",
+      "title": "BlockJSON response format",
+      "description": "Response format when the CMS call a BlockProvider",
+      "properties": {
+        "internal": {
+          "type": "object",
+          "title": "internal data",
+          "description":
+            "data exposed for the corresponding specified BlockConfig template",
+          "properties": {
+            "data": {
+              "type": "object",
+              "default": {},
+              "additionalProperties": {
+                "$ref": "ConfigMap"
+              }
+            }
+          }
+        },
+        "external": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            },
+            "headers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "maxProperties": 42,
+                "additionalProperties": true
+              }
+            },
+            "head": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "$id":
+                      "/properties/external/properties/head/properties/links/items",
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "$id":
+                          "/properties/external/properties/head/properties/links/items/properties/rel",
+                        "type": "string",
+                        "title": "The Rel Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["valeur du rel"]
+                      },
+                      "href": {
+                        "$id":
+                          "/properties/external/properties/head/properties/links/items/properties/href",
+                        "type": "string",
+                        "title": "The Href Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["valeur du href"]
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "array",
+                  "items": {
+                    "$id":
+                      "/properties/external/properties/head/properties/meta/items",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "$id":
+                          "/properties/external/properties/head/properties/meta/items/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["valeur du name"]
+                      },
+                      "content": {
+                        "$id":
+                          "/properties/external/properties/head/properties/meta/items/properties/content",
+                        "type": "string",
+                        "title": "The Content Schema.",
+                        "description":
+                          "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": ["valeur du content"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
