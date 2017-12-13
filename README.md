@@ -18,7 +18,7 @@ npm install
 
 * [Sample of BlockProvider](/packages/blockprovider-example)
 * [Run a BlockProvider locally](/packages/blockprovider-runner)
-  <!-- * [Validate your BlockProviderConfig and BlockJSON](/packages/validator-server) -->
+* [Validate your BlockProvider](/packages/validator-server)
 * [Use our platform json-schema in your own project](/packages/schemas)
 
   <!-- * [Validate BlockProvider output](/packages/blockprovider-validator) -->
