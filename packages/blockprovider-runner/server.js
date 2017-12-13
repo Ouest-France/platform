@@ -117,7 +117,7 @@ function wrapHTML(templateConfig, renderedBlock) {
 </html>`;
 }
 
-app.use('/static', express.static('static'));
+app.use('/static', express.static(path.resolve(__dirname, 'static')));
 
 // start to listen to http
 app.listen(config.port, () => {
