@@ -1,0 +1,30 @@
+{
+  "name": "@ouest-france/validator-server",
+  "version": "1.1.0-alpha.286be1d9",
+  "description": "BlockProvider online validator",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest  --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author":
+    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@ouest-france/schemas": "^1.1.0-alpha.55e51bc6",
+    "ajv": "^5.5.0",
+    "common-env": "^6.1.0",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "superagent": "^3.6.0"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
