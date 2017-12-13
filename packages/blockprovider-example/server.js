@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const request = require('superagent');
+const path = require('path');
 const { readFileSync } = require('fs');
 
 const app = express();
@@ -13,7 +14,10 @@ const config = require('common-env/withLogger')(console).getOrElseAll({
 
 const { toNumber } = require('lodash');
 
-const BLOCK_BITCOIN_TEMPLATE = readFileSync('./static/template.html', 'utf-8');
+const BLOCK_BITCOIN_TEMPLATE = readFileSync(
+  path.resolve(__dirname, './static/template.html'),
+  'utf-8'
+);
 // expose BlockProviderConfig route
 app.get('/configurations', (req, res) =>
   res.json([
@@ -151,5 +155,5 @@ app.use('/static', express.static('static'));
 
 // start to listen to http
 app.listen(config.port, () =>
-  console.log(`🎉 Example BlockProvider listening on port ${config.port}!`)
+  console.log(`🎉  Example BlockProvider listening on port ${config.port}!`)
 );
