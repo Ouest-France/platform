@@ -1,9 +1,11 @@
 {
   "private": true,
+  "main": "launcher.js",
   "devDependencies": {
     "lerna": "^2.5.1"
   },
   "scripts": {
+    "start": "node launcher.js",
     "postinstall": "lerna bootstrap"
   }
 }

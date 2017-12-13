@@ -121,6 +121,6 @@ app.use('/static', express.static('static'));
 
 // start to listen to http
 app.listen(config.port, () => {
-  console.log(`🎉 BlockProvider Runner listening on port ${config.port}!`);
+  console.log(`🎉  BlockProvider Runner listening on port ${config.port}!`);
   console.log(`Check out blockprovider-runner readme for usage 😉`);
 });
