@@ -1,4 +1,4 @@
-# Ouest-France Platform - Developer Guide
+# Ouest-France/SIPA Platform - Developer Guide
 
 ## Setup
 
@@ -12,6 +12,6 @@ npm install
 <!-- * [What a BlockProvider is? How it works?](/packages/blockprovider-example) -->
 
 * [Sample of BlockProvider](/packages/blockprovider-example)
-* [Run BlockProvider locally](/packages/blockprovider-runner)
+* [Run a BlockProvider locally](/packages/blockprovider-runner)
 
   <!-- * [Validate BlockProvider output](/packages/blockprovider-validator) -->
