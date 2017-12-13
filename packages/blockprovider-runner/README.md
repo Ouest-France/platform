@@ -2,9 +2,12 @@
 
 ### Online demo
 
-BlockProvider-Runner is available at https://blockprovider-runner.cleverapps.io/
+The above link asks BlockProvider Runner to render our
+[BlockProvider example](../blockprovider-example) project:
 
-### Setup
+https://blockprovider-runner.cleverapps.io/block?config=https%3A//blockprovider-example.cleverapps.io/configurations&name=cms-block-provider-example-bitcoin@1.0.0&parameters=%3Fthreshold%3D1989
+
+### Setup locally
 
 ```
 npm install @ouest-france/blockprovider-runner --global
