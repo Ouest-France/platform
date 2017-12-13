@@ -3,7 +3,7 @@
 ### Setup
 
 ```
-npm install blockprovider-runner --global
+npm install @ouest-france/blockprovider-runner --global
 ```
 
 ### Usage
