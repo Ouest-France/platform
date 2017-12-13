@@ -1,0 +1,10 @@
+.block {
+  font-family: 'helvetica neue';
+}
+.bitcoinTracker__latest span {
+  font-weight: 600;
+}
+.bitcoinTracker__source {
+  font-size: 0.5rem;
+  text-align: right;
+}

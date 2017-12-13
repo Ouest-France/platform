@@ -1,0 +1,23 @@
+{
+  "name": "@ouest-france/blockprovider-example",
+  "version": "1.0.0",
+  "description": "BlockProvider example",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon --watch 'static/*' -e html,js,md,css server.js"
+  },
+  "author":
+    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "common-env": "^6.1.0",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "superagent": "^3.6.0",
+    "supertest": "^3.0.0"
+  },
+  "devDependencies": {
+    "mustache": "^2.3.0",
+    "nodemon": "^1.11.0"
+  }
+}
