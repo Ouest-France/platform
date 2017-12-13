@@ -1,6 +1,6 @@
 # Ouest-France/SIPA Platform - Developer Guide
 
-[![NPM version](https://img.shields.io/npm/v/@ouest-france/core.svg)](http://badge.fury.io/js/@ouest-france/schemas)
+[![NPM version](https://img.shields.io/npm/v/@ouest-france/core.svg)](https://www.npmjs.com/package/@ouest-france/schemas)
 
 <!-- @todo add "get help on slack" link here -->
 
