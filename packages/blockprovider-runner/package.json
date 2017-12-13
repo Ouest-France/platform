@@ -5,6 +5,9 @@
   "main": "server.js",
   "scripts": {},
   "bin": "./blockprovider-runner",
+  "publishConfig": {
+    "access": "public"
+  },
   "author":
     "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
