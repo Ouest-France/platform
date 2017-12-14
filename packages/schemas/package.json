@@ -1,6 +1,6 @@
 {
   "name": "@ouest-france/schemas",
-  "version": "1.1.0-alpha.55e51bc6",
+  "version": "1.1.0",
   "description": "Ouest-France schema",
   "main": "schemas.js",
   "scripts": {
@@ -10,8 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "author":
-    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
     "ajv": "^5.5.0"

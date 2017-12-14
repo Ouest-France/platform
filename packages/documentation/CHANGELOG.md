@@ -7,67 +7,49 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # 1.1.0 (2017-12-14)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.9472a873"></a>
 # 1.1.0-alpha.9472a873 (2017-12-13)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.286be1d9"></a>
 # 1.1.0-alpha.286be1d9 (2017-12-13)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.3d9d265f"></a>
 # 1.1.0-alpha.3d9d265f (2017-12-13)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.55e51bc6"></a>
 # 1.1.0-alpha.55e51bc6 (2017-12-13)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.55e51bc6"></a>
 # 1.1.0-alpha.55e51bc6 (2017-12-13)
 
 
-### Features
-
-* **schemas:** init ([55e51bc](https://github.com/Ouest-France/platform/commit/55e51bc))
 
 
-
+**Note:** Version bump only for package documentation
 
 <a name="1.1.0-alpha.721dce0b"></a>
 # 1.1.0-alpha.721dce0b (2017-12-13)
@@ -75,4 +57,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-**Note:** Version bump only for package schemas
+**Note:** Version bump only for package documentation

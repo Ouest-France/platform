@@ -1,0 +1,10 @@
+{
+  "name": "documentation",
+  "private": true,
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT"
+}
