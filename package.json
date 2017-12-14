@@ -8,6 +8,7 @@
     "start": "node launcher.js",
     "start:dev": "nodemon launcher.js",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna publish --conventional-commits -c"
+    "publish:canary": "lerna publish --conventional-commits -c",
+    "publish": "lerna publish --conventional-commits"
   }
 }
