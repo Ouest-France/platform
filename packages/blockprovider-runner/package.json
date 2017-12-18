@@ -1,6 +1,6 @@
 {
   "name": "@ouest-france/blockprovider-runner",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "BlockProvider runner - Render a BlockProvider locally",
   "main": "server.js",
   "scripts": {
