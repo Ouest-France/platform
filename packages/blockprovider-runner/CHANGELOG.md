@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/Ouest-France/platform/compare/@ouest-france/blockprovider-runner@1.1.0...@ouest-france/blockprovider-runner@1.2.0) (2017-12-18)
+
+
+### Features
+
+* **runner:** support both query parameter replacement & path value replacement ([8c6d035](https://github.com/Ouest-France/platform/commit/8c6d035))
+
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-12-14)
 
