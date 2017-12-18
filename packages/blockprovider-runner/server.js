@@ -63,7 +63,11 @@ app.get('/block', (req, res) => {
     }
 
     request[blockConfig.endpoint.method.toLowerCase()](
-      urlResolver(blockConfig, BlockJSONRequestParameters)
+      urlResolver(
+        BlockProviderConfigEndpoint,
+        blockConfig,
+        BlockJSONRequestParameters
+      )
     ).end(function(err, resp) {
       if (err) {
         return res.status(500).json({
