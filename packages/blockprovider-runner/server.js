@@ -9,8 +9,8 @@ const config = require('common-env/withLogger')(console).getOrElseAll({
 });
 const { find } = require('lodash/fp');
 const Mustache = require('mustache');
-const Url = require('url');
 const request = require('superagent');
+const urlResolver = require('./urlResolver');
 
 app.get('/', (req, res) => {
   // @todo do a GUI for this
@@ -63,7 +63,7 @@ app.get('/block', (req, res) => {
     }
 
     request[blockConfig.endpoint.method.toLowerCase()](
-      getBlockURL(BlockProviderConfigEndpoint, blockConfig.endpoint.url)
+      urlResolver(blockConfig, BlockJSONRequestParameters)
     ).end(function(err, resp) {
       if (err) {
         return res.status(500).json({
@@ -88,15 +88,6 @@ app.get('/block', (req, res) => {
     });
   });
 });
-
-// Object => String => String
-function getBlockURL(BlockProviderConfigEndpoint, blockUrl) {
-  if (blockUrl.includes('://')) {
-    return blockUrl;
-  }
-
-  return Url.resolve(BlockProviderConfigEndpoint, blockUrl);
-}
 
 // Object => String => String
 function wrapHTML(templateConfig, renderedBlock) {
