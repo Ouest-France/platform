@@ -1,5 +1,5 @@
 describe('schema', () => {
-  it('expose schemas', () => {
-    require('.');
+  it('expose & compile schemas', () => {
+    expect(require('.')).toBeInstanceOf(Object);
   });
 });

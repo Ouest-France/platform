@@ -1,4 +1,5 @@
 const Ajv = require('ajv');
+const path = require('path');
 
 const ajv = new Ajv({
   // check all rules collecting all errors. Default is to return after the first error.
@@ -21,13 +22,25 @@ const ajv = new Ajv({
   coerceTypes: false,
 });
 
-const schemaNames = [
-  'BlockJSON',
-  'BlockProviderConfig',
-  'ConfigMap',
-  'BlockConfig',
-];
+const schemaNames = ['BlockJSON', 'BlockProviderConfig', 'BlockConfig'];
 
-const schemas = new Ajv().compile(require('../schemas/defs.json'));
+const schemas = new Ajv({
+  verbose: true,
+
+  // validation of other keywords when $ref is present in the schema
+  extendRefs: 'fail',
+
+  // check all rules collecting all errors. Default is to return after the first error.
+  allErrors: true,
+
+  // change data type of data to match type keyword
+  coerceTypes: false,
+
+  schemas: [require('./defs.json')].concat(
+    schemaNames.map(schemaName =>
+      require(path.resolve(__dirname, `${schemaName}.json`))
+    )
+  ),
+});
 
 module.exports = schemas;
