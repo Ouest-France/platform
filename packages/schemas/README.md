@@ -2,9 +2,9 @@
 
 ### Schemas
 
-* _BlockConfig_ [json-schema](/BlockConfig.json)
-  [unit test](/BlockConfig.test.js)
-* _BlockJSON_ [json-schema](/BlockJSON.json) [unit test](/BlockJSON.test.js)
+* **BlockConfig** [json-schema](BlockConfig.json)
+  [unit test](BlockConfig.test.js)
+* **BlockJSON** [json-schema](BlockJSON.json) [unit test](BlockJSON.test.js)
 
 ### Use inside your project
 
