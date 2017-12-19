@@ -1,7 +1,51 @@
 {
-  "$id": "schema://platform/defs.json",
+  "$id": "schema://platform/1.0/defs.json",
   "definitions": {
-    "Label": {},
+    "Labels": {
+      "type": "array",
+      "title": "Labels",
+      "description":
+        "Labels are key/value pairs that are attached to objects, such as BlockConfig. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of objects. Labels can be attached to objects at creation time and subsequently added and modified at any time. Each object can have a set of key/value labels defined. Each Key must be unique for a given object.",
+      "example":
+        "\"release\" : \"stable\", \"release\" : \"canary\"\n\"service\":\"meteo\", \"service\":\"cinema\"",
+      "items": {
+        "$ref": "#/definitions/Label"
+      }
+    },
+    "Label": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "Label",
+      "description":
+        "A label is a key/value pair intended to be used to specify identifying attributes that are meaningful and relevant to users.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/Ident"
+        },
+        "value": {
+          "$ref": "#/definitions/LabelValue"
+        }
+      },
+      "required": ["key", "value"]
+    },
+    "Ident": {
+      "type": "string",
+      "pattern": "^[a-z-]+$",
+      "minLenght": 3,
+      "maxLength": 50
+    },
+    "LabelValue": {
+      "type": "string",
+      "minLenght": 3,
+      "maxLength": 50
+    },
+    "BasicSemVer": {
+      "type": "string",
+      "title": "Basic Semantic version",
+      "description": "MAJOR.MINOR.PATCH, see https://semver.org/",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "examples": ["0.0.1", "1.0.0"]
+    },
     "BlockName": {
       "$id": "BlockName",
       "type": "string",
@@ -13,6 +57,15 @@
         "editorial/article--detail",
         "meteo/meteo--detail"
       ]
+    },
+
+    "BlockType": {
+      "$id": "/properties/type",
+      "type": "string",
+      "title": "Type de Block",
+      "description":
+        "BlockType est un union type ayant pour valeur : Display ou Navigation.\nLes Blocks dans le CMS peuvent être catégorisé selon la typologie suivante :\n- Navigation : Block dynamique avec action utilisateur nécessitant un rechargement de la page. Ex : formulaire de recherche, pagination sur un Block d'actualité, etc.\n- Display : Block statique sans interaction avec l’utilisateur (son état ne change pas en fonction de l'URL, son état dépend uniquement de ses paramètres de configuration)",
+      "enum": ["Navigation", "Display"]
     },
 
     "BlockProviderConfig": {

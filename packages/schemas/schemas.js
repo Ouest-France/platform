@@ -36,7 +36,11 @@ const schemas = new Ajv({
   // change data type of data to match type keyword
   coerceTypes: false,
 
-  schemas: [require('./defs.json')].concat(
+  schemas: [
+    require('./vendors/json-schema-draft-04.json'),
+    require('./vendors/openapi-v2-schema.json'),
+    require('./defs.json'),
+  ].concat(
     schemaNames.map(schemaName =>
       require(path.resolve(__dirname, `${schemaName}.json`))
     )
