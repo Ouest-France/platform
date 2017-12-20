@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/Ouest-France/platform/compare/@ouest-france/blockprovider-example@1.1.0...@ouest-france/blockprovider-example@1.1.1) (2017-12-20)
+
+
+### Bug Fixes
+
+* **example:** make it work with the BlockProviderConfig schema ([a7300e1](https://github.com/Ouest-France/platform/commit/a7300e1))
+
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-12-14)
 

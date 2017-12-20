@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@1.2.1...@ouest-france/schemas@2.0.0) (2017-12-20)
+
+
+### Bug Fixes
+
+* **schema:** changed ui from array to object (uischema requires it) and added engine as required ([58028d2](https://github.com/Ouest-France/platform/commit/58028d2))
+
+
+### BREAKING CHANGES
+
+* **schema:** changed ui from array to object is not backward compatible
+
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@1.2.0...@ouest-france/schemas@1.2.1) (2017-12-20)
 
