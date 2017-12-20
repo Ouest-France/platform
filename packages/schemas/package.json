@@ -1,19 +1,17 @@
 {
   "name": "@ouest-france/schemas",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Ouest-France schema",
   "main": "schemas.js",
   "scripts": {
-    "vendors:update":
-      "curl https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v2.0/schema.json > vendors/openapi-v2-schema.json && curl http://json-schema.org/draft-04/schema > vendors/json-schema-draft-04.json",
+    "vendors:update": "curl https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v2.0/schema.json > vendors/openapi-v2-schema.json && curl http://json-schema.org/draft-04/schema > vendors/json-schema-draft-04.json",
     "test": "jest",
     "test:watch": "jest --watch --notify"
   },
   "publishConfig": {
     "access": "public"
   },
-  "author":
-    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
     "ajv": "^5.5.0"
