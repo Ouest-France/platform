@@ -24,6 +24,10 @@ const ajv = new Ajv({
 
 const schemaNames = ['BlockJSON', 'BlockProviderConfig', 'BlockConfig'];
 
+const rawSchemas = schemaNames.map(schemaName =>
+  require(path.resolve(__dirname, `${schemaName}.json`))
+);
+
 const schemas = new Ajv({
   verbose: true,
 
@@ -40,11 +44,9 @@ const schemas = new Ajv({
     require('./vendors/json-schema-draft-04.json'),
     require('./vendors/openapi-v2-schema.json'),
     require('./defs.json'),
-  ].concat(
-    schemaNames.map(schemaName =>
-      require(path.resolve(__dirname, `${schemaName}.json`))
-    )
-  ),
+  ].concat(rawSchemas),
 });
 
 module.exports = schemas;
+
+schemas.rawSchemas = rawSchemas;
