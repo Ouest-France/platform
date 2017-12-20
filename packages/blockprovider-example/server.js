@@ -24,7 +24,7 @@ app.get('/configurations', (req, res) =>
     {
       name: 'cms-block-provider-example-bitcoin',
       type: 'Display',
-      labels: ['Bitcoin'],
+      labels: [{ key: 'service', value: 'bitcoin' }],
       configurations: [
         {
           version: '1.0.0',
@@ -40,31 +40,28 @@ app.get('/configurations', (req, res) =>
               {
                 name: 'threshold',
                 in: 'query',
-                schema: {
-                  type: 'integer',
-                  format: 'int32',
-                  minimum: 0,
-                  maximum: 100000,
-                },
+                type: 'integer',
+                format: 'int32',
+                minimum: 0,
+                maximum: 100000,
               },
             ],
-            ui: [
-              {
-                threshold: {
-                  'ui:autofocus': true,
-                  'ui:emptyValue': '10200',
-                  'ui:title': 'Bitcoin threshold',
-                  'ui:description':
-                    'At which point should the Bitcoin threshold should be defined',
-                },
+            ui: {
+              threshold: {
+                'ui:autofocus': true,
+                'ui:emptyValue': '10200',
+                'ui:title': 'Bitcoin threshold',
+                'ui:description':
+                  'At which point should the Bitcoin threshold should be defined',
               },
-            ],
+            },
           },
           templates: [
             {
               name: 'default-theme',
               labels: [],
               source: BLOCK_BITCOIN_TEMPLATE,
+              engine: 'mustache',
               assets: {
                 js: [],
                 css: [`${config.endpoint}/static/style.css`],
@@ -76,6 +73,7 @@ app.get('/configurations', (req, res) =>
               name: 'troll-theme',
               labels: [],
               source: BLOCK_BITCOIN_TEMPLATE,
+              engine: 'mustache',
               assets: {
                 js: [],
                 css: [`${config.endpoint}/static/style.css`],
