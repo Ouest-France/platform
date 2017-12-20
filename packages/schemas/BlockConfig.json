@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
+  "$id":
+    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
   "type": "object",
   "title": "BlockConfig",
   "description":
@@ -87,18 +88,24 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["name", "labels", "source"],
+              "required": ["name", "labels", "engine", "source"],
               "properties": {
                 "name": {
                   "type": "string",
-                  "title": "The Name Schema",
+                  "title": "Theme name",
                   "description":
-                    "An explanation about the purpose of this instance.",
-                  "default": "",
-                  "examples": ["String"]
+                    "Theme name, so users will be able to differentiate them from the PageBuilder",
+                  "examples": ["default", "christmas"]
                 },
                 "labels": {
                   "$ref": "defs.json#/definitions/Labels"
+                },
+                "engine": {
+                  "type": "string",
+                  "title": "Template engine",
+                  "description":
+                    "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
+                  "enum": ["twig", "mustache"]
                 },
                 "source": {
                   "type": "string",
