@@ -1,27 +1,33 @@
 {
   "name": "@ouest-france/validator-server",
   "version": "1.1.0",
-  "description": "BlockProvider online validator",
-  "main": "index.js",
+  "description": "Ouest-France/SIPA Platform - BlockProvider Validator",
+  "main": "server.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "jest",
-    "test:watch": "jest  --watch"
+    "test:watch": "jest --watch --notify",
+    "start:dev": "nodemon server.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "author":
+    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
-    "@ouest-france/schemas": "^1.1.0",
+    "@ouest-france/schemas": "^1.2.1",
     "ajv": "^5.5.0",
     "common-env": "^6.1.0",
-    "express": "^4.15.3",
+    "hapi": "^16.5.0",
+    "hapi-swagger": "^7.7.0",
+    "inert": "^4.2.1",
+    "joi": "^10.6.0",
     "lodash": "^4.17.4",
-    "superagent": "^3.6.0"
+    "superagent": "^3.6.0",
+    "vision": "^4.1.1"
   },
   "devDependencies": {
     "jest": "^21.2.1"
