@@ -1,5 +1,5 @@
 {
-  "$id": "schema://platform/1.0/defs.json",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json",
   "definitions": {
     "Labels": {
       "type": "array",

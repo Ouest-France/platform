@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "schema://platform/1.0/BlockConfig.json",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
   "type": "object",
   "title": "BlockConfig",
   "description":

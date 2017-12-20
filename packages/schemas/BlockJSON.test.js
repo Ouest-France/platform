@@ -1,13 +1,13 @@
 describe('BlockJSON', () => {
   it('is exposed as a validation function', () => {
     expect(
-      require('.').getSchema('schema://platform/1.0/BlockJSON.json')
+      require('.').getSchema('https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json')
     ).toBeInstanceOf(Function);
   });
 
   it('validate a complete BlockJSON object', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockJSON.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json'
     );
 
     const isValid = validate({
@@ -42,21 +42,21 @@ describe('BlockJSON', () => {
 
   it('validate the simplest BlockJSON', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockJSON.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json'
     );
     expect(validate({ internal: { data: {} }, external: {} })).toBe(true);
   });
 
   it('throw an error if BlockJSON is empty', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockJSON.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json'
     );
     expect(validate({})).toBe(false);
   });
 
   it('throw an error if BlockJSON have empty internal & external object', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockJSON.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json'
     );
     expect(validate({ internal: {}, external: {} })).toBe(false);
   });

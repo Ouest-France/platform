@@ -1,13 +1,13 @@
 describe('BlockConfig', () => {
   it('is exposed as a validation function', () => {
     expect(
-      require('.').getSchema('schema://platform/1.0/BlockConfig.json')
+      require('.').getSchema('https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json')
     ).toBeInstanceOf(Function);
   });
 
   it('validate a complete BlockConfig object', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockConfig.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
     );
 
     const isValid = validate({
@@ -64,7 +64,7 @@ describe('BlockConfig', () => {
 
   it('validate the simplest BlockConfig', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockConfig.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
     );
     const isValid = validate({
       name: 'cms-block-provider-empty',
@@ -94,14 +94,14 @@ describe('BlockConfig', () => {
 
   it('throw an error if BlockConfig is empty', () => {
     const validate = require('.').getSchema(
-      'schema://platform/1.0/BlockConfig.json'
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
     );
     expect(validate({})).toBe(false);
   });
 
   // it('throw an error if BlockConfig have empty internal & external object', () => {
   //   const validate = require('.').getSchema(
-  //     'schema://platform/1.0/BlockConfig.json'
+  //     'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
   //   );
   //   expect(validate({ internal: {}, external: {} })).toBe(false);
   // });
