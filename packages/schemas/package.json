@@ -1,6 +1,6 @@
 {
   "name": "@ouest-france/schemas",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Ouest-France schema",
   "main": "schemas.js",
   "scripts": {

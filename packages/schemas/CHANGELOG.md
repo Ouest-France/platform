@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@1.2.0...@ouest-france/schemas@1.2.1) (2017-12-20)
+
+
+### Bug Fixes
+
+* **schemas:** add BlockProviderConfig, fix schemas exposing ([964c2e0](https://github.com/Ouest-France/platform/commit/964c2e0))
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@1.1.0...@ouest-france/schemas@1.2.0) (2017-12-20)
 
