@@ -72,15 +72,7 @@
                 }
               },
               "ui": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "title": "The 0 Schema.",
-                  "description":
-                    "An explanation about the purpose of this instance.",
-                  "default": "",
-                  "examples": ["json-schema-ui"]
-                }
+                "$ref": "defs.json#/definitions/UISchema"
               }
             }
           },
@@ -101,19 +93,13 @@
                   "$ref": "defs.json#/definitions/Labels"
                 },
                 "engine": {
-                  "type": "string",
-                  "title": "Template engine",
-                  "description":
-                    "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
-                  "enum": ["twig", "mustache"]
+                  "$ref": "defs.json#/definitions/BlockTemplateEngine"
                 },
                 "source": {
                   "type": "string",
-                  "title": "The Source Schema.",
-                  "description":
-                    "An explanation about the purpose of this instance.",
-                  "default": "",
-                  "examples": ["String"]
+                  "title": "Template source",
+                  "description": "Inlined template content",
+                  "examples": ["<section>Hello {{ name }}</section>"]
                 },
                 "assets": {
                   "type": "object",
@@ -175,14 +161,7 @@
           }
         },
         "ui": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "title": "The 0 Schema.",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": ["json-schema-ui"]
-          }
+          "$ref": "defs.json#/definitions/UISchema"
         },
         "headers": {
           "type": "array",

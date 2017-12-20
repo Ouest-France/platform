@@ -36,7 +36,15 @@ describe('BlockConfig', () => {
                 required: true,
               },
             ],
-            ui: [],
+            ui: {
+              threshold: {
+                'ui:autofocus': true,
+                'ui:emptyValue': '10200',
+                'ui:title': 'Bitcoin threshold',
+                'ui:description':
+                  'At which point should the Bitcoin threshold should be defined',
+              },
+            },
           },
           templates: [
             {
@@ -55,7 +63,7 @@ describe('BlockConfig', () => {
           ],
           external: {
             parameters: [],
-            ui: [],
+            ui: {},
           },
         },
       ],
@@ -81,12 +89,12 @@ describe('BlockConfig', () => {
             method: 'GET',
             pure: false,
             parameters: [],
-            ui: [],
+            ui: {},
           },
           templates: [],
           external: {
             parameters: [],
-            ui: [],
+            ui: {},
           },
         },
       ],
@@ -102,10 +110,10 @@ describe('BlockConfig', () => {
     expect(validate({})).toBe(false);
   });
 
-  // it('throw an error if BlockConfig have empty internal & external object', () => {
-  //   const validate = require('.').getSchema(
-  //     'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
-  //   );
-  //   expect(validate({ internal: {}, external: {} })).toBe(false);
-  // });
+  it('throw an error if BlockConfig have empty internal & external object', () => {
+    const validate = require('.').getSchema(
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
+    );
+    expect(validate({ internal: {}, external: {} })).toBe(false);
+  });
 });

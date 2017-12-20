@@ -1,5 +1,6 @@
 {
-  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json",
+  "$id":
+    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json",
   "definitions": {
     "Labels": {
       "type": "array",
@@ -47,7 +48,6 @@
       "examples": ["0.0.1", "1.0.0"]
     },
     "BlockName": {
-      "$id": "BlockName",
       "type": "string",
       "title": "Identifiant fonctionnel décrivant le Block",
       "description": "Cet identifiant est unique au sein du CMS",
@@ -58,7 +58,6 @@
         "meteo/meteo--detail"
       ]
     },
-
     "BlockType": {
       "$id": "/properties/type",
       "type": "string",
@@ -67,7 +66,22 @@
         "BlockType est un union type ayant pour valeur : Display ou Navigation.\nLes Blocks dans le CMS peuvent être catégorisé selon la typologie suivante :\n- Navigation : Block dynamique avec action utilisateur nécessitant un rechargement de la page. Ex : formulaire de recherche, pagination sur un Block d'actualité, etc.\n- Display : Block statique sans interaction avec l’utilisateur (son état ne change pas en fonction de l'URL, son état dépend uniquement de ses paramètres de configuration)",
       "enum": ["Navigation", "Display"]
     },
-
+    "BlockTemplateEngine": {
+      "type": "string",
+      "title": "Template engine",
+      "description":
+        "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
+      "enum": ["twig", "mustache"]
+    },
+    "UISchema": {
+      "type": "object",
+      "title": "UISchema declaration",
+      "description":
+        "Specify in UISchema format how the parameters should be rendered in PageBuilder. See https://github.com/mozilla-services/react-jsonschema-form",
+      "properties": {},
+      "additionalProperties": true,
+      "maxProperties": 100
+    },
     "BlockProviderConfig": {
       "definitions": {},
       "$schema": "http://json-schema.org/draft-06/schema#",
