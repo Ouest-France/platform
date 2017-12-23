@@ -27,14 +27,34 @@ server.register(
         info: {
           title: Pack.description,
           version: Pack.version,
-          // contact:{
-          //   name: 'Ouest-France/SIPA tech team',
-          //   url: // slack url
-          //   email: 'tech@ouest-france.fr'
-          // }
+          contact: {
+            name: 'Ouest-France/SIPA tech team',
+            url: 'http://github.com/ouest-france/platform',
+          },
         },
         documentationPath: '/',
-        expanded: 'full',
+        expanded: 'list',
+        grouping: 'tags',
+        tags: [
+          {
+            name: 'validation',
+            description: 'BlockProvider online validation',
+            externalDocs: {
+              description: 'See Validator-Server documentation',
+              url:
+                'https://github.com/Ouest-France/platform/tree/master/packages/validator-server',
+            },
+          },
+          {
+            name: 'schemas',
+            description: 'Schemas supported by the validator',
+            externalDocs: {
+              description: 'See Schemas repository',
+              url:
+                'https://github.com/Ouest-France/platform/tree/master/packages/schemas',
+            },
+          },
+        ],
       },
     },
   ],

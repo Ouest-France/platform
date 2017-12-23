@@ -70,7 +70,7 @@ module.exports = Pack => {
           });
         },
         description: 'Validate a schema via a URL',
-        tags: ['api'],
+        tags: ['api', 'validation'],
         validate: {
           query: {
             url: Joi.string()
@@ -114,7 +114,7 @@ module.exports = Pack => {
           validate(request.payload.schema, jsonBody, reply);
         },
         description: 'Validate a schema via direct input',
-        tags: ['api'],
+        tags: ['api', 'validation'],
         validate: {
           payload: {
             body: Joi.string()
@@ -123,6 +123,17 @@ module.exports = Pack => {
             schema: SCHEMA_VALIDATOR,
           },
         },
+      },
+    },
+    {
+      method: 'GET',
+      path: '/schemas',
+      config: {
+        handler: (request, reply) => {
+          reply(schemas.rawSchemas);
+        },
+        description: 'Schemas supported by the validator',
+        tags: ['api', 'schemas'],
       },
     },
   ];
