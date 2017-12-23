@@ -9,11 +9,19 @@ module.exports = Pack => {
     },
   };
 
+  const VALID_SCHEMAS = schemas.rawSchemas.map(x => x.$id);
+  const SCHEMA_VALIDATOR = Joi.string()
+    .required()
+    .valid(VALID_SCHEMAS)
+    .description('Which schema to test against');
+
   function validate(schema, body, reply) {
     const validation = schemas.validate(schema, body);
 
     if (validation) {
-      return reply(Object.assign({}, metadata)).code(200);
+      return reply(
+        Object.assign({ data: { validation: 'success' } }, metadata)
+      ).code(200);
     }
 
     reply(
@@ -74,10 +82,7 @@ module.exports = Pack => {
               .description(
                 'URL of the BlockProvider configuration path or BlockJSON call'
               ),
-            schema: Joi.string()
-              .required()
-              .valid(schemas.rawSchemas.map(x => x.$id))
-              .description('Which schema to test against'),
+            schema: SCHEMA_VALIDATOR,
           },
         },
       },
@@ -115,10 +120,7 @@ module.exports = Pack => {
             body: Joi.string()
               .required()
               .description('JSON data to validate'),
-            schema: Joi.string()
-              .required()
-              .valid(schemas.rawSchemas.map(x => x.$id))
-              .description('Which schema to test against'),
+            schema: SCHEMA_VALIDATOR,
           },
         },
       },
