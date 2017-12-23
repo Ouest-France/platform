@@ -3,6 +3,7 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
+const HapiRequireHTTPS = require('hapi-require-https');
 const Pack = require('./package');
 
 const config = require('common-env/withLogger')(console).getOrElseAll({
@@ -19,6 +20,7 @@ server.register(
   [
     Inert,
     Vision,
+    HapiRequireHTTPS,
     {
       register: HapiSwagger,
       options: {
@@ -33,7 +35,7 @@ server.register(
         },
         documentationPath: '/',
         expanded: 'full',
-        schemes: ['http', 'https'],
+        schemes: ['https'],
       },
     },
   ],
