@@ -35,7 +35,6 @@ server.register(
         },
         documentationPath: '/',
         expanded: 'full',
-        schemes: ['https'],
       },
     },
   ],
