@@ -1,6 +1,6 @@
 [package]
 name = "validator-cli"
-version = "1.0.0"
+version = "1.0.1-alpha.0"
 authors = ["François-Guillaume RIBREAU <github@fgribreau.com>"]
 homepage = "https://github.com/Ouest-France/platform"
 repository = "https://github.com/Ouest-France/platform"
@@ -26,5 +26,5 @@ yansi = "0.3.4"
 # cargo install cargo-release
 # cargo release --dry-run
 upload-doc = true
-pre-release-commit-message = "Release {{version}} 🎉🎉"
+pre-release-commit-message = "Release validator-cli {{version}} 🎉🎉"
 pre-release-replacements = [ {file="README.md", search="Current release: [a-z0-9\\.-]+", replace="Current release: {{version}}"} , {file ="Cargo.toml", search="branch=\"[a-z0-9\\.-]+\"", replace="branch=\"{{version}}\""} ]
