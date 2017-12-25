@@ -1,0 +1,30 @@
+[package]
+name = "validator-cli"
+version = "0.1.0"
+authors = ["François-Guillaume RIBREAU <github@fgribreau.com>"]
+homepage = "https://github.com/Ouest-France/platform"
+repository = "https://github.com/Ouest-France/platform"
+readme = "README.md"
+documentation = "https://docs.rs/blockprovider-validator"
+description = "✅  Ouest-France Platform BlockProvider validator"
+keywords = ["ouest-france", "validator", "blockprovider"]
+categories = ["web-programming"]
+license = "MIT"
+
+[dependencies]
+reqwest = "0.8.2"
+commander = "0.1"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+lazy_static = "0.2"
+url = "1.6.0"
+tap = "0.2.1"
+yansi = "0.3.4"
+
+[package.metadata.release]
+# cargo install cargo-release
+# cargo release --dry-run
+upload-doc = true
+pre-release-commit-message = "Release {{version}} 🎉🎉"
+pre-release-replacements = [ {file="README.md", search="Current release: [a-z0-9\\.-]+", replace="Current release: {{version}}"} , {file ="Cargo.toml", search="branch=\"[a-z0-9\\.-]+\"", replace="branch=\"{{version}}\""} ]
