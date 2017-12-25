@@ -28,6 +28,7 @@ module.exports = Pack => {
       Object.assign(
         {},
         {
+          data: { validation: 'error' },
           errors: [
             {
               count: (schemas.errors || []).length,
@@ -52,6 +53,7 @@ module.exports = Pack => {
                 Object.assign(
                   {},
                   {
+                    data: { validation: 'error' },
                     errors: [
                       {
                         title: 'Request error to download `url`',
@@ -100,6 +102,7 @@ module.exports = Pack => {
               Object.assign(
                 {},
                 {
+                  data: { validation: 'error' },
                   errors: [
                     {
                       title: 'Could not parse HTTP POST body as json',
