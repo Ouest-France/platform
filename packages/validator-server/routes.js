@@ -29,12 +29,7 @@ module.exports = Pack => {
         {},
         {
           data: { validation: 'error' },
-          errors: [
-            {
-              count: (schemas.errors || []).length,
-              details: schemas.errors,
-            },
-          ],
+          errors: schemas.errors,
         },
         metadata
       )
@@ -56,7 +51,7 @@ module.exports = Pack => {
                     data: { validation: 'error' },
                     errors: [
                       {
-                        title: 'Request error to download `url`',
+                        message: 'Request error to download `url`',
                         detail: err.message,
                       },
                     ],
@@ -105,7 +100,7 @@ module.exports = Pack => {
                   data: { validation: 'error' },
                   errors: [
                     {
-                      title: 'Could not parse HTTP POST body as json',
+                      message: 'Could not parse HTTP POST body as json',
                       detail: err.message,
                     },
                   ],
