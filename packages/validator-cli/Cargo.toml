@@ -1,6 +1,6 @@
 [package]
 name = "validator-cli"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["François-Guillaume RIBREAU <github@fgribreau.com>"]
 homepage = "https://github.com/Ouest-France/platform"
 repository = "https://github.com/Ouest-France/platform"
