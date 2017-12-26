@@ -5,15 +5,15 @@ authors = ["François-Guillaume RIBREAU <github@fgribreau.com>"]
 homepage = "https://github.com/Ouest-France/platform"
 repository = "https://github.com/Ouest-France/platform"
 readme = "README.md"
-documentation = "https://docs.rs/blockprovider-validator"
+documentation = "https://docs.rs/crate/validator-cli/"
 description = "✅  Ouest-France Platform BlockProvider validator"
 keywords = ["ouest-france", "validator", "blockprovider"]
 categories = ["web-programming"]
 license = "MIT"
 
 [badges]
-appveyor = { repository = "Ouest-France/platform", branch = "master", service = "github" }
-travis-ci = { repository = "Ouest-France/platform", branch = "master" }
+appveyor = { repository = "ouest-france/platform", branch = "master", service = "github" }
+travis-ci = { repository = "ouest-france/platform", branch = "master" }
 
 [dependencies]
 reqwest = "0.8.2"
