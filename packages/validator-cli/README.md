@@ -1,9 +1,33 @@
-# Ouest-France Platform validator-cli
+# Ouest-France Platform `validator-cli`
 
-This CLI helps you validate your BlockProvider interface.
+`validator-cli` helps you validate your BlockProvider interface (BlockProviderConfig and BlockJSON).
 
 
 [![Cargo version](https://img.shields.io/crates/v/validator-cli.svg)](https://crates.io/crates/validator-cli) [![Crates.io](https://img.shields.io/crates/l/validator-cli.svg)](https://crates.io/crates/validator-cli) [![docs.rs](https://img.shields.io/badge/docs.rs-👌-4EC329.svg?)](https://docs.rs/validator-cli/) [![Crates.io](https://img.shields.io/crates/d/validator-cli.svg)](https://crates.io/crates/validator-cli)
 
 
 <p align="center"><img src="assets/demo.gif" /></p>
+
+### Download binaries
+
+- Download `validator-cli` for your OS from the [release page](https://github.com/Ouest-France/platform/releases)
+
+### Usage
+
+Validate a local BlockProvider service:
+
+```shell
+validator-cli --url http://localhost:3000/configurations --schema BlockProviderConfig
+```
+
+## Development
+
+#### Generate a new release
+
+Just push a new Git tag.
+
+#### Run tests
+
+```shell
+cargo test
+```
