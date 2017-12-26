@@ -15,7 +15,7 @@ main() {
             ;;
     esac
 
-    test -f Cargo.lock || cargo --manifest-path ./packages/validator-cli/Cargo.toml generate-lockfile
+    test -f Cargo.lock || cargo generate-lockfile --manifest-path ./packages/validator-cli/Cargo.toml
 
     # TODO Update this to build the artifacts that matter to you
     cross rustc --manifest-path ./packages/validator-cli/Cargo.toml --bin validator-cli --target $TARGET --release -- -C lto
