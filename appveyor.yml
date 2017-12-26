@@ -67,12 +67,11 @@ deploy:
     # and nightly channels. This condition makes sure there is only one release
     # for such targets and that's generated using the stable channel
     RUST_VERSION: stable
-    appveyor_repo_tag: true
   provider: GitHub
 
 cache:
   - C:\Users\appveyor\.cargo\registry
-  - target
+  - packages\validator-cli\target
 
 branches:
   only:
