@@ -79,6 +79,7 @@ cache:
 branches:
   only:
     # Release tags
+    - cross-build
     - /^v\d+\.\d+\.\d+.*$/
     - master
 
