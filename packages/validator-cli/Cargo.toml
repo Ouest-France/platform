@@ -11,6 +11,10 @@ keywords = ["ouest-france", "validator", "blockprovider"]
 categories = ["web-programming"]
 license = "MIT"
 
+[badges]
+appveyor = { repository = "Ouest-France/platform", branch = "master", service = "github" }
+travis-ci = { repository = "Ouest-France/platform", branch = "master" }
+
 [dependencies]
 reqwest = "0.8.2"
 commander = "0.1"

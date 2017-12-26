@@ -1,0 +1,16 @@
+{
+  "name": "@ouest-france/validator-cli",
+  "version": "1.0.0",
+  "description":
+    "Ouest-France Platform BlockProvider validator - [NPM placeholder to leverage lerna publishing feature]",
+  "main": "server.js",
+  "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "author":
+    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
