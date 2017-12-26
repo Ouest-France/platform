@@ -12,7 +12,15 @@
 
 - Download `validator-cli` for your OS from the [release page](https://github.com/Ouest-France/platform/releases)
 
-### Usage
+### Usage (on Linux/MacOSX)
+
+Validate a local BlockProvider service:
+
+```shell
+validator-cli.exe --url http://localhost:3000/configurations --schema BlockProviderConfig
+```
+
+### Usage (on Linux/MacOSX)
 
 Validate a local BlockProvider service:
 
