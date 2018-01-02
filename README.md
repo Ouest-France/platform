@@ -14,12 +14,9 @@ npm install
 
 ## Getting started
 
-<!-- * [What a BlockProvider is? How it works?](/packages/blockprovider-example) -->
 
 * [Sample of BlockProvider](/packages/blockprovider-example)
 * [Run a BlockProvider locally](/packages/blockprovider-runner)
 * **Validate your BlockProvider** [online](/packages/validator-server) or from
   your [laptop with the CLI](/packages/validator-cli)
-* [Use our platform json-schema in your own project](/packages/schemas)
-
-  <!-- * [Validate BlockProvider output](/packages/blockprovider-validator) -->
+* [Schemas documentation](/packages/documentation)
