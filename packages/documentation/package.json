@@ -4,7 +4,14 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "json-schema-documentation-cli --schemas node_modules/@ouest-france/schemas/{BlockJSON,BlockConfig,BlockProviderConfig}.json --output static"
+  },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "json-schema-documentation-cli": "0.*",
+    "@ouest-france/schemas": "*"
+  }
 }
