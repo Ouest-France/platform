@@ -5,13 +5,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "json-schema-documentation-cli --schemas node_modules/@ouest-france/schemas/{BlockJSON,BlockConfig,BlockProviderConfig}.json --output static"
+    "postinstall": "npm run --silent generate",
+    "generate": "node generate.js"
   },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "json-schema-documentation-cli": "0.*",
-    "@ouest-france/schemas": "*"
+    "@ouest-france/schemas": "^2.0.0",
+    "json-schema-documentation-generator": "1.*.*",
+    "json-schema-documentation-sample-generator": "1.*.*",
+    "json-schema-documentation-theme-default": "1.*.*"
   }
 }
