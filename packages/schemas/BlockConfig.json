@@ -9,13 +9,16 @@
   "required": ["name", "type", "labels", "configurations"],
   "properties": {
     "name": {
-      "$ref": "defs.json#/definitions/BlockName"
+      "$ref":
+        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockName"
     },
     "type": {
-      "$ref": "defs.json#/definitions/BlockType"
+      "$ref":
+        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockType"
     },
     "labels": {
-      "$ref": "defs.json#/definitions/Labels"
+      "$ref":
+        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
     },
     "configurations": {
       "type": "array",
@@ -29,7 +32,8 @@
         "required": ["version", "endpoint"],
         "properties": {
           "version": {
-            "$ref": "defs.json#/definitions/BasicSemVer"
+            "$ref":
+              "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BasicSemVer"
           },
           "endpoint": {
             "type": "object",
@@ -37,18 +41,15 @@
             "properties": {
               "url": {
                 "type": "string",
-                "title": "The Url Schema.",
+                "title": "block http url",
                 "description":
-                  "An explanation about the purpose of this instance.",
-                "default": "",
-                "examples": ["String"]
+                  "The HTTP(S) address the CMS will call to retrieve the BlockJSON",
+                "examples": ["http://my.domain.com/blockprovider/block"]
               },
               "method": {
                 "type": "string",
-                "title": "The Method Schema.",
-                "description":
-                  "Note : pour le moment uniquement GET est supporté",
-                "default": "",
+                "title": "block http method",
+                "description": "Only GET is supported right now",
                 "enum": ["GET"],
                 "examples": ["GET"]
               },
@@ -56,7 +57,7 @@
                 "type": "boolean",
                 "title": "Block pureness",
                 "description":
-                  "An explanation about the purpose of this instance.",
+                  "If this block pure? If yes then think we can cache it **forever**",
                 "default": false,
                 "examples": ["true", "false"]
               },
@@ -72,7 +73,8 @@
                 }
               },
               "ui": {
-                "$ref": "defs.json#/definitions/UISchema"
+                "$ref":
+                  "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
               }
             }
           },
@@ -86,14 +88,16 @@
                   "type": "string",
                   "title": "Theme name",
                   "description":
-                    "Theme name, so users will be able to differentiate them from the PageBuilder",
+                    "Theme name, so users will be able to differentiate them in the PageBuilder app",
                   "examples": ["default", "christmas"]
                 },
                 "labels": {
-                  "$ref": "defs.json#/definitions/Labels"
+                  "$ref":
+                    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
                 },
                 "engine": {
-                  "$ref": "defs.json#/definitions/BlockTemplateEngine"
+                  "$ref":
+                    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateEngine"
                 },
                 "source": {
                   "type": "string",
@@ -107,15 +111,14 @@
                     "js": {
                       "type": "array",
                       "items": {
-                        "title": "Empty Object",
-                        "description":
-                          "This accepts anything, as long as it's valid JSON."
+                        "title": "Js assets",
+                        "description": "-"
                       }
                     },
                     "css": {
                       "type": "array",
                       "items": {
-                        "title": "Empty Object",
+                        "title": "Css assets",
                         "description":
                           "This accepts anything, as long as it's valid JSON."
                       }
@@ -123,7 +126,7 @@
                     "fonts": {
                       "type": "array",
                       "items": {
-                        "title": "Empty Object",
+                        "title": "Fonts assets",
                         "description":
                           "This accepts anything, as long as it's valid JSON."
                       }
@@ -131,7 +134,7 @@
                     "images": {
                       "type": "array",
                       "items": {
-                        "title": "Empty Object",
+                        "title": "Images assets",
                         "description":
                           "This accepts anything, as long as it's valid JSON."
                       }
@@ -161,7 +164,8 @@
           }
         },
         "ui": {
-          "$ref": "defs.json#/definitions/UISchema"
+          "$ref":
+            "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
         },
         "headers": {
           "type": "array",
