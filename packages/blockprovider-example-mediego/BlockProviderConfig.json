@@ -1,0 +1,121 @@
+[{
+  "configurations": [
+    {
+      "name": "mediego-block-provider-agent",
+      "type": "Display",
+      "labels": [{
+        "key": "service",
+        "value": "agent"
+      },{
+        "key": "company",
+        "value": "mediego"
+      }],
+      "endpoint": {
+        "url": "https://adresse.absolue/<!-- adresse absolue ->",
+        "method": "GET",
+        "pure": false,
+        "parameters": [{
+          "name": "user_id",
+          "in": "query",
+          "type": "string",
+          "format": "uuid"
+        }],
+        "ui": {
+            "user_id": {
+              "ui:title": "(Optional) SIPA/Ouest-France user identifier"
+            }
+          }
+      },
+      "templates": [
+        {
+          "name": "default-theme",
+          "labels": [
+
+          ],
+          "source": "<script>var mediego_euid = \"{{mediego_euid}}\";</script>",
+          "engine": "mustache",
+          "assets": {
+            "js": [
+              "https://www.mediego.com/agent.js"
+            ],
+            "css": [
+            ],
+            "fonts": [
+            ],
+            "images": [
+            ]
+          }
+        }
+      ]
+    }, {
+      "name": "mediego-block-provider-recommandation",
+      "type": "Display",
+      "labels": [{
+        "key": "service",
+        "value": "recommandation"
+      },{
+        "key": "company",
+        "value": "mediego"
+      }],
+      "endpoint": {
+        "url": "https://adresse.absolue/<!-- adresse absolue ->",
+        "method": "GET",
+        "pure": false,
+        "required":["user_id", "url", "count"],
+        "parameters": [{
+          "name": "user_id",
+          "in": "query",
+          "type": "string",
+          "format": "uuid"
+        },{
+          "name": "url",
+          "in": "query",
+          "type": "string",
+          "format": "url"
+        },{
+          "name": "count",
+          "in": "query",
+          "type": "integer",
+          "format": "int32",
+          "minimum": 1,
+          "maximum": 30
+        }],
+        "ui": {
+            "user_id": {
+              "ui:title": "User Identifier"
+            },
+            "url": {
+              "ui:title": "Current page URL"
+            },
+            "count": {
+              "ui:title": "Number of items to display"
+            }
+          }
+      },
+      "templates": [
+        {
+          "name": "premium-theme",
+          "labels": [],
+          "source": "<article></article><!-- fournir une page intégrée à mediego (@mathieu presse) -->",
+          "engine": "mustache",
+          "assets": {
+            "js": [],
+            "css": [],
+            "fonts": [],
+            "images": []
+          }
+        }
+      ]
+    }
+  ],
+  "external": {
+    "parameters": [],
+    "headers": [],
+    "head": {
+      "links": [
+      ],
+      "meta": [
+      ]
+    }
+  }
+}]
