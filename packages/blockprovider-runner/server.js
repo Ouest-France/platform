@@ -49,7 +49,7 @@ app.get('/block', (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
-     
+
     const block = find ({name : blockName}, resp.body);
     const blockConfig = find({ version: blockVersion }, block.configurations);
     
@@ -97,6 +97,7 @@ function wrapHTML(templateConfig, renderedBlock) {
   return `
 <html>
   <head>
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/static/bootstrap.css"></link>
     ${templateConfig.assets.css
       .map(css => `<link rel="stylesheet" href="${css}"></link>`)
