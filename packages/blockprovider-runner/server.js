@@ -49,11 +49,10 @@ app.get('/block', (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
-
-    const { body: [{ configurations }] } = resp;
-
-    const blockConfig = find({ version: blockVersion }, configurations);
-
+     
+    const block = find ({name : blockName}, resp.body);
+    const blockConfig = find({ version: blockVersion }, block.configurations);
+    
     if (!blockConfig) {
       return res.status(500).json({
         error: `Could not find version "${blockVersion}" in Block "${
