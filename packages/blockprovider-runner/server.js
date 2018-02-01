@@ -56,35 +56,44 @@ app.get('/block', (req, res) => {
 
     if (!blockConfig) {
       return res.status(500).json({
-        error: `Could not find version "${blockVersion}" in Block "${
-          blockName
-        }" configuration from BlockProvider at ${BlockProviderConfigEndpoint}`,
+        error: `Could not find version "${blockVersion}" in Block "${blockName}" configuration from BlockProvider at ${BlockProviderConfigEndpoint}`,
       });
     }
 
-    request[blockConfig.endpoint.method.toLowerCase()](
-      urlResolver(
-        BlockProviderConfigEndpoint,
-        blockConfig,
-        BlockJSONRequestParameters
-      )
-    ).end(function(err, resp) {
+    const url = urlResolver(
+      BlockProviderConfigEndpoint,
+      blockConfig,
+      BlockJSONRequestParameters
+    );
+
+    const method = blockConfig.endpoint.method.toLowerCase();
+
+    request[method](url).end(function(err, resp) {
+      const call = {
+        method: method,
+        url: url,
+      };
       if (err) {
         return res.status(500).json({
           error: `An error occured while calling the Block: ${err.message}`,
           blockConfigUsed: blockConfig,
           blockNameUsed: blockName,
           blockVersionUsed: blockVersion,
+          call: call,
         });
       }
 
       const blockJSON = resp.body;
 
       // @todo validate blockJSON schema here instead of a dirty check
-      if(typeof blockJSON !== 'object' || typeof blockJSON.internal !== 'object'){
+      if (
+        typeof blockJSON !== 'object' ||
+        typeof blockJSON.internal !== 'object'
+      ) {
         return res.status(500).json({
           error: `Invalid BlockJSON format, check out https://github.com/Ouest-France/platform/tree/master/packages/schemas`,
-          blockJSON: blockJSON
+          blockJSON: blockJSON,
+          call: call,
         });
       }
 
