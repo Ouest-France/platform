@@ -80,6 +80,14 @@ app.get('/block', (req, res) => {
 
       const blockJSON = resp.body;
 
+      // @todo validate blockJSON schema here instead of a dirty check
+      if(typeof blockJSON !== 'object' || typeof blockJSON.internal !== 'object'){
+        return res.status(500).json({
+          error: `Invalid BlockJSON format, check out https://github.com/Ouest-France/platform/tree/master/packages/schemas`,
+          blockJSON: blockJSON
+        });
+      }
+
       res.send(
         wrapHTML(
           blockConfig.templates[0],
