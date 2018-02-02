@@ -50,10 +50,9 @@ app.get('/block', (req, res) => {
       return res.status(500).json({ error: err.message });
     }
 
-    const { body: [{ configurations }] } = resp;
-
-    const blockConfig = find({ version: blockVersion }, configurations);
-
+    const block = find ({name : blockName}, resp.body);
+    const blockConfig = find({ version: blockVersion }, block.configurations);
+    
     if (!blockConfig) {
       return res.status(500).json({
         error: `Could not find version "${blockVersion}" in Block "${blockName}" configuration from BlockProvider at ${BlockProviderConfigEndpoint}`,
@@ -115,6 +114,7 @@ function wrapHTML(templateConfig, renderedBlock) {
   return `
 <html>
   <head>
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/static/bootstrap.css"></link>
     ${templateConfig.assets.css
       .map(css => `<link rel="stylesheet" href="${css}"></link>`)
