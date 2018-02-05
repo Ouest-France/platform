@@ -1,6 +1,6 @@
 # BlockJSON response format
 
-Response format when the CMS call a BlockProvider. Le BlockJSON est la réponse que reçoit le CMS lorsqu'il interroge un Block, il utilise ces données pour hydrater le template et donc rendre le Block.
+Response format when the CMS calls a BlockProvider. Le BlockJSON est la réponse que reçoit le CMS lorsqu'il interroge un Block, il utilise ces données pour hydrater le template et donc rendre le Block.
 
 ### Example
 

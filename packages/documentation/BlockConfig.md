@@ -72,7 +72,7 @@ Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du Pa
 
 **Configurations possible du Block**
 
-Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. A tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.
+Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.
 
 *Type*: array
 
@@ -150,7 +150,7 @@ Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://git
 
 **Theme name**
 
-Theme name, so users will be able to differentiate them from the PageBuilder
+Theme name, so users will be able to differentiate them from within the PageBuilder
 
 *Type*: string
 
