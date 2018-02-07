@@ -12,7 +12,7 @@
 
 - Download `validator-cli` for your OS from the [release page](https://github.com/Ouest-France/platform/releases)
 
-### Usage (on Linux/MacOSX)
+### Usage (on Windows)
 
 Validate a local BlockProvider service:
 
