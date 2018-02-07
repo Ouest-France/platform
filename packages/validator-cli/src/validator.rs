@@ -36,7 +36,7 @@ pub enum ValidationStatus {
 #[derive(Debug, Clone, Deserialize)]
 #[allow(non_snake_case)]
 pub struct ValidationBodyErrorDetail {
-    pub data: Option<String>,
+    pub data: Option<Value>,
     pub dataPath: Option<String>,
     pub keyword: Option<String>,
     pub message: Option<String>,
