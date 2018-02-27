@@ -26,7 +26,7 @@
       "maxItems": 10,
       "title": "Configurations possible du Block",
       "description":
-        "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. A tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
+        "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
       "items": {
         "type": "object",
         "required": ["version", "endpoint"],

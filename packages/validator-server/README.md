@@ -26,8 +26,7 @@ Let say we want to validate our local BlockProvider
 curl --silent https://validator-server.cleverapps.io/validate\?schema\=https%3A%2F%2Fraw.githubusercontent.com%2FOuest-France%2Fplatform%2Fmaster%2Fpackages%2Fschemas%2FBlockProviderConfig.json\&url\=http://localhost:8081/configurations | jqn -r process 'tap(console.log) | thru(x => process.exit(!!x.errors+0))'
 ```
 
-This line will first print the validation output and then yield an exitcode=1 if
-the validation failed.
+This line will first print the validation output and then yield an exitcode=1 if the validation failed.
 
 ## Use it locally
 

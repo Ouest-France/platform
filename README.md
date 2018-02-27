@@ -7,7 +7,7 @@
 
 ## Setup
 
-```
+```sh
 git clone git@github.com:Ouest-France/platform.git
 npm install
 ```
