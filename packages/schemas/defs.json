@@ -32,12 +32,12 @@
     "Ident": {
       "type": "string",
       "pattern": "^[a-z-]+$",
-      "minLenght": 3,
+      "minLength": 3,
       "maxLength": 50
     },
     "LabelValue": {
       "type": "string",
-      "minLenght": 3,
+      "minLength": 3,
       "maxLength": 50
     },
     "BasicSemVer": {
