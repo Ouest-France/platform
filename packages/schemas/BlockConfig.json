@@ -78,6 +78,37 @@
               }
             }
           },
+          "rpc": {
+            "type": "object",
+            "properties": {
+              "view": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "title": "Block RPC view HTTP url",
+                    "description":
+                      "The HTTP(S) address the CMS will call to request the block view RPC endpoint",
+                    "examples": ["http://my.domain.com/blockprovider/block/rpc/view"]
+                  }
+                }
+              },
+              "admin": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "title": "Block RPC admin HTTP url",
+                    "description":
+                      "The HTTP(S) address the CMS will call to request the block admin RPC endpoint",
+                    "examples": ["http://my.domain.com/blockprovider/block/rpc/admin"]
+                  }
+                }
+              }
+            }
+          },
           "templates": {
             "type": "array",
             "items": {
