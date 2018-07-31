@@ -29,7 +29,7 @@
         "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
       "items": {
         "type": "object",
-        "required": ["version", "endpoint"],
+        "required": ["version"],
         "properties": {
           "version": {
             "$ref":
@@ -174,71 +174,71 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "external": {
-      "type": "object",
-      "required": ["parameters", "ui"],
-      "properties": {
-        "parameters": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "title": "The 0 Schema.",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-              "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
-            ]
-          }
-        },
-        "ui": {
-          "$ref":
-            "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
-        },
-        "headers": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "title": "The 0 Schema.",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": ["String"]
-          }
-        },
-        "head": {
-          "type": "object",
-          "properties": {
-            "links": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "rel": {
-                    "type": "string",
-                    "title": "The Rel Schema.",
-                    "description":
-                      "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": ["String"]
-                  }
+          },
+          "external": {
+            "type": "object",
+            "required": ["parameters", "ui"],
+            "properties": {
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "The 0 Schema.",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
+                  ]
                 }
-              }
-            },
-            "meta": {
-              "type": "array",
-              "items": {
+              },
+              "ui": {
+                "$ref":
+                  "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
+              },
+              "headers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "The 0 Schema.",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": ["String"]
+                }
+              },
+              "head": {
                 "type": "object",
                 "properties": {
-                  "name": {
-                    "type": "string",
-                    "title": "The Name Schema.",
-                    "description":
-                      "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": ["String"]
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "rel": {
+                          "type": "string",
+                          "title": "The Rel Schema.",
+                          "description":
+                            "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": ["String"]
+                        }
+                      }
+                    }
+                  },
+                  "meta": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "title": "The Name Schema.",
+                          "description":
+                            "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": ["String"]
+                        }
+                      }
+                    }
                   }
                 }
               }
