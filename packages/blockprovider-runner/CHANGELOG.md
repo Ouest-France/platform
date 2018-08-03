@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/Ouest-France/platform/compare/@ouest-france/blockprovider-runner@1.2.1...@ouest-france/blockprovider-runner@1.3.0) (2018-08-03)
+
+
+
+<a name="1.0.54"></a>
+## 1.0.54 (2018-02-02)
+
+
+### Bug Fixes
+
+* **blockprovider-runner:** ensure blockJSON is an object and contains .internal.data ([d1eb7c0](https://github.com/Ouest-France/platform/commit/d1eb7c0))
+* **server:** Choose the right block to display ([fdb5e7d](https://github.com/Ouest-France/platform/commit/fdb5e7d))
+
+
+### Features
+
+* **blockprovider-runner:** added "call" information to error json ([372d6a8](https://github.com/Ouest-France/platform/commit/372d6a8))
+* **css:** add meta to support mobile view ([4da2314](https://github.com/Ouest-France/platform/commit/4da2314))
+
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/Ouest-France/platform/compare/@ouest-france/blockprovider-runner@1.2.0...@ouest-france/blockprovider-runner@1.2.1) (2017-12-18)
 
