@@ -14,7 +14,8 @@ Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du Pa
         "pure": false,
         "parameters": [
           {}
-        ]
+        ],
+        "ui": []
       },
       "templates": [
         {
@@ -130,11 +131,13 @@ Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://git
 
 ### `.configurations[].endpoint.ui`
 
+Declaration des differents champs proposés à la configuration dans le Page Builder.
+
+### `.configurations[].endpoint.ui[]`
+
+Regroupement en section _(rattaché à un nom et un identifiant)_ pour faciliter l'organisation par groupe d'intérêt.
+
 ### `.configurations[].templates`
-
-
-
-
 
 *Type*: array
 
