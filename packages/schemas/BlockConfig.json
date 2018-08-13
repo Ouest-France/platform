@@ -177,7 +177,7 @@
           },
           "external": {
             "type": "object",
-            "required": ["parameters", "ui"],
+            "required": ["parameters"],
             "properties": {
               "parameters": {
                 "type": "array",
@@ -190,10 +190,6 @@
                     "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
                   ]
                 }
-              },
-              "ui": {
-                "$ref":
-                  "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
               },
               "headers": {
                 "type": "array",

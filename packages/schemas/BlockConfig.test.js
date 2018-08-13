@@ -36,23 +36,20 @@ describe('BlockConfig', () => {
                 required: true,
               },
             ],
-            ui: [
-              {
-                "id": "admin",
-                "form": {
+            ui: {
+              sections: [
+                {
                   "title": "Technique",
                   "properties": {
                     "role": {
                       "type": "string",
                       "title": "Role",
-                      "enum": [ "ADMIN", "WEBMASTER", "ANONYME" ]
+                      "enum": ["ADMIN", "WEBMASTER", "ANONYME"]
                     }
-                  }
-                }
-              },
-              {
-                "id": "param",
-                "form": {
+                  },
+                  required: [ 'role' ]
+                },
+                {
                   "title": "Paramètres",
                   "properties": {
                     "inseeCode": {
@@ -79,10 +76,11 @@ describe('BlockConfig', () => {
                       "min": 0,
                       "max": 100
                     }
-                  }
+                  },
+                  required: [ 'inseeCode', 'size' ]
                 }
-              }
-            ]
+              ]
+            }
           },
           templates: [
             {
@@ -101,7 +99,7 @@ describe('BlockConfig', () => {
           ],
           external: {
             parameters: [],
-            ui: [],
+            ui: {},
           },
         },
       ],
@@ -127,12 +125,11 @@ describe('BlockConfig', () => {
             method: 'GET',
             pure: false,
             parameters: [],
-            ui: [],
+            ui: {},
           },
           templates: [],
           external: {
             parameters: [],
-            ui: [],
           },
         },
       ],
@@ -174,20 +171,18 @@ describe('BlockConfig', () => {
               method: 'GET',
               pure: false,
               parameters: [],
-              ui: [
-                {
-                  "id": "param",
-                  "form": {
-                    "title": "Paramètres",
+              ui: {
+                sections: [
+                  {
+                    "title": "param",
                     "properties": {}
                   }
-                }
-              ]
+                ]
+              }
             },
             templates: [],
             external: {
               parameters: [],
-              ui: []
             },
           },
         ],
@@ -195,85 +190,8 @@ describe('BlockConfig', () => {
       expect(isValid).toBe(false);
       expect(validate.errors).toHaveLength(1);
       expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0].form.properties",
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties",
           "keyword": "minProperties",
-        });
-    });
-
-    it('throw an error if UI section has no id', () => {
-
-      const isValid = validate({
-        name: 'cms-block-provider-empty',
-        type: 'Display',
-        labels: [],
-        configurations: [
-          {
-            version: '1.0.0',
-            endpoint: {
-              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
-              method: 'GET',
-              pure: false,
-              parameters: [],
-              ui: [
-                {
-                  "form": {
-                    "title": "Paramètres",
-                    "properties": {
-                      "inseeCode": {
-                        "type": "string",
-                        "title": "Code INSEE"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            templates: [],
-            external: {
-              parameters: [],
-              ui: []
-            },
-          },
-        ],
-      });
-      expect(isValid).toBe(false);
-      expect(validate.errors).toHaveLength(1);
-      expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0]",
-          "keyword": "required",
-          "params": { "missingProperty": "id" },
-        });
-    });
-
-    it('throw an error if UI section has no form', () => {
-      const isValid = validate({
-        name: 'cms-block-provider-empty',
-        type: 'Display',
-        labels: [],
-        configurations: [
-          {
-            version: '1.0.0',
-            endpoint: {
-              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
-              method: 'GET',
-              pure: false,
-              parameters: [],
-              ui: [{id: "xxx"}]
-            },
-            templates: [],
-            external: {
-              parameters: [],
-              ui: []
-            },
-          },
-        ],
-      });
-      expect(isValid).toBe(false);
-      expect(validate.errors).toHaveLength(1);
-      expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0]",
-          "keyword": "required",
-          "params": { "missingProperty": "form" },
         });
     });
 
@@ -290,14 +208,15 @@ describe('BlockConfig', () => {
               method: 'GET',
               pure: false,
               parameters: [],
-              ui: [{
-                id: "param",
-                form: {
-                  type: "string",
-                  title: "insee",
-                  other: "a value"
-                }
-              }]
+              ui: {
+                sections: [
+                  {
+                    type: "string",
+                    title: "insee",
+                    other: "a value"
+                  }
+                ]
+              }
             },
             templates: [],
             external: {
@@ -309,7 +228,7 @@ describe('BlockConfig', () => {
       });
       expect(isValid).toBe(false);
       expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0].form",
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0]",
           "keyword": "additionalProperties",
         });
     });
@@ -327,10 +246,9 @@ describe('BlockConfig', () => {
               method: 'GET',
               pure: false,
               parameters: [],
-              ui: [
-                {
-                  "id": "param",
-                  "form": {
+              ui: {
+                sections: [
+                  {
                     "title": "Paramètres",
                     "properties": {
                       "inseeCode": {
@@ -338,13 +256,12 @@ describe('BlockConfig', () => {
                       }
                     }
                   }
-                }
-              ]
+                ]
+              }
             },
             templates: [],
             external: {
               parameters: [],
-              ui: []
             },
           },
         ],
@@ -352,7 +269,7 @@ describe('BlockConfig', () => {
       expect(isValid).toBe(false);
       expect(validate.errors).toHaveLength(1);
       expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0].form.properties['inseeCode']",
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
           "keyword": "required",
           "params": { "missingProperty": "title" },
         });
@@ -371,10 +288,9 @@ describe('BlockConfig', () => {
               method: 'GET',
               pure: false,
               parameters: [],
-              ui: [
-                {
-                  "id": "param",
-                  "form": {
+              ui: {
+                sections: [
+                  {
                     "title": "Paramètres",
                     "properties": {
                       "inseeCode": {
@@ -382,13 +298,12 @@ describe('BlockConfig', () => {
                       }
                     }
                   }
-                }
-              ]
+                ]
+              }
             },
             templates: [],
             external: {
-              parameters: [],
-              ui: []
+              parameters: []
             },
           },
         ],
@@ -396,7 +311,7 @@ describe('BlockConfig', () => {
       expect(isValid).toBe(false);
       expect(validate.errors).toHaveLength(1);
       expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui[0].form.properties['inseeCode']",
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
           "keyword": "required",
           "params": { "missingProperty": "type" },
         });
@@ -416,10 +331,9 @@ describe('BlockConfig', () => {
                 method: 'GET',
                 pure: false,
                 parameters: [],
-                ui: [
-                  {
-                    "id": "param",
-                    "form": {
+                ui: {
+                  sections: [
+                    {
                       "title": "Paramètres",
                       "properties": {
                         "inseeCode": {
@@ -428,20 +342,19 @@ describe('BlockConfig', () => {
                         }
                       }
                     }
-                  }
-                ]
+                  ]
+                }
               },
               templates: [],
               external: {
-                parameters: [],
-                ui: []
+                parameters: []
               },
             },
           ],
         });
         expect(isValid).toBe(false);
         expect(validate.errors[0]).toMatchObject(
-          { "dataPath": ".configurations[0].endpoint.ui[0].form.properties['inseeCode'].type",
+          { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode'].type",
             "keyword": "enum"
           });
       });

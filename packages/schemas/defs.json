@@ -83,93 +83,81 @@
       "type": "object",
       "title": "UI configuration contract group",
       "description": "Define configuration set contract",
-      "required": [ "id", "form" ],
+      "required": [ "properties", "title" ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Uniq id of form tab to expose in PageBuilder"
+        "title": {
+          "description": "Title of form tab to display PageBuilder",
+          "type": "string"
         },
-        "form": {
+        "description": {
+          "description": "Description of form tab. Example: 'Server administration configuration'",
+          "type": "string"
+        },
+        "properties": {
+          "minProperties": 1,
           "type": "object",
-          "description": "Define form tab to expose in PageBuilder",
-          "required": [ "properties", "title" ],
-          "properties": {
-            "title": {
-              "description": "Title of form tab to display PageBuilder",
-              "type": "string"
-            },
-            "description": {
-              "description": "Description of form tab. Example: 'Server administration configuration'",
-              "type": "string"
-            },
-            "properties": {
-              "minProperties": 1,
-              "type": "object",
-              "additionalProperties": {
-                "allOf": [
-                  {
-                    "properties": {
-                      "type": {
-                        "description": "basic type of configuration field",
-                        "anyOf": [
-                          {
-                            "$ref": "#/definitions/UIPropertyBasicTypes"
-                          }
-                        ]
-                      },
-                      "title": {
-                        "description": "Label of configuration field",
-                        "type": "string"
-                      },
-                      "description": {
-                        "description": "description of configuration field (e.g. to display in pophover)",
-                        "type": "string"
-                      },
-                      "maximum": {
-                        "type": "number"
-                      },
-                      "minimum": {
-                        "type": "number"
-                      },
-                      "maxLength": {
-                        "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
-                      },
-                      "minLength": {
-                        "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
-                      },
-                      "pattern": {
-                        "type": "string",
-                        "format": "regex"
-                      },
-                      "enum": {
-                        "type": "array",
-                        "items": {
-                          "type": [ "string", "number" ]
-                        },
-                        "minItems": 1,
-                        "uniqueItems": true
-                      },
-                      "format": {
-                        "description": "subset of html input type to describe input behavior",
-                        "anyOf": [
-                          {
-                            "$ref": "#/definitions/UIInputFormat"
-                          }
-                        ]
-                      },
-                      "default": {}
+          "additionalProperties": {
+            "allOf": [
+              {
+                "properties": {
+                  "type": {
+                    "description": "basic type of configuration field",
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/UIPropertyBasicTypes"
+                      }
+                    ]
+                  },
+                  "title": {
+                    "description": "Label of configuration field",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "description of configuration field",
+                    "type": "string"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maxLength": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+                  },
+                  "minLength": {
+                    "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+                  },
+                  "pattern": {
+                    "type": "string",
+                    "format": "regex"
+                  },
+                  "enum": {
+                    "type": "array",
+                    "items": {
+                      "type": [ "string", "number" ]
                     },
-                    "required": [ "type", "title" ]
-                  }
-                ]
+                    "minItems": 1,
+                    "uniqueItems": true
+                  },
+                  "format": {
+                    "description": "subset of html input type to describe input behavior",
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/UIInputFormat"
+                      }
+                    ]
+                  },
+                  "default": {}
+                },
+                "required": [ "type", "title" ]
               }
-            },
-            "required": {
-              "description": "list mandatory configuration field",
-              "$ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
-            }
-          },
-          "additionalProperties": false
+            ]
+          }
+        },
+        "required": {
+          "description": "list mandatory configuration field",
+          "$ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
         }
       },
       "additionalProperties": false
@@ -177,9 +165,16 @@
     "UISchema": {
       "title": "UISchema declaration",
       "description": "Specify in UISchema format how the parameters should be rendered in PageBuilder.",
-      "type": "array",
-      "items": { "$ref": "#/definitions/UISection" },
-      "default": []
+      "type": "object",
+      "properties": {
+        "sections": {
+          "type": "array",
+          "description": "TODO",
+          "items": { "$ref": "#/definitions/UISection" },
+          "default": []
+        }
+      },
+      "additionalProperties": false
     },
     "BlockProviderConfig": {
       "definitions": {},
