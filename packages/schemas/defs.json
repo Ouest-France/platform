@@ -150,7 +150,8 @@
                   },
                   "default": {}
                 },
-                "required": [ "type", "title" ]
+                "required": [ "type", "title", "description" ],
+                "additionalProperties": false
               }
             ]
           }

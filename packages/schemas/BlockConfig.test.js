@@ -42,6 +42,7 @@ describe('BlockConfig', () => {
                   "title": "Technique",
                   "properties": {
                     "role": {
+                      "description": "Role à qui reviendra la charge d'éditer ce block",
                       "type": "string",
                       "title": "Role",
                       "enum": ["ADMIN", "WEBMASTER", "ANONYME"]
@@ -54,27 +55,29 @@ describe('BlockConfig', () => {
                   "properties": {
                     "inseeCode": {
                       "type": "string",
+                      "description": "code insee de la ville ciblée par le block",
                       "title": "Foo",
                       "maxLength": 10,
-                      "regex": "[0-9]{5}"
+                      "pattern": "[0-9]{5}"
                     },
                     "offset": {
                       "type": "number",
+                      "description": "decalage de la liste d'article à récupérer",
                       "title": "Decalage",
-                      "min": -10,
-                      "max": 10
+                      "minimum": 0,
+                      "maximum": 100
                     },
                     "isVisible": {
                       "type": "boolean",
-                      "title": "Afficher ?",
+                      "title": "Afficher",
                       "description": "Permet de controler l'affichage du block dans une page. L'utilisation d'expression permet de conditionner cet affichage, par exemple '${PAGE} <= 1'"
                     },
                     "size": {
                       "type": "string",
                       "title": "Nombre d'article",
                       "description": "Correspond au nombre d'article à aficher sur la première page d'une liste d'article",
-                      "min": 0,
-                      "max": 100
+                      "minimum": 0,
+                      "maximum": 100
                     }
                   },
                   required: [ 'inseeCode', 'size' ]
