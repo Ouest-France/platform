@@ -45,7 +45,9 @@ describe('BlockConfig', () => {
                       "description": "Role à qui reviendra la charge d'éditer ce block",
                       "type": "string",
                       "title": "Role",
-                      "enum": ["ADMIN", "WEBMASTER", "ANONYME"]
+                      "enum": ["ADMIN", "WEBMASTER", "ANONYME"],
+                      "minLength": 0,
+                      "maxLength": 10
                     }
                   },
                   required: [ 'role' ]
@@ -57,6 +59,7 @@ describe('BlockConfig', () => {
                       "type": "string",
                       "description": "code insee de la ville ciblée par le block",
                       "title": "Foo",
+                      "minLength": 0,
                       "maxLength": 10,
                       "pattern": "[0-9]{5}"
                     },
@@ -68,16 +71,16 @@ describe('BlockConfig', () => {
                       "maximum": 100
                     },
                     "isVisible": {
-                      "type": "boolean",
                       "title": "Afficher",
-                      "description": "Permet de controler l'affichage du block dans une page. L'utilisation d'expression permet de conditionner cet affichage, par exemple '${PAGE} <= 1'"
+                      "description": "Permet de controler l'affichage du block dans une page. L'utilisation d'expression permet de conditionner cet affichage, par exemple '${PAGE} <= 1'",
+                      "type": "boolean"
                     },
                     "size": {
                       "type": "string",
                       "title": "Nombre d'article",
                       "description": "Correspond au nombre d'article à aficher sur la première page d'une liste d'article",
-                      "minimum": 0,
-                      "maximum": 100
+                      "minLength": 0,
+                      "maxLength": 10
                     }
                   },
                   required: [ 'inseeCode', 'size' ]
@@ -255,7 +258,10 @@ describe('BlockConfig', () => {
                     "title": "Paramètres",
                     "properties": {
                       "inseeCode": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "bla bla",
+                        "minLength": 0,
+                        "maxLength": 10
                       }
                     }
                   }
@@ -297,7 +303,10 @@ describe('BlockConfig', () => {
                     "title": "Paramètres",
                     "properties": {
                       "inseeCode": {
-                        "title": "Code INSEE"
+                        "title": "Code INSEE",
+                        "description": "bla bla",
+                        "minLength": 0,
+                        "maxLength": 10
                       }
                     }
                   }
@@ -312,12 +321,356 @@ describe('BlockConfig', () => {
         ],
       });
       expect(isValid).toBe(false);
-      expect(validate.errors).toHaveLength(1);
-      expect(validate.errors[0]).toMatchObject(
-        { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
-          "keyword": "required",
-          "params": { "missingProperty": "type" },
-        });
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
+            "keyword": "required",
+            "params": { "missingProperty": "type" },
+          })
+        ])
+      );
+    });
+
+    it('throw an error if UI property type string not contains minLength', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "inseeCode": {
+                        "type": "string",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "maxLength": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
+            "keyword": "required",
+            "params": { "missingProperty": "minLength" },
+          })
+        ])
+      )
+    });
+
+    it('throw an error if UI property type string not contains maxLength', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "inseeCode": {
+                        "type": "string",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "minLength": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['inseeCode']",
+            "keyword": "required",
+            "params": { "missingProperty": "maxLength" },
+          })
+        ])
+      )
+    });
+
+    it('throw an error if UI property type number not contains minimum', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "size": {
+                        "type": "number",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "maximum": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['size']",
+            "keyword": "required",
+            "params": { "missingProperty": "minimum" },
+          })
+        ])
+      )
+    });
+
+    it('throw an error if UI property type number not contains maximum', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "size": {
+                        "type": "number",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "minimum": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['size']",
+            "keyword": "required",
+            "params": { "missingProperty": "maximum" },
+          })
+        ])
+      )
+    });
+
+    it('throw an error if UI property type boolean contains maximum', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "isVisible": {
+                        "type": "boolean",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "maximum": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['isVisible'].type",
+            "keyword": "enum",
+            "params": { "allowedValues": [ "number" ] },
+          })
+        ])
+      )
+    });
+
+    it('throw an error if UI property type number contains maxLength', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "size": {
+                        "type": "number",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "maximum": 10,
+                        "minimum": 0,
+                        "maxLength": 10,
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['size'].type",
+            "keyword": "enum",
+            "params": { "allowedValues": [ "string" ] },
+          })
+        ])
+      )
+    });
+
+
+    it('throw an error if UI property type string contains maximum', () => {
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Paramètres",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "title": "a title",
+                        "description": "bla bla",
+                        "maximum": 10,
+                        "minLength": 0,
+                        "maxLength": 10,
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: []
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['label'].type",
+            "keyword": "enum",
+            "params": { "allowedValues": [ "number" ] },
+          })
+        ])
+      )
     });
 
     ['array', 'object', 'null'].forEach(type => {
