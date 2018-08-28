@@ -239,7 +239,7 @@
       "properties": {
         "sections": {
           "type": "array",
-          "description": "TODO",
+          "description": "list of configuration set contract. Allows configuration to be consolidated by interest",
           "items": { "$ref": "#/definitions/UISection" },
           "default": []
         }
