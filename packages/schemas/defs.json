@@ -63,9 +63,19 @@
       "type": "object",
       "additionalProperties": false,
       "minProperties": 1,
+      "oneOf": [
+        {
+          "required": ["widget"],
+          "not": {"required": ["component"]}
+        },
+        {
+          "required": ["component"],
+          "not": {"required": ["widget"]}
+        }
+      ],
       "properties": {
         "widget": {
-          "description": "Specify widget to use. Widget is an external component hold by the current BlockProvider",
+          "description": "Specify widget to use. Widget is similar to a component except it is owned by a BlockProvider and is not part of the standard components available in the platform.",
           "additionalProperties": false,
           "required": ["name", "version"],
           "properties": {
@@ -80,7 +90,7 @@
           }
         },
         "component": {
-          "description": "allow to extend component configuration with representation aspect. Default component (choose by convention) may be force to specific component",
+          "description": "Allow to extend component configuration with representation parameters (example: placeholder) or to use another component than the default one.",
           "additionalProperties": false,
           "minProperties": 1,
           "properties": {

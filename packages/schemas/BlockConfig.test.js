@@ -721,6 +721,38 @@ describe('BlockConfig', () => {
         )
       });
 
+      it('throw if component has both component and widget', () => {
+        const isValid = validate(
+          configurationFactoryByUiSectionProps(
+            "size", {
+              "type": "number",
+              "title": "a title",
+              "description": "bla bla",
+              "maximum": 10,
+              "minimum": 0,
+              "x-ui-configuration": {
+                "widget": {
+                  "name": "my-widget",
+                  "version": "1.0"
+                },
+                "component": {
+                  "name": "slider"
+                }
+              }
+            }
+          ));
+
+        expect(isValid).toBe(false);
+        expect(validate.errors).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({
+              "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['size']['x-ui-configuration']",
+              "keyword": "oneOf"
+            })
+          ])
+        )
+      });
+
       it('throw if component has invalid property', () => {
         const isValid = validate(
           configurationFactoryByUiSectionProps(
