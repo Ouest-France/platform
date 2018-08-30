@@ -58,6 +58,131 @@
         "meteo/meteo--detail"
       ]
     },
+    "Props": {
+      "type": "object",
+      "required": ["type", "description", "title"],
+      "properties": {
+        "type": {
+          "description": "basic type of configuration field",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/UIPropertyBasicTypes"
+            }
+          ]
+        },
+        "title": {
+          "description": "Label of configuration field",
+          "type": "string"
+        },
+        "description": {
+          "description": "description of configuration field",
+          "type": "string"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "maxLength": {
+          "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+        },
+        "minLength": {
+          "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+        },
+        "pattern": {
+          "type": "string",
+          "format": "regex"
+        },
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": [ "string", "number" ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "format": {
+          "description": "subset of html input type to describe input behavior",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/UIInputFormat"
+            }
+          ]
+        },
+        "default": {}
+      },
+      "dependencies": {
+        "minimum": {
+          "properties": {
+            "type": {
+              "enum": ["number"]
+            }
+          }
+        },
+        "maximum": {
+          "properties": {
+            "type": {
+              "enum": ["number"]
+            }
+          }
+        },
+        "maxLength": {
+          "properties": {
+            "type": {
+              "enum": ["string"]
+            }
+          }
+        },
+        "format": {
+          "properties": {
+            "type": {
+              "enum": ["string"]
+            }
+          }
+        },
+        "enum": {
+          "properties": {
+            "type": {
+              "enum": ["string", "number"]
+            }
+          }
+        },
+        "pattern": {
+          "properties": {
+            "type": {
+              "enum": ["string"]
+            }
+          }
+        },
+        "minLength": {
+          "properties": {
+            "type": {
+              "enum": ["string"]
+            }
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "type": {"enum": ["boolean"] }
+          }
+        },
+        {
+          "properties": {
+            "type": {"enum": ["string"] }
+          },
+          "required": ["minLength", "maxLength"]
+        },
+        {
+          "properties": {
+            "type": {"enum": ["number"] }
+          },
+          "required": ["minimum", "maximum"]
+        }
+      ]
+    },
     "BlockType": {
       "$id": "/properties/type",
       "type": "string",
@@ -73,14 +198,53 @@
         "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
       "enum": ["twig", "mustache", "php-twig"]
     },
-    "UISchema": {
+    "UIPropertyBasicTypes": {
+      "enum": [ "number", "string", "boolean" ]
+    },
+    "UIInputFormat": {
+      "enum": [ "email", "text", "date" ]
+    },
+    "UISection": {
       "type": "object",
+      "title": "UI configuration contract group",
+      "description": "Define configuration set contract",
+      "required": [ "properties", "title" ],
+      "properties": {
+        "title": {
+          "description": "Title of form tab to display PageBuilder",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of form tab. Example: 'Server administration configuration'",
+          "type": "string"
+        },
+        "required": {
+          "description": "list mandatory configuration field",
+          "$ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
+        },
+        "properties": {
+          "minProperties": 1,
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Props"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UISchema": {
       "title": "UISchema declaration",
-      "description":
-        "Specify in UISchema format how the parameters should be rendered in PageBuilder. See https://github.com/mozilla-services/react-jsonschema-form",
-      "properties": {},
-      "additionalProperties": true,
-      "maxProperties": 100
+      "description": "Specify in UISchema format how the parameters should be rendered in PageBuilder.",
+      "type": "object",
+      "properties": {
+        "sections": {
+          "type": "array",
+          "description": "list of configuration set contract. Allows configuration to be consolidated by interest",
+          "items": { "$ref": "#/definitions/UISection" },
+          "default": []
+        }
+      },
+      "additionalProperties": false
     },
     "BlockProviderConfig": {
       "definitions": {},
