@@ -201,6 +201,153 @@ describe('BlockConfig', () => {
         });
     });
 
+    it('throw an error if UI section has unknown properties', () => {
+
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Technique",
+                    "unknownProperty": false,
+                    "properties": {
+                      "role": {
+                        "description": "Role à qui reviendra la charge d'éditer ce block",
+                        "type": "string",
+                        "title": "Role",
+                        "enum": ["ADMIN", "WEBMASTER", "ANONYME"],
+                        "minLength": 0,
+                        "maxLength": 10
+                      }
+                    },
+                    required: [ 'role' ]
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: [],
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toHaveLength(1);
+      expect(validate.errors[0]).toMatchObject(
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0]",
+          "keyword": "additionalProperties",
+          "params": { "additionalProperty": "unknownProperty" } });
+    });
+
+    it('throw an error if UI has unknown properties', () => {
+
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                "unknownProperty": false,
+                sections: [
+                  {
+                    "title": "Technique",
+                    "properties": {
+                      "role": {
+                        "description": "Role à qui reviendra la charge d'éditer ce block",
+                        "type": "string",
+                        "title": "Role",
+                        "enum": ["ADMIN", "WEBMASTER", "ANONYME"],
+                        "minLength": 0,
+                        "maxLength": 10
+                      }
+                    },
+                    required: [ 'role' ]
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: [],
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toHaveLength(1);
+      expect(validate.errors[0]).toMatchObject(
+        { "dataPath": ".configurations[0].endpoint.ui",
+          "keyword": "additionalProperties",
+          "params": { "additionalProperty": "unknownProperty" } });
+    });
+
+    it('throw an error if UI section property has unknown properties', () => {
+
+      const isValid = validate({
+        name: 'cms-block-provider-empty',
+        type: 'Display',
+        labels: [],
+        configurations: [
+          {
+            version: '1.0.0',
+            endpoint: {
+              url: 'http://cms-block-provider-meteo/weather-forecast/{inseeCode}',
+              method: 'GET',
+              pure: false,
+              parameters: [],
+              ui: {
+                sections: [
+                  {
+                    "title": "Technique",
+                    "properties": {
+                      "role": {
+                        "description": "Role à qui reviendra la charge d'éditer ce block",
+                        "type": "string",
+                        "title": "Role",
+                        "enum": ["ADMIN", "WEBMASTER", "ANONYME"],
+                        "minLength": 0,
+                        "maxLength": 10,
+                        "unknownProperty": false
+                      }
+                    },
+                    required: [ 'role' ]
+                  }
+                ]
+              }
+            },
+            templates: [],
+            external: {
+              parameters: [],
+            },
+          },
+        ],
+      });
+      expect(isValid).toBe(false);
+      expect(validate.errors).toHaveLength(1);
+      expect(validate.errors[0]).toMatchObject(
+        { "dataPath": ".configurations[0].endpoint.ui.sections[0].properties['role']",
+          "keyword": "additionalProperties",
+          "params": { "additionalProperty": "unknownProperty" } });
+    });
+
     it('throw an error if UI section has unexpected property', () => {
       const isValid = validate({
         name: 'cms-block-provider-empty',
