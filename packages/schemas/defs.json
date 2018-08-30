@@ -58,9 +58,10 @@
         "meteo/meteo--detail"
       ]
     },
-    "Props": {
+    "UIProperty": {
       "type": "object",
       "required": ["type", "description", "title"],
+      "additionalProperties": false,
       "properties": {
         "type": {
           "description": "basic type of configuration field",
@@ -226,7 +227,7 @@
           "minProperties": 1,
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Props"
+            "$ref": "#/definitions/UIProperty"
           }
         }
       },
