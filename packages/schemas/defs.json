@@ -58,6 +58,51 @@
         "meteo/meteo--detail"
       ]
     },
+    "UIRepresentationPropertyConfiguration": {
+      "description": "Extend ui configuration field with pure UserInterface representation configuration (exemple specify placeholder from standard component, use slider component to set number instead simple number input, use color picker component to set string or yet use external widget).",
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "oneOf": [
+        {
+          "required": ["widget"],
+          "not": {"required": ["component"]}
+        },
+        {
+          "required": ["component"],
+          "not": {"required": ["widget"]}
+        }
+      ],
+      "properties": {
+        "widget": {
+          "description": "Specify widget to use. Widget is similar to a component except it is owned by a BlockProvider and is not part of the standard components available in the platform.",
+          "additionalProperties": false,
+          "required": ["name", "version"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "name of widget to use for this configuration field."
+            },
+            "version": {
+              "type": "string",
+              "description": "version of widget."
+            }
+          }
+        },
+        "component": {
+          "description": "Allow to extend component configuration with representation parameters (example: placeholder) or to use another component than the default one.",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [ "slider" ],
+              "description": "name of component to use for this configuration field (example: slider)"
+            }
+          }
+        }
+      }
+    },
     "UIProperty": {
       "type": "object",
       "required": ["type", "description", "title"],
@@ -111,6 +156,7 @@
             }
           ]
         },
+        "x-ui-configuration": { "$ref": "#/definitions/UIRepresentationPropertyConfiguration" },
         "default": {}
       },
       "dependencies": {
