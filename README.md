@@ -20,3 +20,13 @@ npm install
 * **Validate your BlockProvider** [online](/packages/validator-server) or from
   your [laptop with the CLI](/packages/validator-cli)
 * [Schemas documentation](/packages/documentation)
+
+
+## Rules
+
+- A block should not have it's own CSS, JS, fonts but leverage [SipaUI components](https://github.com/Ouest-France/SipaUI)
+
+... if you really have to (and hope to pass our platform validation team)
+
+- every CSS class names & ids must be prefixed by your block-provider name
+- JavaScript code must not conflict with other code, block with global variable
