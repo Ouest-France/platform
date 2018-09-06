@@ -30,3 +30,7 @@ npm install
 
 - every CSS class names & ids must be prefixed by your block-provider name
 - JavaScript code must not conflict with other code, block with global variable
+
+## How do I update my block ?
+
+Block are immutable — including their parameters configuration/templates/CSS/JS/fonts assets). If you update any part of it (e.g. change a CSS, a parameter, a template) then you will have to update the version number (follow [semver](https://semver.org)) and submit again the block-provider to the platform for validation 
