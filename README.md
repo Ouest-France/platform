@@ -31,6 +31,7 @@ npm install
 - every CSS class names & ids must be prefixed by your block-provider name
 - JavaScript code must not conflict with other code, block with global variable
 - a block's JavaScript files will be concatained and loaded asynchronously
+- a block-provider should respond in less XXXms
 
 ## How do I update my block ?
 
