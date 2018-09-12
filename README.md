@@ -20,3 +20,18 @@ npm install
 * **Validate your BlockProvider** [online](/packages/validator-server) or from
   your [laptop with the CLI](/packages/validator-cli)
 * [Schemas documentation](/packages/documentation)
+
+
+## Rules
+
+- A block should not have it's own CSS, JS, fonts but leverage [SipaUI components](https://github.com/Ouest-France/SipaUI)
+
+... if you really have to (and hope to pass our platform validation team)
+
+- every CSS class names & ids must be prefixed by your block-provider name
+- JavaScript code must not conflict with other code, block with global variable
+- a block's JavaScript files will be concatained and loaded asynchronously
+
+## How do I update my block ?
+
+Block are immutable — including their parameters configuration/templates/CSS/JS/fonts assets). If you update any part of it (e.g. change a CSS, a parameter, a template) then you will have to update the version number (follow [semver](https://semver.org)) and submit again the block-provider to the platform for validation 

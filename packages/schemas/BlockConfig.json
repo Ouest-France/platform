@@ -196,10 +196,7 @@
           },
           "external": {
             "type": "object",
-            "required": [
-              "parameters",
-              "ui"
-            ],
+            "required": ["parameters"],
             "properties": {
               "parameters": {
                 "type": "array",
@@ -207,9 +204,6 @@
                   "type": "string",
                   "title": "Parameter"
                 }
-              },
-              "ui": {
-                "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
               },
               "headers": {
                 "type": "array",
