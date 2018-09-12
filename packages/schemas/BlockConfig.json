@@ -1,80 +1,89 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id":
-    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
   "type": "object",
   "title": "BlockConfig",
-  "description":
-    "Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du PageBuilder.",
-  "required": ["name", "type", "labels", "configurations"],
+  "description": "Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du PageBuilder.",
+  "required": [
+    "name",
+    "type",
+    "labels",
+    "configurations"
+  ],
   "properties": {
     "name": {
-      "$ref":
-        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockName"
+      "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockName"
     },
     "type": {
-      "$ref":
-        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockType"
+      "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockType"
     },
     "labels": {
-      "$ref":
-        "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
+      "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
     },
     "configurations": {
       "type": "array",
       "minItems": 1,
-      "maxItems": 10,
+      "maxItems": 100,
       "title": "Configurations possible du Block",
-      "description":
-        "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
+      "description": "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
       "items": {
         "type": "object",
-        "required": ["version"],
+        "required": [
+          "version"
+        ],
         "properties": {
           "version": {
-            "$ref":
-              "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BasicSemVer"
+            "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BasicSemVer"
           },
           "endpoint": {
             "type": "object",
-            "required": ["url", "method", "pure", "parameters", "ui"],
+            "required": [
+              "url",
+              "method",
+              "pure",
+              "parameters",
+              "ui"
+            ],
             "properties": {
               "url": {
                 "type": "string",
                 "title": "block http url",
-                "description":
-                  "The HTTP(S) address the CMS will call to retrieve the BlockJSON",
-                "examples": ["http://my.domain.com/blockprovider/block"]
+                "description": "The HTTP(S) address the CMS will call to retrieve the BlockJSON",
+                "examples": [
+                  "http://my.domain.com/blockprovider/block"
+                ]
               },
               "method": {
                 "type": "string",
                 "title": "block http method",
                 "description": "Only GET is supported right now",
-                "enum": ["GET"],
-                "examples": ["GET"]
+                "enum": [
+                  "GET"
+                ],
+                "examples": [
+                  "GET"
+                ]
               },
               "pure": {
                 "type": "boolean",
                 "title": "Block pureness",
-                "description":
-                  "If this block pure? If yes then think we can cache it **forever**",
+                "description": "If this block pure? If yes then think we can cache it **forever**",
                 "default": false,
-                "examples": ["true", "false"]
+                "examples": [
+                  "true",
+                  "false"
+                ]
               },
               "parameters": {
                 "type": "array",
-                "title":
-                  "The parameters needed to send a valid HTTP Block call.",
-                "description":
-                  "Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://github.com/OAI/OpenAPI-Specification/pull/1236)",
+                "title": "The parameters needed to send a valid HTTP Block call.",
+                "description": "Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://github.com/OAI/OpenAPI-Specification/pull/1236)",
                 "items": {
-                  "$ref":
-                    "http://swagger.io/v2/schema.json#/definitions/parameter"
+                  "$ref": "http://swagger.io/v2/schema.json#/definitions/parameter"
                 }
               },
               "ui": {
-                "$ref":
-                  "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
+                "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
               }
             }
           },
@@ -83,27 +92,33 @@
             "properties": {
               "view": {
                 "type": "object",
-                "required": ["url"],
+                "required": [
+                  "url"
+                ],
                 "properties": {
                   "url": {
                     "type": "string",
                     "title": "Block RPC view HTTP url",
-                    "description":
-                      "The HTTP(S) address the CMS will call to request the block view RPC endpoint",
-                    "examples": ["http://my.domain.com/blockprovider/block/rpc/view"]
+                    "description": "The HTTP(S) address the CMS will call to request the block view RPC endpoint",
+                    "examples": [
+                      "http://my.domain.com/blockprovider/block/rpc/view"
+                    ]
                   }
                 }
               },
               "admin": {
                 "type": "object",
-                "required": ["url"],
+                "required": [
+                  "url"
+                ],
                 "properties": {
                   "url": {
                     "type": "string",
                     "title": "Block RPC admin HTTP url",
-                    "description":
-                      "The HTTP(S) address the CMS will call to request the block admin RPC endpoint",
-                    "examples": ["http://my.domain.com/blockprovider/block/rpc/admin"]
+                    "description": "The HTTP(S) address the CMS will call to request the block admin RPC endpoint",
+                    "examples": [
+                      "http://my.domain.com/blockprovider/block/rpc/admin"
+                    ]
                   }
                 }
               }
@@ -113,28 +128,35 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["name", "labels", "engine", "source"],
+              "required": [
+                "name",
+                "labels",
+                "engine",
+                "source"
+              ],
               "properties": {
                 "name": {
                   "type": "string",
                   "title": "Theme name",
-                  "description":
-                    "Theme name, so users will be able to differentiate them in the PageBuilder app",
-                  "examples": ["default", "christmas"]
+                  "description": "Theme name, so users will be able to differentiate them in the PageBuilder app",
+                  "examples": [
+                    "default",
+                    "christmas"
+                  ]
                 },
                 "labels": {
-                  "$ref":
-                    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
+                  "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
                 },
                 "engine": {
-                  "$ref":
-                    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateEngine"
+                  "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateEngine"
                 },
                 "source": {
                   "type": "string",
                   "title": "Template source",
                   "description": "Inlined template content",
-                  "examples": ["<section>Hello {{ name }}</section>"]
+                  "examples": [
+                    "<section>Hello {{ name }}</section>"
+                  ]
                 },
                 "assets": {
                   "type": "object",
@@ -150,24 +172,21 @@
                       "type": "array",
                       "items": {
                         "title": "Css assets",
-                        "description":
-                          "This accepts anything, as long as it's valid JSON."
+                        "description": "This accepts anything, as long as it's valid JSON."
                       }
                     },
                     "fonts": {
                       "type": "array",
                       "items": {
                         "title": "Fonts assets",
-                        "description":
-                          "This accepts anything, as long as it's valid JSON."
+                        "description": "This accepts anything, as long as it's valid JSON."
                       }
                     },
                     "images": {
                       "type": "array",
                       "items": {
                         "title": "Images assets",
-                        "description":
-                          "This accepts anything, as long as it's valid JSON."
+                        "description": "This accepts anything, as long as it's valid JSON."
                       }
                     }
                   }
@@ -177,67 +196,47 @@
           },
           "external": {
             "type": "object",
-            "required": ["parameters", "ui"],
+            "required": [
+              "parameters",
+              "ui"
+            ],
             "properties": {
               "parameters": {
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "title": "The 0 Schema.",
-                  "description": "An explanation about the purpose of this instance.",
-                  "default": "",
-                  "examples": [
-                    "see OpenAPI Parameters / JSON Schema Specification Wright Draft 00 (aka Draft 5)"
-                  ]
+                  "title": "Parameter"
                 }
               },
               "ui": {
-                "$ref":
-                  "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
+                "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema"
               },
               "headers": {
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "title": "The 0 Schema.",
-                  "description": "An explanation about the purpose of this instance.",
-                  "default": "",
-                  "examples": ["String"]
+                  "title": "Header"
                 }
               },
               "head": {
-                "type": "object",
-                "properties": {
-                  "links": {
-                    "type": "array",
-                    "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "type": "string",
+                      "title": "Tag"
+                    },
+                    "attributes": {
                       "type": "object",
-                      "properties": {
-                        "rel": {
-                          "type": "string",
-                          "title": "The Rel Schema.",
-                          "description":
-                            "An explanation about the purpose of this instance.",
-                          "default": "",
-                          "examples": ["String"]
-                        }
+                      "title": "Attributes",
+                      "additionalProperties": {
+                        "type": "string"
                       }
-                    }
-                  },
-                  "meta": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "title": "The Name Schema.",
-                          "description":
-                            "An explanation about the purpose of this instance.",
-                          "default": "",
-                          "examples": ["String"]
-                        }
-                      }
+                    },
+                    "body": {
+                      "type": "string",
+                      "title": "Body"
                     }
                   }
                 }

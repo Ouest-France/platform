@@ -1,3 +1,6 @@
 lerna-debug.log
 node_modules/
+.idea/
+../package-lock.json
+.Store_DS/
 
