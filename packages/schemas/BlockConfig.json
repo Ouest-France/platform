@@ -7,7 +7,6 @@
   "required": [
     "name",
     "type",
-    "labels",
     "configurations"
   ],
   "properties": {
@@ -130,7 +129,6 @@
               "type": "object",
               "required": [
                 "name",
-                "labels",
                 "engine",
                 "source"
               ],
