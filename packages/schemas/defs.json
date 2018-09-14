@@ -219,14 +219,12 @@
         {
           "properties": {
             "type": {"enum": ["string"] }
-          },
-          "required": ["minLength", "maxLength"]
+          }
         },
         {
           "properties": {
             "type": {"enum": ["number"] }
-          },
-          "required": ["minimum", "maximum"]
+          }
         }
       ]
     },
