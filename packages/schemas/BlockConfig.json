@@ -196,7 +196,7 @@
           },
           "external": {
             "type": "object",
-            "required": ["parameters"],
+            "required": [],
             "properties": {
               "parameters": {
                 "type": "array",
