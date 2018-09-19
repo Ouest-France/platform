@@ -88,10 +88,20 @@ Exemple Mustache :
 - Endpoint HTTP permettant d'accéder à des informations contextuelles lors du rendu du Block
 - Formulaire de paramétrage permettant de fournir des données d'entrée au Block (ces données peuvent être à destination des templates)
 
-
 Exemple : [Block Meteo](blockprovider-example-meteo/BlockProviderConfig.json)
 
 Remarque : l'ensemble des propriétés du contrat Block sont présentées [ici](documentation/BlockConfig.md)
+
+## UI
+
+Le contrat de Block contient notamment un élément "ui". Cet élément décrit le formulaire HTML, affiché au sein de l'éditeur de pages Ouest France, destiné
+à la configuration du Block.
+
+Ce formulaire doit respecter la [spécification suivante](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/UISchema).
+
+Remarque : l'item "section" modèlise un onglet. Il est possible d'en fournir plusieurs si vous désirez fournir plusieurs familles de paramètres.
+
+## BlockData
 
 La réponse BlockData (ie. réponse du Endpoint Block) doit respecter le format suivant [BlockJSON](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json) :
 
@@ -103,7 +113,7 @@ La réponse BlockData (ie. réponse du Endpoint Block) doit respecter le format 
 Un BlockProvider est le nom donné aux partenaires Ouest France fournissant des Blocks. Un BlockProvider doit fournir un 
 endpoint fournissant l'ensemble des contrats de Blocks dont il a la charge.
 
-La définition d'un BlockProvider est définie dans le JSON Schema [suivant](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockProviderConfig.json).
+La définition d'un BlockProvider est définie dans le [JSON Schema suivant](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockProviderConfig.json).
 
 Exemple : Block Meteo
 
@@ -121,6 +131,9 @@ Exemple : Block Meteo
 }
 ]
 ~~~
+
+En tant que BlockProvider, vous devez fournir un endpoint HTTP(S) fournissant au CMS Ouest France la défintion complète
+de vos Blocks : c'est le point de liaison entre vous et Ouest France.
 
 # Validation d'un Block
 
