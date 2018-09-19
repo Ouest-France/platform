@@ -53,7 +53,7 @@ Les données sous format clé/valeur nécessaires à l’alimentation des placeh
 
 **external data**
 
-Définit ce qui est disponible pour d’autres composants du CMS.
+Définit ce qui est disponible pour d’autres composants du CMS (doit contenir tous les éléments exposés dans le BlockData en externe).
 
 *Type*: object
 

@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Meteo",
+    "type": "Navigation",
+    "labels": [],
+    "configurations": [
+      {
+        "version": "1.0.0",
+        "endpoint": {
+          "url": "https://mameteo.fr",
+          "method": "GET",
+          "pure": true,
+          "parameters": [
+            {
+              "name": "latitude",
+              "description": "latitude de la ville ciblée",
+              "required": true,
+              "type": "number",
+              "in": "query",
+              "minimum": -90,
+              "maximum": 90
+            },
+            {
+              "name": "longitude",
+              "description": "longitude de la ville ciblée",
+              "required": true,
+              "type": "number",
+              "in": "query",
+              "minimum": -180,
+              "maximum": 180
+            }
+          ],
+          "ui": {
+            "sections": [
+              {
+                "title": "Paramètres",
+                "properties": {
+                  "latitude": {
+                    "title": "Latitude",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "title": "Longitude",
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "templates": [
+          {
+            "name": "default",
+            "source": "<div><h1>Meteo de {{city}} du {{ date }}</h1><p>{{meteo}}</p></div>",
+            "engine": "mustache",
+            "assets": {
+              "js": [
+                "https://mameteo.fr/assets/meteo.js"
+              ],
+              "css": [
+                "https://mameteo.fr/assets/meteo-default.css",
+                "https://mameteo.fr/assets/meteo-small.css"
+              ],
+              "fonts": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

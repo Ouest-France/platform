@@ -3,7 +3,7 @@
   "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json",
   "type": "object",
   "title": "BlockConfig",
-  "description": "Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du PageBuilder.",
+  "description": "BlockConfig determines the Block properties",
   "required": [
     "name",
     "type",
@@ -23,8 +23,8 @@
       "type": "array",
       "minItems": 1,
       "maxItems": 100,
-      "title": "Configurations possible du Block",
-      "description": "Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.",
+      "title": "Block configurations",
+      "description": "Block configurations",
       "items": {
         "type": "object",
         "required": [
@@ -48,35 +48,26 @@
                 "type": "string",
                 "title": "block http url",
                 "description": "The HTTP(S) address the CMS will call to retrieve the BlockJSON",
-                "examples": [
-                  "http://my.domain.com/blockprovider/block"
-                ]
+                "examples": ["http://my.domain.com/blockprovider/block"]
               },
               "method": {
                 "type": "string",
                 "title": "block http method",
                 "description": "Only GET is supported right now",
-                "enum": [
-                  "GET"
-                ],
-                "examples": [
-                  "GET"
-                ]
+                "enum": ["GET"],
+                "examples": ["GET"]
               },
               "pure": {
                 "type": "boolean",
-                "title": "Block pureness",
-                "description": "If this block pure? If yes then think we can cache it **forever**",
+                "title": "Block purity",
+                "description": "Defines the Block data cache policy : if pure=true, data are put in cache for 1 hour ; if pure=false, the endpoint is called by CMS for every rendering (ie. no cache)",
                 "default": false,
-                "examples": [
-                  "true",
-                  "false"
-                ]
+                "examples": ["true", "false"]
               },
               "parameters": {
                 "type": "array",
                 "title": "The parameters needed to send a valid HTTP Block call.",
-                "description": "Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://github.com/OAI/OpenAPI-Specification/pull/1236)",
+                "description": "Paramètres HTTP à positionner lors des appels au endpoint",
                 "items": {
                   "$ref": "http://swagger.io/v2/schema.json#/definitions/parameter"
                 }
@@ -88,28 +79,23 @@
           },
           "rpc": {
             "type": "object",
+            "description" : "RPC defines admin a/o rendering endpoint (please contact Ouest France for further explanations on this feature)",
             "properties": {
               "view": {
                 "type": "object",
-                "required": [
-                  "url"
-                ],
+                "required": ["url"],
                 "properties": {
                   "url": {
                     "type": "string",
                     "title": "Block RPC view HTTP url",
                     "description": "The HTTP(S) address the CMS will call to request the block view RPC endpoint",
-                    "examples": [
-                      "http://my.domain.com/blockprovider/block/rpc/view"
-                    ]
+                    "examples": ["http://my.domain.com/blockprovider/block/rpc/view"]
                   }
                 }
               },
               "admin": {
                 "type": "object",
-                "required": [
-                  "url"
-                ],
+                "required": ["url"],
                 "properties": {
                   "url": {
                     "type": "string",
@@ -135,8 +121,8 @@
               "properties": {
                 "name": {
                   "type": "string",
-                  "title": "Theme name",
-                  "description": "Theme name, so users will be able to differentiate them in the PageBuilder app",
+                  "title": "Template name",
+                  "description": "Template name (so users can differentiate templates in the front client)",
                   "examples": [
                     "default",
                     "christmas"
@@ -163,28 +149,28 @@
                       "type": "array",
                       "items": {
                         "title": "Js assets",
-                        "description": "-"
+                        "description": "JS URL"
                       }
                     },
                     "css": {
                       "type": "array",
                       "items": {
                         "title": "Css assets",
-                        "description": "This accepts anything, as long as it's valid JSON."
+                        "description": "CSS URL"
                       }
                     },
                     "fonts": {
                       "type": "array",
                       "items": {
                         "title": "Fonts assets",
-                        "description": "This accepts anything, as long as it's valid JSON."
+                        "description": "Font URL"
                       }
                     },
                     "images": {
                       "type": "array",
                       "items": {
                         "title": "Images assets",
-                        "description": "This accepts anything, as long as it's valid JSON."
+                        "description": "Image URL - this type of assets if deprecated - please do not use it"
                       }
                     }
                   }
@@ -200,35 +186,42 @@
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "title": "Parameter"
+                  "title": "External parameter",
+                  "description" : "External parameter exposed by the Block (ie. exposed to the other Blocks of the page)"
                 }
               },
               "headers": {
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "title": "Header"
+                  "title": "Header",
+                  "description": "Header to set in the HTTP Response"
                 }
               },
               "head": {
                 "type": "array",
                 "items": {
                   "type": "object",
+                  "title": "Head HTML tag",
+                  "description": "HTML Tag to position in the <head> section of the page",
                   "properties": {
                     "tag": {
                       "type": "string",
-                      "title": "Tag"
+                      "title": "Tag",
+                      "description": "Tag name"
                     },
                     "attributes": {
                       "type": "object",
                       "title": "Attributes",
+                      "description": "Attributes",
                       "additionalProperties": {
                         "type": "string"
                       }
                     },
                     "body": {
                       "type": "string",
-                      "title": "Body"
+                      "title": "Body",
+                      "description": "Tag body"
                     }
                   }
                 }

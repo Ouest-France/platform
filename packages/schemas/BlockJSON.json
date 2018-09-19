@@ -28,7 +28,7 @@
       "type": "object",
       "title": "external data",
       "description":
-        "Définit ce qui est disponible pour d’autres composants du CMS.",
+        "Définit ce qui est disponible pour d’autres composants du CMS (doit contenir tous les éléments exposés dans le BlockData en externe).",
       "properties": {
         "data": {
           "type": "object",

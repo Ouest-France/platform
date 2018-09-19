@@ -1,6 +1,6 @@
 # BlockConfig
 
-Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du PageBuilder.
+BlockConfig determines the Block properties
 
 ### Example
 
@@ -9,12 +9,14 @@ Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du Pa
   "configurations": [
     {
       "endpoint": {
-        "url": "",
-        "method": "",
         "pure": false,
         "parameters": [
           {}
         ]
+      },
+      "rpc": {
+        "view": {},
+        "admin": {}
       },
       "templates": [
         {
@@ -33,29 +35,20 @@ Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du Pa
             ]
           }
         }
-      ]
-    }
-  ],
-  "external": {
-    "parameters": [
-      {}
-    ],
-    "headers": [
-      {}
-    ],
-    "head": {
-      "links": [
-        {
-          "rel": ""
-        }
       ],
-      "meta": [
-        {
-          "name": ""
-        }
-      ]
+      "external": {
+        "parameters": [
+          {}
+        ],
+        "headers": [
+          {}
+        ],
+        "head": [
+          {}
+        ]
+      }
     }
-  }
+  ]
 }
 ```
 
@@ -70,9 +63,9 @@ Le BlockConfig permet de spécifier au CMS les Blocks à exposer au niveau du Pa
 
 ### `.configurations`
 
-**Configurations possible du Block**
+**Block configurations**
 
-Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À tout moment il ne peut y avoir plus de `maxItems` configurations simultanément disponible pour un Block.
+Block configurations
 
 *Type*: array
 
@@ -96,25 +89,25 @@ Cela définit ce qui est nécessaire pour le rendering du Block par le CMS. À t
 
 ### `.configurations[].endpoint.url`
 
-**The Url Schema.**
+**block http url**
 
-An explanation about the purpose of this instance.
+The HTTP(S) address the CMS will call to retrieve the BlockJSON
 
 *Type*: string
 
 ### `.configurations[].endpoint.method`
 
-**The Method Schema.**
+**block http method**
 
-Note : pour le moment uniquement GET est supporté
+Only GET is supported right now
 
 *Type*: string
 
 ### `.configurations[].endpoint.pure`
 
-**Block pureness**
+**Block purity**
 
-An explanation about the purpose of this instance.
+Defines the Block data cache policy : if pure=true, data are put in cache for 1 hour ; if pure=false, the endpoint is called by CMS for every rendering (ie. no cache)
 
 *Type*: boolean
 
@@ -122,13 +115,53 @@ An explanation about the purpose of this instance.
 
 **The parameters needed to send a valid HTTP Block call.**
 
-Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://github.com/OAI/OpenAPI-Specification/pull/1236)
+Paramètres HTTP à positionner lors des appels au endpoint
 
 *Type*: array
 
 ### `.configurations[].endpoint.parameters[]`
 
 ### `.configurations[].endpoint.ui`
+
+### `.configurations[].rpc`
+
+
+
+RPC defines admin a/o rendering endpoint (please contact Ouest France for further explanations on this feature)
+
+*Type*: object
+
+### `.configurations[].rpc.view`
+
+
+
+
+
+*Type*: object
+
+### `.configurations[].rpc.view.url`
+
+**Block RPC view HTTP url**
+
+The HTTP(S) address the CMS will call to request the block view RPC endpoint
+
+*Type*: string
+
+### `.configurations[].rpc.admin`
+
+
+
+
+
+*Type*: object
+
+### `.configurations[].rpc.admin.url`
+
+**Block RPC admin HTTP url**
+
+The HTTP(S) address the CMS will call to request the block admin RPC endpoint
+
+*Type*: string
 
 ### `.configurations[].templates`
 
@@ -148,9 +181,9 @@ Relies on OpenAPI v2.0 because v3.0 is missing official JSON Schema (https://git
 
 ### `.configurations[].templates[].name`
 
-**Theme name**
+**Template name**
 
-Theme name, so users will be able to differentiate them from within the PageBuilder
+Template name (so users can differentiate templates in the front client)
 
 *Type*: string
 
@@ -184,9 +217,9 @@ Inlined template content
 
 ### `.configurations[].templates[].assets.js[]`
 
-**Empty Object**
+**Js assets**
 
-This accepts anything, as long as it's valid JSON.
+JS URL
 
 ### `.configurations[].templates[].assets.css`
 
@@ -198,9 +231,9 @@ This accepts anything, as long as it's valid JSON.
 
 ### `.configurations[].templates[].assets.css[]`
 
-**Empty Object**
+**Css assets**
 
-This accepts anything, as long as it's valid JSON.
+CSS URL
 
 ### `.configurations[].templates[].assets.fonts`
 
@@ -212,9 +245,9 @@ This accepts anything, as long as it's valid JSON.
 
 ### `.configurations[].templates[].assets.fonts[]`
 
-**Empty Object**
+**Fonts assets**
 
-This accepts anything, as long as it's valid JSON.
+Font URL
 
 ### `.configurations[].templates[].assets.images`
 
@@ -226,11 +259,11 @@ This accepts anything, as long as it's valid JSON.
 
 ### `.configurations[].templates[].assets.images[]`
 
-**Empty Object**
+**Images assets**
 
-This accepts anything, as long as it's valid JSON.
+Image URL - this type of assets if deprecated - please do not use it
 
-### `.external`
+### `.configurations[].external`
 
 
 
@@ -238,7 +271,7 @@ This accepts anything, as long as it's valid JSON.
 
 *Type*: object
 
-### `.external.parameters`
+### `.configurations[].external.parameters`
 
 
 
@@ -246,17 +279,15 @@ This accepts anything, as long as it's valid JSON.
 
 *Type*: array
 
-### `.external.parameters[]`
+### `.configurations[].external.parameters[]`
 
-**The 0 Schema.**
+**External parameter**
 
-An explanation about the purpose of this instance.
+External parameter exposed by the Block (ie. exposed to the other Blocks of the page)
 
 *Type*: string
 
-### `.external.ui`
-
-### `.external.headers`
+### `.configurations[].external.headers`
 
 
 
@@ -264,23 +295,15 @@ An explanation about the purpose of this instance.
 
 *Type*: array
 
-### `.external.headers[]`
+### `.configurations[].external.headers[]`
 
-**The 0 Schema.**
+**Header**
 
-An explanation about the purpose of this instance.
+Header to set in the HTTP Response
 
 *Type*: string
 
-### `.external.head`
-
-
-
-
-
-*Type*: object
-
-### `.external.head.links`
+### `.configurations[].external.head`
 
 
 
@@ -288,42 +311,42 @@ An explanation about the purpose of this instance.
 
 *Type*: array
 
-### `.external.head.links[]`
+### `.configurations[].external.head[]`
 
+**Head HTML tag**
 
-
-
+HTML Tag to position in the <head> section of the page
 
 *Type*: object
 
-### `.external.head.links[].rel`
+### `.configurations[].external.head[].tag`
 
-**The Rel Schema.**
+**Tag**
 
-An explanation about the purpose of this instance.
+Tag name
 
 *Type*: string
 
-### `.external.head.meta`
+### `.configurations[].external.head[].attributes`
 
+**Attributes**
 
-
-
-
-*Type*: array
-
-### `.external.head.meta[]`
-
-
-
-
+Attributes
 
 *Type*: object
 
-### `.external.head.meta[].name`
+### `.configurations[].external.head[].attributesadditionalProperties`
 
-**The Name Schema.**
 
-An explanation about the purpose of this instance.
+
+
+
+*Type*: string
+
+### `.configurations[].external.head[].body`
+
+**Body**
+
+Tag body
 
 *Type*: string
