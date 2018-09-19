@@ -172,7 +172,7 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 
 ## Consignes
 
-Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des composants SipaUI ... si vous le devez vraiment (et espérez passer la validation de notre équipe plateforme) :
+Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
 
 - Chaque sélecteur CSS doit être préfixé par "bp-<nom_block>"
 
