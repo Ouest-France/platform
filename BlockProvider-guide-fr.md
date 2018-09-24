@@ -88,9 +88,9 @@ Exemple Mustache :
 - Endpoint HTTP permettant d'accéder à des informations contextuelles lors du rendu du Block
 - Formulaire de paramétrage permettant de fournir des données d'entrée au Block (ces données peuvent être à destination des templates)
 
-Exemple : [Block Meteo](blockprovider-example-meteo/BlockProviderConfig.json)
+Exemple : [Block Meteo](packages/blockprovider-example-meteo/BlockProviderConfig.json)
 
-Remarque : l'ensemble des propriétés du contrat Block sont présentées [ici](documentation/BlockConfig.md)
+Remarque : l'ensemble des propriétés du contrat Block sont présentées [ici](packages/documentation/BlockConfig.md)
 
 ## UI
 
@@ -106,7 +106,12 @@ Remarque : l'item "section" modèlise un onglet. Il est possible d'en fournir pl
 La réponse BlockData (ie. réponse du Endpoint Block) doit respecter le format suivant [BlockJSON](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json) :
 
 - la section "internal" contient toutes des données utilisées au sein du template
-- la section "external" contient toutes des données utilisées au sein du template ET exposées aux autres Blocks de la page courante du Block
+- la section "external" contient toutes des données exposées aux autres Blocks de la page courante du Block
+
+Remarques :
+    
+    - external peut également contenir des items head (ie. sections <head> insérées au sein de la page HTML) ou des items header (ie. entêtes HTTP insérées au sein de la réponse HTTP)
+    - les items external doivent également être déclarés dans le contrat afin d'informer le CMS des informations publiques des Blocks (cf. [external](https://github.com/Ouest-France/platform/blob/master/packages/documentation/BlockConfig.md#configurationsexternal))
 
 # BlockProvider
 
@@ -185,9 +190,8 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 
 ## Consignes
 
-Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
-
-- Chaque sélecteur CSS doit être préfixé par "bp-<nom_block>"
+- Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
+ chaque sélecteur CSS doit être préfixé par "bp-<nom_block>".
 
 Exemple : .bp-meteo .moteur-recherche{position:relative}
 
@@ -200,6 +204,7 @@ Exemple : .bp-meteo .moteur-recherche{position:relative}
 }());
 ~~~
 
-- Un BlockProvider doit répondre en moins de 150 ms lors de la phase de rendu, si vous ne répondez pas assez vite, votre Block ne sera pas rendu 
-- Un Block doit être responsive
-
+- Un BlockProvider doit répondre en moins de 150 ms lors de la phase de rendu, si vous ne répondez pas assez vite, votre Block ne sera pas rendu. 
+- Un Block doit être responsive.
+- Un Block ne doit pas contenir (sauf contre-avis de notre équipe validation) de sections titre HTML (ie. tags \<h1\> à \<h6\>) car ces dernières sont réservées pour notre équipe SEO. 
+- L'ensemble des endpoints liés à un Block (BlockConfig, BlockData, liens internes ...) doivent être chiffrés (ie. HTTPS)

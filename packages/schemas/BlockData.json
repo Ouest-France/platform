@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockData.json",
+  "type": "object",
+  "title": "BlockData response format",
+  "description": "response format when the CMS calls a BlockProvider. BlockData is the response received by CMS when it interrogates a Block.",
+  "required": ["internal", "external"],
+  "properties": {
+    "internal": {
+      "type": "object",
+      "title": "internal data",
+      "description": "internal Data exposed for the corresponding specified BlockConfig template. Internal data are useful for template rendering",
+      "required": ["data"],
+      "properties": {
+        "data": {
+          "type": "object",
+          "title": "key/value data",
+          "description": "key/value data",
+          "additionalProperties": true
+        }
+      }
+    },
+    "external": {
+      "type": "object",
+      "title": "external data",
+      "description": "external data exposed to the other Blocks (data) and to the Page (head/headers)",
+      "properties": {
+        "data": {
+          "type": "object",
+          "title": "key/value data",
+          "description": "key/value data",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "headers": {
+          "type": "array",
+          "title": "key/value data",
+          "description": "exposed HTTP response Headers (only managed by Site-typed Blocks)",
+          "items": {
+            "type": "object",
+            "properties": {},
+            "maxProperties": 99,
+            "additionalProperties": true
+          }
+        },
+        "head": {
+          "type": "object",
+          "title": "items to add to the <head> section",
+          "description": "items to add to the <head> section (only managed by Site-typed Blocks)",
+          "properties": {
+            "links": {
+              "type": "array",
+              "description": "links",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rel": {
+                    "type": "string",
+                    "title": "rel"
+                  },
+                  "href": {
+                    "type": "string",
+                    "title": "href"
+                  }
+                }
+              }
+            },
+            "meta": {
+              "type": "array",
+              "title": "meta",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "name"
+                  },
+                  "content": {
+                    "type": "string",
+                    "title": "content"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

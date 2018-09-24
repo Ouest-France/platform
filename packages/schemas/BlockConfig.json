@@ -46,7 +46,7 @@
             "properties": {
               "url": {
                 "type": "string",
-                "title": "block http url",
+                "title": "Block http URL",
                 "description": "The HTTP(S) address the CMS will call to retrieve the BlockJSON",
                 "examples": ["http://my.domain.com/blockprovider/block"]
               },
@@ -182,7 +182,7 @@
             "type": "object",
             "required": [],
             "properties": {
-              "parameters": {
+              "data": {
                 "type": "array",
                 "items": {
                   "type": "string",
@@ -195,7 +195,7 @@
                 "items": {
                   "type": "string",
                   "title": "Header",
-                  "description": "Header to set in the HTTP Response"
+                  "description": "Header to set in the HTTP Response (only managed by Site-typed Blocks)"
                 }
               },
               "head": {
@@ -203,7 +203,7 @@
                 "items": {
                   "type": "object",
                   "title": "Head HTML tag",
-                  "description": "HTML Tag to position in the <head> section of the page",
+                  "description": "HTML Tag to position in the <head> section of the page (only managed by Site-typed Blocks)",
                   "properties": {
                     "tag": {
                       "type": "string",
@@ -211,17 +211,9 @@
                       "description": "Tag name"
                     },
                     "attributes": {
-                      "type": "object",
-                      "title": "Attributes",
-                      "description": "Attributes",
-                      "additionalProperties": {
-                        "type": "string"
-                      }
-                    },
-                    "body": {
                       "type": "string",
-                      "title": "Body",
-                      "description": "Tag body"
+                      "title": "Attributes",
+                      "description": "Attributes"
                     }
                   }
                 }

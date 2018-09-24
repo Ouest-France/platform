@@ -53,7 +53,7 @@ Les données sous format clé/valeur nécessaires à l’alimentation des placeh
 
 **external data**
 
-Définit ce qui est disponible pour d’autres composants du CMS (doit contenir tous les éléments exposés dans le BlockData en externe).
+Définit ce qui est disponible pour d’autres composants du CMS.
 
 *Type*: object
 
@@ -75,10 +75,6 @@ Les headers HTTP à exposer au CMS qui seront fusionnés avec les autres. Unique
 
 ### `.external.headers[]`
 
-
-
-
-
 *Type*: object
 
 ### `.external.head`
@@ -91,17 +87,11 @@ Cela contient les éléments qui seront à ajouter à la section head de l'html 
 
 ### `.external.head.links`
 
-
-
 Ensemble des éléments links à ajouter à la balise head de la page finale.
 
 *Type*: array
 
 ### `.external.head.links[]`
-
-
-
-
 
 *Type*: object
 
@@ -113,6 +103,8 @@ An explanation about the purpose of this instance.
 
 *Type*: string
 
+*Examples*: `valeur du rel`
+
 ### `.external.head.links[].href`
 
 **The Href Schema.**
@@ -120,6 +112,8 @@ An explanation about the purpose of this instance.
 An explanation about the purpose of this instance.
 
 *Type*: string
+
+*Examples*: `valeur du href`
 
 ### `.external.head.meta`
 
@@ -131,10 +125,6 @@ Ensemble des éléments meta à ajouter à la balise head de la page finale.
 
 ### `.external.head.meta[]`
 
-
-
-
-
 *Type*: object
 
 ### `.external.head.meta[].name`
@@ -145,6 +135,8 @@ An explanation about the purpose of this instance.
 
 *Type*: string
 
+*Examples*: `valeur du name`
+
 ### `.external.head.meta[].content`
 
 **The Content Schema.**
@@ -152,3 +144,5 @@ An explanation about the purpose of this instance.
 An explanation about the purpose of this instance.
 
 *Type*: string
+
+*Examples*: `valeur du content`

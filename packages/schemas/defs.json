@@ -49,8 +49,8 @@
     },
     "BlockName": {
       "type": "string",
-      "title": "Identifiant fonctionnel décrivant le Block",
-      "description": "Cet identifiant est unique au sein du CMS",
+      "title": "Functional ID describing the Block",
+      "description": "The functional ID must be unique for CMS",
       "default": "",
       "examples": [
         "editorial/article--list",
@@ -59,7 +59,7 @@
       ]
     },
     "UIRepresentationPropertyConfiguration": {
-      "description": "Extend ui configuration field with pure UserInterface representation configuration (exemple specify placeholder from standard component, use slider component to set number instead simple number input, use color picker component to set string or yet use external widget).",
+      "description": "Extend ui configuration field with pure UserInterface representation configuration (example : specify placeholder from standard component, use slider component to set number instead simple number input, use color picker component to set string or yet use external widget).",
       "type": "object",
       "additionalProperties": false,
       "minProperties": 1,
@@ -233,14 +233,13 @@
       "type": "string",
       "title": "Type de Block",
       "description":
-        "BlockType est un union type ayant pour valeur : Display ou Navigation.\nLes Blocks dans le CMS peuvent être catégorisé selon la typologie suivante :\n- Navigation : Block dynamique avec action utilisateur nécessitant un rechargement de la page. Ex : formulaire de recherche, pagination sur un Block d'actualité, etc.\n- Display : Block statique sans interaction avec l’utilisateur (son état ne change pas en fonction de l'URL, son état dépend uniquement de ses paramètres de configuration)",
-      "enum": ["Navigation", "Display"]
+        "BlockType can be Display, Navigation or Type.\nThe BlockType typology is :\n- Navigation : dynamic Block with user action which requires a page reloading. Example : search form, pagination for the news Block, etc.\n- Display : static Block without user interaction (no state change according to the current URL, state depends only on config parameters)\n- Site : Block attached to the site (Display/Navigation : attached to the page). Its role consists in providing metadata to all pages.",
+      "enum": ["Navigation", "Display", "Site"]
     },
     "BlockTemplateEngine": {
       "type": "string",
       "title": "Template engine",
-      "description":
-        "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
+      "description": "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
       "enum": ["twig", "mustache", "php-twig"]
     },
     "UIPropertyBasicTypes": {
