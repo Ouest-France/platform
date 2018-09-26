@@ -103,7 +103,7 @@ Remarque : l'item "section" modèlise un onglet. Il est possible d'en fournir pl
 
 ## BlockData
 
-La réponse BlockData (ie. réponse du Endpoint Block) doit respecter le format suivant [BlockJSON](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockJSON.json) :
+La réponse BlockData (ie. réponse du Endpoint Block) doit respecter le format [suivant](https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockData.json) :
 
 - la section "internal" contient toutes des données utilisées au sein du template
 - la section "external" contient toutes des données exposées aux autres Blocks de la page courante du Block
