@@ -31,58 +31,6 @@
           "description": "key/value data",
           "properties": {},
           "additionalProperties": true
-        },
-        "headers": {
-          "type": "array",
-          "title": "key/value data",
-          "description": "exposed HTTP response Headers (only managed by Site-typed Blocks)",
-          "items": {
-            "type": "object",
-            "properties": {},
-            "maxProperties": 99,
-            "additionalProperties": true
-          }
-        },
-        "head": {
-          "type": "object",
-          "title": "items to add to the <head> section",
-          "description": "items to add to the <head> section (only managed by Site-typed Blocks)",
-          "properties": {
-            "links": {
-              "type": "array",
-              "description": "links",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "rel": {
-                    "type": "string",
-                    "title": "rel"
-                  },
-                  "href": {
-                    "type": "string",
-                    "title": "href"
-                  }
-                }
-              }
-            },
-            "meta": {
-              "type": "array",
-              "title": "meta",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "title": "name"
-                  },
-                  "content": {
-                    "type": "string",
-                    "title": "content"
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
