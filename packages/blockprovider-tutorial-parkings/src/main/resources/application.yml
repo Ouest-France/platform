@@ -1,0 +1,5 @@
+api.citedia.url: http://data.citedia.com/r1/parks
+
+spring:
+  jackson:
+    default-property-inclusion: non_empty

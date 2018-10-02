@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.ouestfrance.platform</groupId>
+    <artifactId>block-parkings-rennes</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>OF::Platform::Tutorial-BlockProvider</name>
+    <description>OF::Platform::Tutorial-BlockProvider</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
+
+    <properties>
+        <api.citedia>http://data.citedia.com/r1/parks</api.citedia>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+            <version>0.25.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.5.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>0.5.1</version>
+                <configuration>
+                    <useCommonsLang3>true</useCommonsLang3>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>ouestfrance-schemas</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <sourcePaths>
+                                <sourcePath>https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockProviderConfig.json</sourcePath>
+                                <sourcePath>https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockData.json</sourcePath>
+                                <sourcePath>http://swagger.io/v2/schema.json</sourcePath>
+                            </sourcePaths>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <targetPackage>fr.ouestfrance.platform.schemas.blocprovider</targetPackage>
+                            <initializeCollections>false</initializeCollections>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>citedia-schemas</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <sourcePaths>
+                                <sourcePath>${api.citedia}</sourcePath>
+                            </sourcePaths>
+                            <sourceType>json</sourceType>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <targetPackage>fr.ouestfrance.platform.schemas.citedia</targetPackage>
+                            <initializeCollections>false</initializeCollections>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

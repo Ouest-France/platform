@@ -1,0 +1,71 @@
+.bp-parking .title {
+    font-weight: bold;
+    font-family: "helvetica";
+    padding-bottom: 10px;
+}
+
+.bp-parking .parking {
+    padding: 10px;
+    margin: 1px;
+    font-family: "helvetica";
+}
+
+.bp-parking .available {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.bp-parking .closed {
+    color: #fff;
+    background-color: #333;
+    border-color: #ccc;
+}
+
+.bp-parking .full {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.bp-parking #status {
+    position: relative;
+    float: right;
+}
+
+.bp-parking .tooltip-parking {
+    position: relative;
+}
+
+.bp-parking .tooltip-parking .tooltip-parkingtext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.bp-parking .tooltip-parking .tooltip-parkingtext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.bp-parking .tooltip-parking:hover .tooltip-parkingtext {
+    visibility: visible;
+    opacity: 1;
+}
