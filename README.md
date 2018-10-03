@@ -15,10 +15,9 @@ npm install
 ## Getting started
 
 
+* [BlockProvider Development Guide](/BlockProvider-guide-fr.md)
+* [BlockProvider Tutorial](/packages/blockprovider-tutorial-parkings)
 * [Sample of BlockProvider](/packages/blockprovider-example)
-* [Run a BlockProvider locally](/packages/blockprovider-runner)
-* **Validate your BlockProvider** [online](/packages/validator-server) or from
-  your [laptop with the CLI](/packages/validator-cli)
 * [Schemas documentation](/packages/documentation)
 
 
