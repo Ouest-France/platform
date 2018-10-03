@@ -1,3 +1,1 @@
----
-redirect_to: '../blockprovider-tutorial-parkings/README.md'
----
+Tutorial redirected [here](../blockprovider-tutorial-parkings/README.md)
