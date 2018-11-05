@@ -210,7 +210,7 @@ font-size: 10px;  est définit sur html (pour les tailles rem)
 Exemple : .bp-meteo .moteur-recherche{position:relative}
 
 - Les fichiers JS sont concaténés et chargés de manière asynchrone (ie. <script async ...>)
-- Chaque fichier JS est isolé (afin de bloquer toute variable globale) au sein de notre page :
+- L'ensemble des fichiers JS de chaque Block est isolé dans une fonction JS au sein de notre page :
 
 ```
 (function(){
