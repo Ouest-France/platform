@@ -200,9 +200,9 @@ Il fait donc partie intégrante du DOM principal.
 
 Nous vous préconisons de rester dans le flux le HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu :
 
-- float: vous pouvez mettre la classe "clearfix" à votre bloc.
-- absolute: vous devez définir une hauteur et une largeur en CSS à votre bloc
-- le fixed est un cas particulier qui aura surement d'autres problématiques
+- float : vous pouvez mettre la classe "clearfix" à votre bloc.
+- absolute : vous devez définir une hauteur et une largeur en CSS à votre bloc
+- fixed : il s'agit d'un cas particulier qui doit être évité sauf validation préalable de notre équipe dédiée
 
 Pour information, les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
 
