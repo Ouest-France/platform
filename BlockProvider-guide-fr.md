@@ -45,21 +45,21 @@ utilisateur)
 
 - Avant rendu
 
-~~~
+```
 <div>
   <h1>Meteo de {{city}} du {{ date }}</h1>
   <p>{{meteo}}</p>
 </div>
-~~~
+```
 
 - Après rendu
       
-~~~
+```
 <div>
   <h1>Meteo de Rennes du 12/06/2018</h1>
   <p>Ensoleillé</p>
 </div>
-~~~
+```
 
 ## Contrat de Block
 
@@ -74,7 +74,7 @@ Ce contrat définit les éléments suivants :
 
 Exemple Mustache :
 
-~~~
+```
 <div>
 {{#items}}
   <h1>{{title}}</h1>
@@ -83,7 +83,7 @@ Exemple Mustache :
   <p>{{guid}}</p>
 {{/items}}
 </div>
-~~~
+```
 
 - Endpoint HTTP permettant d'accéder à des informations contextuelles lors du rendu du Block
 - Formulaire de paramétrage permettant de fournir des données d'entrée au Block (ces données peuvent être à destination des templates)
@@ -122,7 +122,7 @@ La définition d'un BlockProvider est définie dans le [JSON Schema suivant](htt
 
 Exemple : Block Meteo
 
-~~~
+```
 [
 {
 "name": "Meteo",
@@ -135,7 +135,7 @@ Exemple : Block Meteo
 ...
 }
 ]
-~~~
+```
 
 En tant que BlockProvider, vous devez fournir un endpoint HTTP(S) fournissant au CMS Ouest France la défintion complète
 de vos Blocks : c'est le point de liaison entre vous et Ouest France.
@@ -171,14 +171,14 @@ plateforme Ouest France.
 
 Le versionning des Blocks doit s'appuyer sur SemVer (Semantic Versioning) :
 
-~~~
+```
 Étant donné un numéro de version MAJEUR.MINEUR.CORRECTIF, il faut incrémenter :
 
 le numéro de version MAJEUR quand il y a des changements non rétrocompatibles,
 le numéro de version MINEUR quand il y a des changements rétrocompatibles,
 le numéro de version de CORRECTIF quand il y a des corrections d’anomalies rétrocompatibles
 Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-livraison et pour des méta-données de construction sous forme d’extension du format MAJEURE.MINEURE.CORRECTIF.
-~~~
+```
 
 # Principes de développement
 
@@ -190,6 +190,20 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 
 ## Consignes
 
+- Votre Block sera toujours importé au sein d'un element Div parent ayant les propriétés CSS suivantes :
+
+```
+position: relative; /* Afin que tous vos éléments absolus soient bien placé relativement à votre bloc */
+overflow: hidden; /* Pour ne pas déborder avec les absolus */
+```
+
+- Les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
+
+```
+box-sizing: border-box; est déjà définit pour vous sur '*' 
+font-size: 10px;  est définit sur html (pour les tailles rem)
+```
+
 - Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
  chaque sélecteur CSS doit être préfixé par "bp-<nom_block>".
 
@@ -198,13 +212,18 @@ Exemple : .bp-meteo .moteur-recherche{position:relative}
 - Les fichiers JS sont concaténés et chargés de manière asynchrone (ie. <script async ...>)
 - Chaque fichier JS est isolé (afin de bloquer toute variable globale) au sein de notre page :
 
-~~~
+```
 (function(){
 <VOTRE CODE JS>
 }());
-~~~
+```
 
 - Un BlockProvider doit répondre en moins de 150 ms lors de la phase de rendu, si vous ne répondez pas assez vite, votre Block ne sera pas rendu. 
-- Un Block doit être responsive.
+- Un Block doit être responsive. Les paliers médias query utilisés sur la plateforme sont les suivants :
+    - xs: extra-small à partir de 320px de largeur d'écran - correspond aux devices dit "mobile" (sera donc appliqué dans tous les cas).
+    - sm: small à partir de 768px de largeur d'écran - correspond aux devices dit "phablette" (sera donc appliqué à partir de 768px).
+    - md: medium à partir de 980px de largeur d'écran - correspond aux devices dit "tablette" (sera donc appliqué à partir de 980px).
+    - lg: large à partir de 1280px de largeur d'écran - correspond aux devices dit "desktop wide" (sera donc appliqué à partir de 1280px).
+
 - Un Block ne doit pas contenir (sauf contre-avis de notre équipe validation) de sections titre HTML (ie. tags \<h1\> à \<h6\>) car ces dernières sont réservées pour notre équipe SEO. 
 - L'ensemble des endpoints liés à un Block (BlockConfig, BlockData, liens internes ...) doivent être chiffrés (ie. HTTPS)
