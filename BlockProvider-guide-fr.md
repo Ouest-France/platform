@@ -188,21 +188,30 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 - Templating Mustache
 - Endpoint Block (si nécessaire) : développement backend au choix du BlockProvider (Java, C#, PHP, NodeJS ...)
 
-## Consignes
-
-- Votre Block sera toujours importé au sein d'un element Div parent ayant les propriétés CSS suivantes :
+## Positionnement du bloc dans la page
+Nous ajoutons le contenu HTML de votre bloc au sein de notre page au sein d'un element div ayant les propriétés CSS suivantes :
 
 ```
 position: relative; /* Afin que tous vos éléments absolus soient bien placé relativement à votre bloc */
 overflow: hidden; /* Pour ne pas déborder avec les absolus */
 ```
 
-- Les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
+Il fait donc partie intégrante du DOM principal. 
+
+Nous vous préconisons de rester dans le flux le HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu :
+
+- float: vous pouvez mettre la classe "clearfix" à votre bloc.
+- absolute: vous devez définir une hauteur et une largeur en CSS à votre bloc
+- le fixed est un cas particulier qui aura surement d'autres problématiques
+
+Pour information, les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
 
 ```
-box-sizing: border-box; est déjà définit pour vous sur '*' 
-font-size: 10px;  est définit sur html (pour les tailles rem)
+box-sizing: border-box; // est déjà définit pour vous sur '*' 
+font-size: 10px; // est définit sur html (pour les tailles rem)
 ```
+
+## Consignes
 
 - Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
  chaque sélecteur CSS doit être préfixé par "bp-<nom_block>".
