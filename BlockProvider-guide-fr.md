@@ -192,8 +192,8 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 Nous ajoutons le contenu HTML de votre bloc au sein de notre page au sein d'un element div ayant les propriétés CSS suivantes :
 
 ```
-position: relative; /* Afin que tous vos éléments absolus soient bien placé relativement à votre bloc */
-overflow: hidden; /* Pour ne pas déborder avec les absolus */
+position: relative; /* afin que tous vos éléments absolus soient bien placé relativement à votre bloc */
+overflow: hidden; /* pour ne pas déborder avec les absolus */
 ```
 
 Il fait donc partie intégrante du DOM principal. 
@@ -207,8 +207,8 @@ Nous vous préconisons de rester dans le flux le HTML, car par défaut nos posit
 Pour information, les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
 
 ```
-box-sizing: border-box; // est déjà définit pour vous sur '*' 
-font-size: 10px; // est définit sur html (pour les tailles rem)
+box-sizing: border-box; /* est déjà définit pour vous sur '*' */
+font-size: 10px; /* est définit sur html (pour les tailles rem) */
 ```
 
 ## Consignes
