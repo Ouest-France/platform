@@ -198,7 +198,7 @@ overflow: hidden; /* pour ne pas déborder avec les absolus */
 
 Il fait donc partie intégrante du DOM principal. 
 
-Nous vous préconisons de rester dans le flux le HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu :
+Nous vous préconisons de rester dans le flux HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu :
 
 - float : vous pouvez mettre la classe "clearfix" à votre bloc.
 - absolute : vous devez définir une hauteur et une largeur en CSS à votre bloc
