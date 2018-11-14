@@ -233,8 +233,8 @@
       "type": "string",
       "title": "Type de Block",
       "description":
-        "BlockType can be Display, Navigation or Type.\nThe BlockType typology is :\n- Navigation : dynamic Block with user action which requires a page reloading. Example : search form, pagination for the news Block, etc.\n- Display : static Block without user interaction (no state change according to the current URL, state depends only on config parameters)\n- Site : Block attached to the site (Display/Navigation : attached to the page). Its role consists in providing metadata to all pages.",
-      "enum": ["Navigation", "Display", "Site"]
+        "BlockType can be Display or Navigation.\nThe BlockType typology is :\n- Navigation : dynamic Block with user action which requires a page reloading. Example : search form, pagination for the news Block, etc.\n- Display : static Block without user interaction (no state change according to the current URL, state depends only on config parameters)",
+      "enum": ["Display", "Navigation"]
     },
     "BlockTemplateEngine": {
       "type": "string",
