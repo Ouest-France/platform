@@ -189,7 +189,7 @@ Des libellés supplémentaires peuvent être ajoutés pour les versions de pré-
 - Endpoint Block (si nécessaire) : développement backend au choix du BlockProvider (Java, C#, PHP, NodeJS ...)
 
 ## Positionnement du bloc dans la page
-Nous ajoutons le contenu HTML de votre bloc au sein de notre page au sein d'un element div ayant les propriétés CSS suivantes :
+Nous ajoutons le contenu HTML de votre bloc au sein de notre page au sein d'un element div ayant les propriétés CSS suivantes&nbsp;:
 
 ```
 position: relative; /* afin que tous vos éléments absolus soient bien placé relativement à votre bloc */
@@ -198,13 +198,13 @@ overflow: hidden; /* pour ne pas déborder avec les absolus */
 
 Il fait donc partie intégrante du DOM principal. 
 
-Nous vous préconisons de rester dans le flux HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu :
+Nous vous préconisons de rester dans le flux HTML, car par défaut nos positions ne prennent pas de place. Néanmoins si vous avez un bloc sortant du flux il existe des mécaniques à votre disposition pour redonner une taille à votre contenu&nbsp;:
 
 - float : vous pouvez mettre la classe Ouest-France "clearfix" à votre bloc (voir ci-dessous).
 - absolute : vous devez définir une hauteur et une largeur en CSS à votre bloc
 - fixed : il s'agit d'un cas particulier qui doit être évité sauf validation préalable de notre équipe dédiée
 
-Pour information, les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France :
+Pour information, les propriétés CSS suivantes sont définies au sein des pages des sites Ouest-France&nbsp;:
 
 ```
 box-sizing: border-box; /* est déjà définit pour vous sur '*' */
