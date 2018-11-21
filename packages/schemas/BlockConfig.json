@@ -155,28 +155,32 @@
                       "type": "array",
                       "items": {
                         "title": "Js assets",
-                        "description": "JS URL"
+                        "description": "JS URL",
+                        "type": "string"
                       }
                     },
                     "css": {
                       "type": "array",
                       "items": {
                         "title": "Css assets",
-                        "description": "CSS URL"
+                        "description": "CSS URL",
+                        "type": "string"
                       }
                     },
                     "fonts": {
                       "type": "array",
                       "items": {
                         "title": "Fonts assets",
-                        "description": "Font URL"
+                        "description": "Font URL",
+                        "type": "string"
                       }
                     },
                     "images": {
                       "type": "array",
                       "items": {
                         "title": "Images assets",
-                        "description": "Image URL - this type of assets if deprecated - please do not use it"
+                        "description": "Image URL - this type of assets if deprecated - please do not use it",
+                        "type": "string"
                       }
                     }
                   }
