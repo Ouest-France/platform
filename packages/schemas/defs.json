@@ -233,8 +233,8 @@
       "type": "string",
       "title": "Type de Block",
       "description":
-        "BlockType can be Display, Navigation or Type.\nThe BlockType typology is :\n- Navigation : dynamic Block with user action which requires a page reloading. Example : search form, pagination for the news Block, etc.\n- Display : static Block without user interaction (no state change according to the current URL, state depends only on config parameters)\n- Site : Block attached to the site (Display/Navigation : attached to the page). Its role consists in providing metadata to all pages.",
-      "enum": ["Navigation", "Display", "Site"]
+        "BlockType can be Display or Navigation.\nThe BlockType typology is :\n- Navigation : dynamic Block with user action which requires a page reloading. Example : search form, pagination for the news Block, etc.\n- Display : static Block without user interaction (no state change according to the current URL, state depends only on config parameters)",
+      "enum": ["Display", "Navigation"]
     },
     "BlockTemplateEngine": {
       "type": "string",
@@ -265,6 +265,10 @@
         "required": {
           "description": "list mandatory configuration field",
           "$ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
+        },
+        "x-section-type": {
+          "description": "Section type is used to categorize sections by impacting their rendering and access. This information is primarily intended for formatting forms  (shortcut icon, appearance, ...). This field is a free string and its processing is carried by contract consumers (PageBuilder)",
+          "type": "string"
         },
         "properties": {
           "minProperties": 1,
