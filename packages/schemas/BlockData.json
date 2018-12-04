@@ -4,7 +4,7 @@
   "type": "object",
   "title": "BlockData response format",
   "description": "response format when the CMS calls a BlockProvider. BlockData is the response received by CMS when it interrogates a Block.",
-  "required": ["internal", "external"],
+  "required": ["internal"],
   "properties": {
     "internal": {
       "type": "object",
