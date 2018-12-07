@@ -270,6 +270,14 @@
           "description": "Section type is used to categorize sections by impacting their rendering and access. This information is primarily intended for formatting forms  (shortcut icon, appearance, ...). This field is a free string and its processing is carried by contract consumers (PageBuilder)",
           "type": "string"
         },
+        "x-properties-order": {
+          "description": "Properties display order (if a property is not present, it appears at the end of the generated form)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
         "properties": {
           "minProperties": 1,
           "type": "object",
