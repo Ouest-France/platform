@@ -28,7 +28,7 @@ Les URLs de configuration s'appuient sur le principe de [négotiation de contenu
 - afficher un aperçu HTML du composant (Accept : text/html)
 - afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant chez un site partenaire (Accept : application/json)
 
-Exemple Header + "application/json" :
+Exemple Header + "application/json" : curl --header "Content-Type: application/json" --request GET https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=exemple&__isPageOF__=false&__hasAssetsOF__=false 
 
 ```
 {
@@ -58,13 +58,13 @@ Remarque : les champs "images" et "fonts" sont toujours vides.
 
 
 # Intégration
-Le principe d'intégration consiste en interroger à intervalles réguliers (tous les jours par exemple), les URLs de configuration afin
-de récupérer la dernière version des composants.
+Le principe d'intégration consiste en interroger à intervalles réguliers (tous les jours par exemple), les URLs de configuration afin de récupérer la dernière version des composants.
 
 Une fois le contenu récupéré, le code HTML et les assets JS/CSS peuvent être intégrés au sein du site partenaire.
 
 # Recommandations
-- il est possible de se stocker la version de composant fournie afin de ne mettre à jour le composant qu'en cas de montée ou de descente de version
-- les fichiers CSS doivent être positionnés dans le <head> des pages du site.
-- les fichiers JS doivent être positionnés après le code HTML au sein du <body> (en fin de body par exemple)
-- l'adresse NE DOIT en aucun cas être utilisé au sein d'un <iframe> (ie. avec "Accept: text/html")
+- Le composant doit être présent dans le code HTML de la page et non ajouté dynamiquement via manipulation DOM. Cela implique que la récupération du contenu JSON doit IMPERATIVEMENT être faite coté serveur (il est totalement PROHIBE de charger le composant coté client via appel AJAX donc)
+- Il est possible de se stocker la version de composant fournie afin de ne mettre à jour le composant qu'en cas de montée ou de descente de version
+- Les fichiers CSS doivent être positionnés dans le <head> des pages du site.
+- Les fichiers JS doivent être positionnés après le code HTML au sein du <body> (en fin de body par exemple)
+- L'adresse NE DOIT en aucun cas être utilisé au sein d'un <iframe> (ie. avec "Accept: text/html") 
