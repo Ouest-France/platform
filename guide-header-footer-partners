@@ -43,8 +43,13 @@ Exemple Header + "application/json" :
 }
 
 Ce format fournit :
-- "html" : contenu HTML du contenu
-- 
+
+- "html" : contenu HTML du composant
+- "assets.js" : fichiers Javascript du composant
+- "assets.css" : fichiers Javascript du composant
+- "version" : version du composant
+
+Remarque : les champs "images" et "fonts" sont toujours vides.
 
 
 # Intégration
