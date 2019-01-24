@@ -28,7 +28,15 @@ Les URLs de configuration s'appuient sur le principe de [négotiation de contenu
 - afficher un aperçu HTML du composant (Accept : text/html)
 - afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant chez un site partenaire (Accept : application/json)
 
-Exemple Header + "application/json" : curl --header "Content-Type: application/json" --request GET https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=exemple&__isPageOF__=false&__hasAssetsOF__=false 
+Exemple Header + "application/json" :
+
+Requête
+
+```
+curl --header "Content-Type: application/json" --request GET https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=exemple&__isPageOF__=false&__hasAssetsOF__=false 
+```
+
+Réponse
 
 ```
 {
