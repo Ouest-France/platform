@@ -21,12 +21,13 @@ Les paramètres suivants doivent être modifiés sur chacun des sites partenaire
 - lien_donnees_personnelles (footer) : l'adresse de la page "données personnelles" du site partenaire
 - lien_mentions_legales (footer) : l'adresse de la page "mentions légales" du site partenaire
 
-Les URLs de configuration s'appuient sur le principe de négotiation de contenu (https://fr.wikipedia.org/wiki/N%C3%A9gociation_de_contenu) afin de :
+Les URLs de configuration s'appuient sur le principe de [négotiation de contenu] (https://fr.wikipedia.org/wiki/N%C3%A9gociation_de_contenu) afin de :
 - afficher un aperçu HTML du composant (Accept : text/html)
 - afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant chez un site partenaire (Accept : application/json)
 
 Exemple Header + "application/json" :
 
+```
 {
     "html": "<div class=\"of-header-footer\">\n    <header class=\"header header-new clearfix hidden-xs hidden-sm\"> ... </header>\n</div>",
     "assets": {
@@ -41,6 +42,7 @@ Exemple Header + "application/json" :
     },
     "version": "2.0.0"
 }
+```
 
 Ce format fournit :
 
