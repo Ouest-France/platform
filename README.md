@@ -28,7 +28,7 @@ npm install
 ... if you really have to (and hope to pass our platform validation team)
 
 - every CSS class names & ids must be prefixed by your block-provider name
-- JavaScript code must not conflict with other code, block with global variable
+- JavaScript code must not conflict with other code. Don't use global variables, your code will be wrapped inside a [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
 - a block's JavaScript files will be concatained and loaded asynchronously
 - a block-provider should respond in less 150ms, if you responsed not fast enough, your block won't be rendered 
 - a block must be responsive (no fixed width)
