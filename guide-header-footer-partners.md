@@ -16,12 +16,13 @@ Ces sites partenaires intègrent notamment le header et le footer Ouest-France :
 Afin de permettre aux partenaires Ouest-France d'intégrer automatiquement les mises à jour de ces 2 composants, Ouest-France fournit 2 URLs :
 
 - Header : https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=[TEXT]&__isPageOF__=false&__hasAssetsOF__=false
-- Footer : https://platform.sipaof.fr/api/blocks/of-partenaires-footer@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-footer&__template__=default&lien_donnees_personnelles=[URL]&lien_mentions_legales=[URL]&__isPageOF__=false&__hasAssetsOF__=false  
+- Footer : https://platform.sipaof.fr/api/blocks/of-partenaires-footer@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-footer&__template__=default&lien_donnees_personnelles=[URL]&lien_plan_du_site=[URL]&lien_mentions_legales=[URL]&__isPageOF__=false&__hasAssetsOF__=false  
  
 Les paramètres suivants doivent être modifiés sur chacun des sites partenaires :
 
 - libelle (header) : un texte court du type « En partenariat avec <nom-partenaire> ». Ce texte apparait au scroll en mode mobile.
 - lien_donnees_personnelles (footer) : l'adresse de la page "données personnelles" du site partenaire
+- lien_plan_du_site (footer) : l'adresse de la page "plan du site" du site partenaire
 - lien_mentions_legales (footer) : l'adresse de la page "mentions légales" du site partenaire
 
 Les URLs de configuration s'appuient sur le principe de [négotiation de contenu](https://fr.wikipedia.org/wiki/N%C3%A9gociation_de_contenu) afin de :
