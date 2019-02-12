@@ -133,6 +133,84 @@ describe('BlockConfig', () => {
     expect(isValid).toBe(true);
   });
 
+  it('validate a complete BlockConfig object with a POST method', () => {
+    const validate = require('.').getSchema(
+      'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
+    );
+    const isValid = validate({
+      "name": "editorial-block-provider-tags-by-insee-code-list",
+      "type": "Display",
+      "labels": [
+        {
+          "key": "service",
+          "value": "editorial"
+        },
+        {
+          "key": "data",
+          "value": "tag"
+        }
+      ],
+      "configurations": [
+        {
+          "version": "1.0.0",
+          "endpoint": {
+            "url": "https://block-provider-tags/block/tags-by-insee-codes",
+            "method": "POST",
+            "pure": true,
+            "consumes": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "inseeCodes",
+                "in": "body",
+                "required": true,
+                "type": "array"
+              },
+              {
+                "name": "editor",
+                "in": "body",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "ui": {
+              "sections": [
+                {
+                  "title": "Paramètres",
+                  "required": [
+                    "inseeCodes",
+                    "editor"
+                  ],
+                  "properties": {
+                    "inseeCodes":{
+                      "type": "string",
+                      "title": "Tableau de codes INSEE des tags à afficher",
+                      "description": "Tableau de codes INSEE des tags à afficher"
+                    },
+                    "editor": {
+                      "type": "string",
+                      "title": "Éditeur des tags à afficher",
+                      "description": "Éditeur des tags à afficher"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "templates": [
+            {
+              "name": "Liste de tags",
+              "source": "<div class=\"liste-tags\"><ul class=\"meta-keywords clearfix pas-liste meta-grande meta-couleur\">{{#tags}}<li><a class=\"meta-cat\" href=\"{{{url}}}\">{{name}}</a></li>{{/tags}}</ul></div>",
+              "engine": "mustache"
+            }
+          ],
+          "external": {}
+        }
+      ]
+    })
+  })
+
   it('validate the simplest BlockConfig', () => {
     const validate = require('.').getSchema(
       'https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json'
