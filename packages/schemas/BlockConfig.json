@@ -75,11 +75,11 @@
               "consumes": {
                 "type": "array",
                 "title": "A list of MIME types the API can consume.",
-                "description": "A list of MIME types the API can consume.",
+                "description": "A list of MIME types the API can consume. Only 'application/json' is supported right now.",
                 "items": {
                   "type": "string",
                   "title": "MIME type",
-                  "description": "MUME type the API can consume"
+                  "description": "MIME type the API can consume"
                 }
               },
               "ui": {
