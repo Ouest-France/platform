@@ -53,9 +53,9 @@
               "method": {
                 "type": "string",
                 "title": "block http method",
-                "description": "Only GET is supported right now",
-                "enum": ["GET"],
-                "examples": ["GET"]
+                "description": "Only GET and POST are supported right now",
+                "enum": ["GET", "POST"],
+                "examples": ["GET", "POST"]
               },
               "pure": {
                 "type": "boolean",
@@ -70,6 +70,16 @@
                 "description": "Paramètres HTTP à positionner lors des appels au endpoint",
                 "items": {
                   "$ref": "http://swagger.io/v2/schema.json#/definitions/parameter"
+                }
+              },
+              "consumes": {
+                "type": "array",
+                "title": "A list of MIME types the API can consume.",
+                "description": "A list of MIME types the API can consume. Only 'application/json' is supported right now.",
+                "items": {
+                  "type": "string",
+                  "title": "MIME type",
+                  "description": "MIME type the API can consume"
                 }
               },
               "ui": {
