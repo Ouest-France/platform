@@ -228,6 +228,7 @@ Définition de la classe clearfix :
 
 Exemple : .bp-meteo .moteur-recherche{position:relative}
 
+- l'utilisation du composant HTML <iframe> est totalement PROHIBE au sein d'un Block
 - Les fichiers JS sont concaténés et chargés de manière asynchrone (ie. <script async ...>)
 - L'ensemble des fichiers JS de chaque Block est isolé dans une fonction JS au sein de notre page :
 
