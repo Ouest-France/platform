@@ -2,7 +2,7 @@
 
 This BlockProvider exposes:
 
-* a block that displays bitcoin current value
+* a block that displays Bitcoin's current value
 
 ### Online demo
 
