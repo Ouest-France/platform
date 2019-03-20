@@ -15,24 +15,24 @@ npm install
 ## Getting started
 
 
-* [BlockProvider Development Guide](/BlockProvider-guide-fr.md)
-* [BlockProvider Tutorial](/packages/blockprovider-tutorial-parkings)
-* [Sample of BlockProvider](/packages/blockprovider-example)
+* [BlockProvider Development Guide (FR)](/BlockProvider-guide-fr.md)
+* [BlockProvider Tutorial using Java](/packages/blockprovider-tutorial-parkings)
+* [Sample of BlockProvider using NodeJS](/packages/blockprovider-example)
 * [Schemas documentation](/packages/documentation)
 
 
 ## Rules
 
-- A block should not have it's own CSS, JS, fonts but leverage [SipaUI components](https://github.com/Ouest-France/SipaUI)
+- A block should not have its own CSS, JS, fonts but leverage [SipaUI components](https://github.com/Ouest-France/SipaUI)
 
 ... if you really have to (and hope to pass our platform validation team)
 
-- every CSS class names & ids must be prefixed by your block-provider name
+- Every CSS class names & ids must be prefixed by your block-provider name.
 - JavaScript code must not conflict with other code. Don't use global variables, your code will be wrapped inside a [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
-- a block's JavaScript files will be concatained and loaded asynchronously
-- a block-provider should respond in less 150ms, if you responsed not fast enough, your block won't be rendered 
-- a block must be responsive (no fixed width)
+- A block's JavaScript files will be concatenated and loaded asynchronously.
+- A block-provider should respond in less 150ms. If it doesn't, your block won't be rendered .
+- A block must be responsive (no fixed width).
 
-## How do I update my block ?
+## How do I update my block?
 
-Block are immutable — including their parameters configuration/templates/CSS/JS/fonts assets). If you update any part of it (e.g. change a CSS, a parameter, a template) then you will have to update the version number (follow [semver](https://semver.org)) and submit again the block-provider to the platform for validation 
+Blocks are immutable — including their parameters configuration/templates/CSS/JS/fonts assets. If you update any part of it (e.g. change a CSS, a parameter, a template), you will need to update the version number (follow [semver](https://semver.org)) and submit again the block-provider to the platform for validation.

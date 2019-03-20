@@ -6,7 +6,7 @@ Validator server is available at https://validator-server.cleverapps.io/
 
 ### Validate a BlockProviderConfig from a CI job
 
-Let say we want to validate the configuration (BlockProviderConfig) of our
+Let's say we want to validate the configuration (BlockProviderConfig) of our
 sample BlockProvider currently deployed at
 https://blockprovider-example.cleverapps.io
 
@@ -18,7 +18,7 @@ If it yields `HTTP 200` it passes, otherwise it does not and will display why.
 
 ### Validate a BlockProviderConfig from a CI job
 
-Let say we want to validate our local BlockProvider
+Let's say we want to validate our local BlockProvider
 (`http://localhost:8081/configurations`) in our CI process (using
 [jq.node](https://github.com/FGRibreau/jq.node/))
 

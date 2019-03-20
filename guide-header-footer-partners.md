@@ -1,6 +1,6 @@
 # Introduction
 Ouest-France s'appuie sur un pool de partenaires pour fournir des sites webs en sous-domaine Ouest-France.
-Ces partenaires ont en charge l'ensemble du site cible (gestion du contenu, infrastructure, ...) mais porte l'identité graphique Ouest-France.
+Ces partenaires ont en charge l'ensemble du site cible (gestion du contenu, infrastructure, ...) mais portent l'identité graphique Ouest-France.
 
 Ces sites partenaires intègrent notamment le header et le footer Ouest-France :
 
@@ -27,7 +27,7 @@ Les paramètres suivants doivent être modifiés sur chacun des sites partenaire
 
 Les URLs de configuration s'appuient sur le principe de [négotiation de contenu](https://fr.wikipedia.org/wiki/N%C3%A9gociation_de_contenu) afin de :
 - afficher un aperçu HTML du composant (Accept : text/html)
-- afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant chez un site partenaire (Accept : application/json)
+- afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant sur un site partenaire (Accept : application/json)
 
 Exemple Header + "application/json" :
 
@@ -60,7 +60,7 @@ Ce format fournit :
 
 - "html" : contenu HTML du composant
 - "assets.js" : fichiers Javascript du composant
-- "assets.css" : fichiers Javascript du composant
+- "assets.css" : fichiers CSS du composant
 - "version" : version du composant
 
 Remarque : les champs "images" et "fonts" sont toujours vides.
@@ -72,8 +72,8 @@ Le principe d'intégration consiste en interroger à intervalles réguliers (tou
 Une fois le contenu récupéré, le code HTML et les assets JS/CSS peuvent être intégrés au sein du site partenaire.
 
 # Recommandations
-- Le composant doit être présent dans le code HTML de la page et non ajouté dynamiquement via manipulation DOM. Cela implique que la récupération du contenu JSON doit IMPERATIVEMENT être faite coté serveur (il est totalement PROHIBE de charger le composant coté client via appel AJAX donc)
-- Il est possible de se stocker la version de composant fournie afin de ne mettre à jour le composant qu'en cas de montée ou de descente de version
+- Le composant doit être présent dans le code HTML de la page et non ajouté dynamiquement via manipulation DOM. Cela implique que la récupération du contenu JSON doit IMPÉRATIVEMENT être faite coté serveur (il est totalement PROHIBÉ de charger le composant coté client via appel AJAX donc)
+- Il est possible de stocker la version de composant fournie afin de ne mettre à jour le composant qu'en cas de montée ou de descente de version
 - Les fichiers CSS doivent être positionnés dans le <head> des pages du site.
 - Les fichiers JS doivent être positionnés après le code HTML au sein du <body> (en fin de body par exemple)
 - L'adresse NE DOIT en aucun cas être utilisé au sein d'un <iframe> (ie. avec "Accept: text/html") 

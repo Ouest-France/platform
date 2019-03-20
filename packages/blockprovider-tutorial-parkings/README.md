@@ -125,8 +125,8 @@ Nous utilisons également ce plugin pour générer les classes correspondant à 
 
 ## API BlockData
 
-Une fois Maven configuré, la première étape consiste à définir le endpoint en charges de données du Block (ie. [BlockData](https://github.com/Ouest-France/platform/blob/master/BlockProvider-guide-fr.md#blockdata)).
-Ce Block est chargé de renvoyer les données de rendu de Block ; ici, il s'agit de l'ensemble des données parking :
+Une fois Maven configuré, la première étape consiste à définir le endpoint en charge de fournir les données du Block (ie. [BlockData](https://github.com/Ouest-France/platform/blob/master/BlockProvider-guide-fr.md#blockdata)).
+Ce endpoint est chargé de renvoyer les données de rendu de Block ; ici, il s'agit de l'ensemble des données parking :
 
 - Nom du parking
 - Nombre de places maximum
@@ -530,7 +530,7 @@ Et si tout s'est bien passé, vous devriez pouvoir visualiser le Block :
 
 ![Block](block.png)
 
-Le code du projet est disponible à [ici]().
+Le code du projet est disponible [ici](./src).
 
 
 
