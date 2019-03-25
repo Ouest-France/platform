@@ -105,15 +105,17 @@
               },
               "admin": {
                 "type": "object",
-                "required": ["url"],
+                "required": ["url","standard_methods"],
                 "properties": {
                   "url": {
-                    "type": "string",
-                    "title": "Block RPC admin HTTP url",
-                    "description": "The HTTP(S) address the CMS will call to request the block admin RPC endpoint",
-                    "examples": [
-                      "http://my.domain.com/blockprovider/block/rpc/admin"
-                    ]
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "title": "Standard methods handled by the Block RPC endpoint",
+                      "description": "Standard methods handled by the Block RPC endpoint",
+                      "enum": ["$save"],
+                      "examples": ["$save"]
+                    }
                   }
                 }
               }
