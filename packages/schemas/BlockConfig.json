@@ -124,8 +124,8 @@
                       "type": "string",
                       "title": "Standard methods handled by the Block RPC endpoint",
                       "description": "Standard methods handled by the Block RPC endpoint",
-                      "enum": ["$save"],
-                      "examples": ["$save"]
+                      "enum": ["$before-save","$after-save"],
+                      "examples": ["$before-save"]
                     }
                   }
                 }
