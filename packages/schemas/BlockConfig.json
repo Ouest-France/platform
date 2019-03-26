@@ -114,6 +114,19 @@
                     "examples": [
                       "http://my.domain.com/blockprovider/block/rpc/admin"
                     ]
+                  },
+                  "hooks": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 0,
+                    "maxItems": 10,
+                    "items": {
+                      "type": "string",
+                      "title": "Standard methods handled by the Block RPC endpoint",
+                      "description": "Standard methods handled by the Block RPC endpoint",
+                      "enum": ["$save"],
+                      "examples": ["$save"]
+                    }
                   }
                 }
               }
