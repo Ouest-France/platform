@@ -117,6 +117,9 @@
                   },
                   "hooks": {
                     "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 0,
+                    "maxItems": 10,
                     "items": {
                       "type": "string",
                       "title": "Standard methods handled by the Block RPC endpoint",
