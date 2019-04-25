@@ -25,6 +25,11 @@ Les paramètres suivants doivent être modifiés sur chacun des sites partenaire
 - lien_plan_du_site (footer) : l'adresse de la page "plan du site" du site partenaire
 - lien_mentions_legales (footer) : l'adresse de la page "mentions légales" du site partenaire
 
+Les paramètres suivants sont optionnels :
+
+- etendu (footer) : par défaut, on affiche une version "light" du footer - il est possible d'afficher une version étendue (ie. beaucoup plus de liens OF présents) en
+positionnant ce paramètre à true 
+
 Les URLs de configuration s'appuient sur le principe de [négotiation de contenu](https://fr.wikipedia.org/wiki/N%C3%A9gociation_de_contenu) afin de :
 - afficher un aperçu HTML du composant (Accept : text/html)
 - afficher un objet JSON contenant toutes les informations nécessaires à l'intégration du composant sur un site partenaire (Accept : application/json)
