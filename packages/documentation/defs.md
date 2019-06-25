@@ -254,11 +254,11 @@ The BlockType typology is :
 
 **Template engine**
 
-The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io
+The template engine to use to render this Block. *php-twig* is deprecated and will be removed, use 'mustache' instead, see: https://mustache.github.io
 
 *Type*: string
 
-*Allowed values*: `twig` `mustache` `php-twig`
+*Allowed values*: `mustache` `php-twig`
 
 ### `definitionsUIPropertyBasicTypes`
 
