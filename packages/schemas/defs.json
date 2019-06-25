@@ -239,8 +239,8 @@
     "BlockTemplateEngine": {
       "type": "string",
       "title": "Template engine",
-      "description": "The template engine to use to render this Block. *twig* is deprecated, always use 'mustache' instead, see: https://mustache.github.io",
-      "enum": ["twig", "mustache", "mustache-amp", "php-twig"]
+      "description": "The template engine to use to render this Block. *php-twig* is deprecated and will be removed, use 'mustache' instead, see: https://mustache.github.io",
+      "enum": ["mustache", "php-twig"]
     },
     "UIPropertyBasicTypes": {
       "enum": [ "number", "string", "boolean" ]
