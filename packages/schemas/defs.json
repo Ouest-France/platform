@@ -240,7 +240,7 @@
       "type": "string",
       "title": "Template engine",
       "description": "The template engine to use to render this Block. *php-twig* is deprecated and will be removed, use 'mustache' instead, see: https://mustache.github.io",
-      "enum": ["mustache", "php-twig"]
+      "enum": ["mustache", "mustache-amp", "php-twig"]
     },
     "UIPropertyBasicTypes": {
       "enum": [ "number", "string", "boolean" ]
