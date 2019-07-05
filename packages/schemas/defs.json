@@ -242,6 +242,12 @@
       "description": "The template engine to use to render this Block. *php-twig* is deprecated and will be removed, use 'mustache' instead, see: https://mustache.github.io",
       "enum": ["mustache", "mustache-amp", "php-twig"]
     },
+    "BlockTemplateTargetFormat": {
+      "type": "string",
+      "title": "Template target format",
+      "description": "The template target format to use to render this Block",
+      "enum": ["html", "amp"]
+    },
     "UIPropertyBasicTypes": {
       "enum": [ "number", "string", "boolean" ]
     },

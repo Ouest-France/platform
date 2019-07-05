@@ -163,6 +163,9 @@
                 "engine": {
                   "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateEngine"
                 },
+                "targetFormat": {
+                  "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateTargetFormat"
+                },
                 "source": {
                   "type": "string",
                   "title": "Template source",
