@@ -34,7 +34,7 @@ Exemple Header + "application/json" :
 Requête
 
 ```
-curl --header "Content-Type: application/json" --request GET https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=exemple&__isPageOF__=false&__hasAssetsOF__=false 
+curl --header "Content-Type: application/json" --request GET "https://platform.sipaof.fr/api/blocks/of-partenaires-header@latest?__config__=https://apiblocktopus.sipaof.fr/blockconfigs?blocks=of-partenaires-header&__template__=default&libelle=exemple&__isPageOF__=false&__hasAssetsOF__=false" 
 ```
 
 Réponse
