@@ -12,8 +12,12 @@ Exemple :
 Un Block peut être mis en œuvre par tout partenaire Ouest-France afin de fournir de nouveaux services au sein des
 pages du groupe Ouest-France.
 
-Pour ce faire, un Block doit fournir un contrat d'interface standard (ie. contrat du Block) permettant l'enregistrement de ce dernier au sein
-de la plateforme Ouest-France.
+Pour ce faire, un Block doit fournir un contrat d'interface standard (ie. contrat du Block) permettant l'enregistrement de ce dernier au sein de la plateforme Ouest-France.
+
+Note: le concept de block provider permet de réunir plusieurs type de block au sein d'un même composant. 
+Un block provider peut par exemple exposer un block pour la météo, ainsi qu'un block pour afficher la marée. 
+De manière générale, un block provider expose des block qui traitent du même sujet. Par ailleurs, un block provider peut exposer au maximum 70 types de block.
+
 
 ## Cycle de vie d'un Block
 
