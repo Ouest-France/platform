@@ -227,7 +227,7 @@ Définition de la classe clearfix :
 
 ## Consignes
 
-- Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti des [Composants SipaUI](https://github.com/Ouest-France/SipaUI) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
+- Un Block ne devrait pas fournir ses propres CSS, Javascript ou Fonts mais devrait plutôt tirer parti du [framework SipaUI](https://sipaui.ouest-france.fr) et de ses [Composants](https://sipaui.ouest-france.fr/storybook/?path=/story/intro--documentation) ... si vous le devez vraiment (et pensez passer la validation de notre équipe plateforme) :
  chaque sélecteur CSS doit être préfixé par "bp-<nom_block>".
 
 Exemple : .bp-meteo .moteur-recherche{position:relative}
