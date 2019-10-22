@@ -2,7 +2,7 @@
   "private": true,
   "main": "launcher.js",
   "devDependencies": {
-    "lerna": "^2.5.1"
+    "lerna": "^3.18.2"
   },
   "scripts": {
     "start": "node launcher.js",
