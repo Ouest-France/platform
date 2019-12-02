@@ -4,7 +4,7 @@
   "description": "Ouest-France schema",
   "main": "schemas.js",
   "scripts": {
-    "vendors:update": "curl https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v2.0/schema.json > vendors/openapi-v2-schema.json && curl http://json-schema.org/draft-04/schema > vendors/json-schema-draft-04.json",
+    "vendors:update": "curl https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v2.0/schema.json > vendors/openapi-v2-schema.json && curl https://json-schema.org/draft-04/schema > vendors/json-schema-draft-04.json",
     "test": "jest",
     "test:watch": "jest --watch --notify"
   },
