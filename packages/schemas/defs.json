@@ -131,10 +131,10 @@
           "type": "number"
         },
         "maxLength": {
-          "$ref": "https://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+          "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
         },
         "minLength": {
-          "$ref": "https://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+          "$ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
         },
         "pattern": {
           "type": "string",
