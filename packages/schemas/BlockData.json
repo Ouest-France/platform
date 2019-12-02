@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema",
+  "$schema": "https://json-schema.org/draft-06/schema",
   "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockData.json",
   "type": "object",
   "title": "BlockData response format",

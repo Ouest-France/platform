@@ -1,7 +1,7 @@
 {
   "title": "A JSON Schema for Swagger 2.0 API.",
   "$id": "http://swagger.io/v2/schema.json#",
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "type": "object",
   "required": ["swagger", "info", "paths"],
   "additionalProperties": false,
@@ -896,7 +896,7 @@
           "type": "string"
         },
         "title": {
-          "$ref": "http://json-schema.org/draft-04/schema#/properties/title"
+          "$ref": "https://json-schema.org/draft-04/schema#/properties/title"
         },
         "description": {
           "$ref":
@@ -1035,7 +1035,7 @@
           "type": "string"
         },
         "title": {
-          "$ref": "http://json-schema.org/draft-04/schema#/properties/title"
+          "$ref": "https://json-schema.org/draft-04/schema#/properties/title"
         },
         "description": {
           "$ref":
@@ -1435,7 +1435,7 @@
       "default": "csv"
     },
     "title": {
-      "$ref": "http://json-schema.org/draft-04/schema#/properties/title"
+      "$ref": "https://json-schema.org/draft-04/schema#/properties/title"
     },
     "description": {
       "$ref": "http://json-schema.org/draft-04/schema#/properties/description"
