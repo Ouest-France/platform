@@ -19,7 +19,7 @@
     "supertest": "^3.0.0"
   },
   "devDependencies": {
-    "mustache": "^2.3.0",
+    "mustache": "^3.2.1",
     "nodemon": "^1.11.0"
   }
 }
