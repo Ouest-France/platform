@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
-    "jest": "^21.2.1",
+    "jest": "^25.2.4",
     "nodemon": "^1.11.0"
   }
 }
