@@ -139,7 +139,9 @@
               "required": [
                 "name",
                 "engine",
-                "source"
+                "source",
+                "targetFormat",
+                "position"
               ],
               "properties": {
                 "name": {
