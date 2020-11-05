@@ -16,7 +16,7 @@
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "superagent": "^3.6.0",
-    "supertest": "^3.0.0"
+    "supertest": "^6.0.1"
   },
   "devDependencies": {
     "mustache": "^2.3.0",
