@@ -179,6 +179,14 @@
                 "assets": {
                   "type": "object",
                   "properties": {
+                    "sharedJs": {
+                      "type": "array",
+                      "items": {
+                        "title": "Shared JS assets",
+                        "description": "JS Library or shared JS in page",
+                        "type": "string"
+                      }
+                    },
                     "js": {
                       "type": "array",
                       "items": {
