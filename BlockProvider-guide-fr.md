@@ -94,7 +94,7 @@ Exemple Mustache :
 
 Exemple : [Block Meteo](packages/blockprovider-example-meteo/BlockProviderConfig.json)
 
-Remarque : l'ensemble des propriétés du contrat Block sont présentées [ici](packages/documentation/BlockConfig.md)
+Remarque : l'ensemble des propriétés du contrat Block sont présentées [ici](/packages/schemas/BlockConfig.json)
 
 ## UI
 
