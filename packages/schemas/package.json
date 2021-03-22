@@ -14,7 +14,7 @@
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
-    "ajv": "^5.5.0"
+    "ajv": "^7.2.3"
   },
   "devDependencies": {
     "jest": "^21.2.1"
