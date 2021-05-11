@@ -1,8 +1,8 @@
 # Sample BlockProvider project ([online](https://blockprovider-example.cleverapps.io/))
 
-This BlockProvider exposes :
+This BlockProvider exposes:
 
-* a block that displays bitcoin current value
+* a block that displays Bitcoin's current value
 
 ### Online demo
 
@@ -10,13 +10,13 @@ This BlockProvider is available at https://blockprovider-example.cleverapps.io/
 
 ### Setup
 
-```
+```sh
 npm install
 ```
 
 ### Start it
 
-```
+```sh
 npm start
 ```
 
@@ -26,7 +26,7 @@ Checkout [BlockProvider Runner](../blockprovider-runner).
 
 ### Develop
 
-```
+```sh
 npm run start:dev
 ```
 

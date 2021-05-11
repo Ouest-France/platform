@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@2.0.0...@ouest-france/schemas@2.1.0) (2018-08-03)
+
+
+### Features
+
+* **blockprovider v2.1:** add rpc endpoints ([54c34ef](https://github.com/Ouest-France/platform/commit/54c34ef))
+* **blockprovider v2.1:** move external ([93e9102](https://github.com/Ouest-France/platform/commit/93e9102))
+
+
+
+<a name="1.0.69"></a>
+## 1.0.69 (2018-03-18)
+
+
+### Bug Fixes
+
+* LabelValue and Ident typo ([3c0e0a4](https://github.com/Ouest-France/platform/commit/3c0e0a4))
+
+
+
+<a name="1.0.42"></a>
+## 1.0.42 (2018-01-04)
+
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@1.2.1...@ouest-france/schemas@2.0.0) (2017-12-20)
 

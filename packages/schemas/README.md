@@ -4,7 +4,7 @@
 
 * **BlockConfig** [json-schema](BlockConfig.json)
   [unit test](BlockConfig.test.js)
-* **BlockJSON** [json-schema](BlockJSON.json) [unit test](BlockJSON.test.js)
+* **BlockJSON** [json-schema](BlockData.json) [unit test](BlockJSON.test.js)
 
 ### Use inside your project
 

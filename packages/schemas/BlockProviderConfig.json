@@ -1,11 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id":
-    "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockProviderConfig.json",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockProviderConfig.json",
   "title": "BlockProviderConfig",
   "type": "array",
-  "description":
-    "BlockProviderConfig is a list of exposed BlockConfig from the BlockProvider",
+  "description": "BlockProviderConfig is a list of exposed BlockConfig from the BlockProvider",
   "items": {
     "$ref":
       "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockConfig.json"

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "$id": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/BlockData.json",
+  "type": "object",
+  "title": "BlockData response format",
+  "description": "response format when the CMS calls a BlockProvider. BlockData is the response received by CMS when it interrogates a Block.",
+  "required": ["internal"],
+  "properties": {
+    "internal": {
+      "type": "object",
+      "title": "internal data",
+      "description": "internal Data exposed for the corresponding specified BlockConfig template. Internal data are useful for template rendering",
+      "required": ["data"],
+      "properties": {
+        "data": {
+          "type": "object",
+          "title": "key/value data",
+          "description": "key/value data",
+          "additionalProperties": true
+        }
+      }
+    },
+    "external": {
+      "type": "object",
+      "title": "external data",
+      "description": "external data exposed to the other Blocks (data) and to the Page (head/headers)",
+      "properties": {
+        "data": {
+          "type": "object",
+          "title": "key/value data",
+          "description": "key/value data",
+          "properties": {},
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

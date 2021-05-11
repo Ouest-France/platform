@@ -1,0 +1,18 @@
+<div class="bp-parking">
+    <div class="title">Parking Rennes - {{date}}</div>
+    {{#parks}}
+        {{^full}}
+            {{^closed}}
+                <div class="parking available tooltip-parking">{{name}}<span class="tooltip-parkingtext">{{max}} places max.</span> <div id="status">{{available}} place(s) disponible(s)</div></div>
+            {{/closed}}
+        {{/full}}
+        
+        {{#closed}}
+            <div class="parking closed tooltip-parking">{{name}}<span class="tooltip-parkingtext">{{max}} places max.</span> <div id="status">Fermé</div></div>
+        {{/closed}}
+        
+        {{#full}}
+            <div class="parking full tooltip-parking">{{name}}<span class="tooltip-parkingtext">{{max}} places max.</span> <div id="status">Aucune place disponible</div></div>
+        {{/full}}
+    {{/parks}}
+</div>
