@@ -73,7 +73,6 @@ Ce contrat définit les éléments suivants :
 
 - Nom du contrat
 - Type du contrat
-- Labels du contrat (permettant de catégoriser finement le Block)
 - Un ou plusieurs templates [Mustache](https://mustache.github.io/) (ie. moteur de template HTML)
 
 Exemple Mustache :

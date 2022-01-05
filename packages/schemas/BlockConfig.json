@@ -16,9 +16,6 @@
     "type": {
       "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockType"
     },
-    "labels": {
-      "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
-    },
     "configurations": {
       "type": "array",
       "minItems": 1,
@@ -39,7 +36,7 @@
             "required": [
               "url",
               "method",
-              "pure",
+              "cachePolicy",
               "parameters",
               "ui"
             ],
@@ -57,12 +54,12 @@
                 "enum": ["GET", "POST"],
                 "examples": ["GET", "POST"]
               },
-              "pure": {
-                "type": "boolean",
-                "title": "Block purity",
-                "description": "Defines the Block data cache policy : if pure=true, data are put in cache for 1 hour ; if pure=false, the endpoint is called by CMS for every rendering (ie. no cache)",
+              "cachePolicy": {
+                "type": "string",
+                "title": "Block cache policy",
+                "description": "Defines the Block data cache policy : PURE (cache one hour), IMPURE (cache few minutes) or NO_CACHE (at your own risk)",
                 "default": false,
-                "examples": ["true", "false"]
+                "examples": ["PURE", "IMPURE", "NO_CACHE"]
               },
               "parameters": {
                 "type": "array",
@@ -158,9 +155,6 @@
                   "title": "Template position",
                   "description": "The position where the CMS will render the block in the page. (placeholder value means the block must to be render in a page placeholder)",
                   "enum": ["placeholder", "head-top", "head-bottom", "body-top", "body-bottom"]
-                },
-                "labels": {
-                  "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/Labels"
                 },
                 "engine": {
                   "$ref": "https://raw.githubusercontent.com/Ouest-France/platform/master/packages/schemas/defs.json#/definitions/BlockTemplateEngine"

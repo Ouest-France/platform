@@ -26,7 +26,6 @@ describe('urlResolver', () => {
       templates: [
         {
           name: 'default',
-          labels: [],
           source:
             '<style type="text/css">    .text-rubrique {        font-size: 1.4rem;    }    .txt-gris {        font-size: 1.3rem;    }</style><section class="widget-obseques">    <span class="titre-liste-rubrique">        <h2 class="titre-rubrique titre-ligne">Obsèques</h2>    </span>    <p class="text-rubrique margin-small">Avis de décès publiés à {{ city.name }}</p>    <a class="btn btn-n3 btn-petit sans-icone" href="{{ url }}" target="_blank" title="Voir tous les avis de décès"       data-trkBlocObseques="Voir tous les avis de décès">        Voir tous les avis de décès    </a>    <p class="txt-gris">Des professionnels à vos côtés</p>    <ul class="list">        {% for partner in partners %}            <li>                <a href="{{ partner.url }}" title="{{ partner.nomLegal }}" class="sans-icone" target="_blank"                   data-trkBlocObsequesPro="{{ partner.nomLegal }}">                    {{ partner.nomLegal }}                </a>                <span class="icon-chevron-droite"></span>            </li>        {% endfor %}    </ul></section>',
           assets: { js: [], css: [], fonts: [], images: [] },
@@ -71,7 +70,6 @@ describe('urlResolver', () => {
       templates: [
         {
           name: 'default',
-          labels: [],
           source:
             '<style type="text/css">    .text-rubrique {        font-size: 1.4rem;    }    .txt-gris {        font-size: 1.3rem;    }</style><section class="widget-obseques">    <span class="titre-liste-rubrique">        <h2 class="titre-rubrique titre-ligne">Obsèques</h2>    </span>    <p class="text-rubrique margin-small">Avis de décès publiés à {{ city.name }}</p>    <a class="btn btn-n3 btn-petit sans-icone" href="{{ url }}" target="_blank" title="Voir tous les avis de décès"       data-trkBlocObseques="Voir tous les avis de décès">        Voir tous les avis de décès    </a>    <p class="txt-gris">Des professionnels à vos côtés</p>    <ul class="list">        {% for partner in partners %}            <li>                <a href="{{ partner.url }}" title="{{ partner.nomLegal }}" class="sans-icone" target="_blank"                   data-trkBlocObsequesPro="{{ partner.nomLegal }}">                    {{ partner.nomLegal }}                </a>                <span class="icon-chevron-droite"></span>            </li>        {% endfor %}    </ul></section>',
           assets: { js: [], css: [], fonts: [], images: [] },

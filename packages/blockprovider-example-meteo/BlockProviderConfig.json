@@ -2,7 +2,6 @@
   {
     "name": "Meteo",
     "type": "Navigation",
-    "labels": [],
     "configurations": [
       {
         "version": "1.0.0",
