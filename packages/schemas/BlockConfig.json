@@ -181,6 +181,14 @@
                         "type": "string"
                       }
                     },
+                    "sharedCss": {
+                      "type": "array",
+                      "items": {
+                        "title": "Shared css assets",
+                        "description": "css Library or shared css in page",
+                        "type": "string"
+                      }
+                    },
                     "js": {
                       "type": "array",
                       "items": {
