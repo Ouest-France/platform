@@ -61,6 +61,12 @@
                 "default": false,
                 "examples": ["PURE", "IMPURE", "IMPURE_WITHOUT_STALE", "NO_CACHE"]
               },
+              "compliantWithLastModifiedHeader": {
+                "type": "boolean",
+                "title": "Block is compliant with lastModified header",
+                "description": "Indicate if the block is compliant with the LastModified Header (leading to a 304 status)",
+                "default": false
+              },
               "parameters": {
                 "type": "array",
                 "title": "The parameters needed to send a valid HTTP Block call.",
