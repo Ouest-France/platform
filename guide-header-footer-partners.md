@@ -15,8 +15,8 @@ Ces sites partenaires intègrent notamment le header et le footer Ouest-France :
 # Configuration
 Afin de permettre aux partenaires Ouest-France d'intégrer les mises à jour de ces 2 composants, Ouest-France fournit 2 URLs :
 
-- Header : http://cdn.sipaof.fr/partenaires/header-footer/header.html
-- Footer : http://cdn.sipaof.fr/partenaires/header-footer/footer.html
+- Header : https://cdn.sipaof.fr/partenaires/header-footer/header.html
+- Footer : https://cdn.sipaof.fr/partenaires/header-footer/footer.html
 
 Ces deux URLs contiennent le code HTML à implémenter. Ils contiennent également une balise style contenant le CSS inline à ajouter dans le projet.
 
