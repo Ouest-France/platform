@@ -10,7 +10,7 @@ Ces sites partenaires intègrent notamment le header et le footer Ouest-France :
 
 - Exemple Footer
 
-![Footer](exemple-footer-2.png)
+![Footer](https://media.ouest-france.fr/v1/pictures/8369b2c42a154e4aa342c6d898355e28-footer.png)
 
 # Configuration
 Afin de permettre aux partenaires Ouest-France d'intégrer les mises à jour de ces 2 composants, Ouest-France fournit 2 URLs :
