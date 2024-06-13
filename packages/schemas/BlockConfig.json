@@ -273,6 +273,17 @@
                 }
               }
             }
+          },
+          "documentation": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "title": "Block documentation HTTP url",
+                "description": "The HTTP(S) address of the block documentation",
+                "examples": ["https://my.domain.com/documentation"]
+              }
+            }
           }
         }
       }

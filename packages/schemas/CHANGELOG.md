@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+<a name="3.0.0"></a>
+## # [3.0.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@2.1.0...@ouest-france/schemas@3.0.0) (2021-11-09)
+
+### Features
+
+* **blockprovider v3.0:** add documentation endpoint ([c2f64b6b](https://github.com/Ouest-France/platform/commit/c2f64b6b))
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/Ouest-France/platform/compare/@ouest-france/schemas@2.0.0...@ouest-france/schemas@2.1.0) (2018-08-03)
 
