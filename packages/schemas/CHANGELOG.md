@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **blockprovider v3.0:** add documentation endpoint ([5ed3621b](https://github.com/Ouest-France/platform/commit/5ed3621b))
+* **blockprovider v3.0:** add documentation endpoint ([c2f64b6b](https://github.com/Ouest-France/platform/commit/c2f64b6b))
 
 
 <a name="2.1.0"></a>
