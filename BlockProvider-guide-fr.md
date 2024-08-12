@@ -145,7 +145,7 @@ de vos Blocks : c'est le point de liaison entre vous et Ouest-France.
 
 # Validation d'un Block
 
-Pour valider et tester un Block, Ouest-France vous fournit le [Block Runner](https://platform.sipaof.fr/) :
+Pour valider et tester un Block, Ouest-France vous fournit le [Block Runner](https://blockproviderrunner.prod.aws.ouest-france.fr/) :
 
 - Onglet "Runner" : permet de tester le rendu d'un Block
 
