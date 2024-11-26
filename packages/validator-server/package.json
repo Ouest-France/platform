@@ -27,7 +27,7 @@
     "joi": "^10.6.0",
     "lodash": "^4.17.4",
     "superagent": "^3.6.0",
-    "vision": "^4.1.1"
+    "vision": "^5.4.4"
   },
   "devDependencies": {
     "jest": "^21.2.1",
