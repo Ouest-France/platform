@@ -57,9 +57,9 @@
               "cachePolicy": {
                 "type": "string",
                 "title": "Block cache policy",
-                "description": "Defines the Block data cache policy : PURE (cache one hour), IMPURE (cache few minutes), IMPURE_WITHOUT_STALE (cache few minutes, and guarantees no outdated data) or NO_CACHE (at your own risk)",
+                "description": "Defines the Block data cache policy : PURE (cache one hour), IMPURE (cache few minutes), IMPURE_WITHOUT_STALE (cache few minutes, and guarantees no outdated data), ENDLESS (cache indefinitely) or NO_CACHE (at your own risk)",
                 "default": false,
-                "examples": ["PURE", "IMPURE", "IMPURE_WITHOUT_STALE", "NO_CACHE"]
+                "examples": ["PURE", "IMPURE", "IMPURE_WITHOUT_STALE", "ENDLESS", "NO_CACHE"]
               },
               "compliantWithLastModifiedHeader": {
                 "type": "boolean",
