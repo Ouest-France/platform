@@ -18,19 +18,19 @@
   "license": "MIT",
   "dependencies": {
     "@ouest-france/schemas": "^2.1.0",
-    "ajv": "^5.5.0",
+    "ajv": "^8.3.0",
     "common-env": "^6.1.0",
     "hapi": "^16.5.0",
     "hapi-require-https": "^2.1.0",
     "hapi-swagger": "^7.7.0",
     "inert": "^4.2.1",
     "joi": "^10.6.0",
-    "lodash": "^4.17.4",
-    "superagent": "^3.6.0",
+    "lodash": "^4.17.21",
+    "superagent": "^3.8.3",
     "vision": "^4.1.1"
   },
   "devDependencies": {
-    "jest": "^21.2.1",
-    "nodemon": "^1.14.12"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
   }
 }
