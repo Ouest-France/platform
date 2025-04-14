@@ -111,7 +111,7 @@
         "enum": {
           "type": "array",
           "items": {
-            "type": [ "string", "number" ]
+            "type": [ "string", "number", "$ref": "#/definitions/UIInputFormat" ]
           },
           "minItems": 1,
           "uniqueItems": true
@@ -221,6 +221,10 @@
     },
     "UIInputFormat": {
       "enum": [ "email", "text", "date" ]
+    },
+    "UIInputSelectItems": {
+      "text": "string",
+      "value": ["string", "number"]
     },
     "UISection": {
       "type": "object",
