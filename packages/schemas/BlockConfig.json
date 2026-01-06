@@ -61,6 +61,12 @@
                 "default": false,
                 "examples": ["PURE", "IMPURE", "IMPURE_WITHOUT_STALE", "ENDLESS", "NO_CACHE"]
               },
+              "useCacheControlHeader": {
+                "type": "boolean",
+                "title": "Block cache policy from Cache-Control header",
+                "description": "Use Cache-Control header from endpoint response to determine cache expiration (fallback to cachePolicy if absent)",
+                "default": false
+              },
               "compliantWithLastModifiedHeader": {
                 "type": "boolean",
                 "title": "Block is compliant with lastModified header",
